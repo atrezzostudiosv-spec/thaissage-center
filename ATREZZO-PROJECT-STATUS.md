@@ -99,3 +99,13 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **NO COMPROBADO:** encuadres de fotografías remotas reales, Lighthouse, lector de pantalla, flujo final de reservas/compras. Fotografías ilustrativas con fuentes registradas en `docs/IMAGE-SOURCES-HOME-V1.md`.
 - **ESTADO:** Home implementado, **EN VALIDACIÓN VISUAL**. No publicado ni aprobado para producción. Restantes 17 páginas **pendientes**, sin omisión de la Fase 3.
 - **SIGUIENTE PASO:** revisión visual del Home ya desarrollado y corrección limitada a defectos observados antes de comenzar las páginas internas.
+
+
+## Actualización — autorización del cliente y formulario (2026-10-28)
+
+- **AUTORIZADO:** libertad de dirección visual; imágenes ilustrativas cinematográficas generadas para Thaissage Center; enriquecer explicaciones sin inventar servicios o resultados; documentación comercial aportada validada por el cliente para avanzar.
+- **IMPLEMENTADO en `work/home-v1`:** sección Contact editorial, navegación a Contact, formulario con validación HTML y envío AJAX de prueba a FormSubmit para `atrezzostudiosv@gmail.com`. El correo es de Atrezzo, **no de Thaissage Center**; hay aviso y consentimiento explícito. Enlaces originales Fresha de las tres sedes conservados.
+- **VERIFICADO EN CÓDIGO:** presencia del formulario, endpoint definido, menús de Contact, enlaces Fresha originales y metadato noindex.
+- **NO COMPROBADO:** recepción efectiva en el correo, activación de FormSubmit, recorrido de envío en servicio real, QA completo del nuevo bloque en los cuatro breakpoints y sustitución de las fotografías ilustrativas externas por nuevos assets propios.
+- **ESTADO:** formulario implementado, EN VALIDACIÓN. Sitio de 18 páginas aún en desarrollo, no publicado.
+- **Referencia:** `docs/DECISIONES-DE-CLIENTE-Y-FORMULARIOS.md`.
