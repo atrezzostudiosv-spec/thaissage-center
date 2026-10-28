@@ -139,3 +139,12 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **VERIFICADO EN SOURCE `main`:** `index.html` y `assets/css/styles.css` corresponden exactamente con los blobs de `work/home-v1` aprobados para vista previa.
 - **PENDIENTE:** inspección visual/navegación manual del resultado nuevo a 375/768/1024/1440 px; valoración directa de Google y formulario de contacto real.
 - **ESTADO:** preview desplegada correctamente, Home en validación visual.
+
+
+## Ajuste aprobado de header, botones y eGift — 28 octubre 2026
+- **REALIZADO:** menú translúcido integrado a todo el ancho superior con línea inferior fina (sin isla flotante); tipografías originales conservadas.
+- **REALIZADO:** botones en cápsula con contorno fino, flecha simple y hover discreto; retirados el círculo y el desplazamiento interno de izquierda a derecha.
+- **REALIZADO:** tarjeta de eGift con texto “Give the Gift of Relaxation”; en móvil entra justo después de los botones principales, en flujo normal y no pegada al final del hero. En desktop se adelanta dentro del hero.
+- **CONSERVADO:** H1, párrafo, fotografías, resto de secciones, 3 enlaces Fresha, gift cards Square, reseñas Frisco y formulario de prueba.
+- **VERIFICADO EN CÓDIGO:** 21/21 comprobaciones estáticas incluyendo anchors, elementos duplicados, flujos de navegación, media query, noindex, balance de CSS y prefers-reduced-motion.
+- **PENDIENTE:** inspección visual real en navegador a 375/768/1024/1440 px, tap/hover y recepción del formulario. Fase Home sigue EN VALIDACIÓN.
