@@ -52,19 +52,25 @@
     window.addEventListener('pageshow',e=>{if(e.persisted) reveals.forEach(el=>el.classList.add('is-visible'));});
   }
 
-  // Treatments — native, user-controlled horizontal carousel with centered zoom.
-  // Vertical scrolling always continues normally; no sticky or scroll-to-slide mapping.
+  // Treatments: desktop sticky horizontal storytelling using native VERTICAL scroll,
+  // never preventDefault on the wheel. Mobile/tablet retain their approved swipe behavior.
+  const treatmentsStory = document.getElementById('treatments');
   const treatmentsWindow = document.getElementById('treatments-window');
   const treatmentsRail = document.getElementById('treatments-rail');
-  if (treatmentsWindow && treatmentsRail) {
+  if (treatmentsStory && treatmentsWindow && treatmentsRail) {
     const cards = [...treatmentsRail.querySelectorAll('.treatment-card')];
     const dots = [...document.querySelectorAll('[data-treatment-index]')];
     const current = document.getElementById('treatments-current');
     const previous = document.getElementById('treatments-prev');
     const next = document.getElementById('treatments-next');
+    const desktopScroll = window.matchMedia('(min-width: 981px) and (min-height: 690px) and (hover: hover) and (prefers-reduced-motion: no-preference)');
     let activeIndex = 0;
     let frame = 0;
     let hasInteracted = false;
+    let pinned = false;
+    let pinTop = 0;
+    let travel = 0;
+    let pinFrame = 0;
 
     const setActive = index => {
       activeIndex = Math.max(0, Math.min(cards.length - 1, index));
@@ -82,35 +88,76 @@
       if (!card) return 0;
       return Math.max(0, card.offsetLeft - (treatmentsWindow.clientWidth - card.offsetWidth) / 2);
     };
+    const clampTravel = value => Math.max(0, Math.min(travel, value));
     const goTo = (index, animate = true) => {
       if (!cards.length) return;
       const target = Math.max(0, Math.min(cards.length - 1, index));
       setActive(target);
-      treatmentsWindow.scrollTo({
-        left: centerLeft(target),
-        behavior: animate && !reducedMotion.matches ? 'smooth' : 'instant'
-      });
+      const behavior = animate && !reducedMotion.matches ? 'smooth' : 'instant';
+      if (pinned) {
+        window.scrollTo({top: pinTop + clampTravel(centerLeft(target)), behavior});
+      } else {
+        treatmentsWindow.scrollTo({left: centerLeft(target), behavior});
+      }
     };
     const updateOnScroll = () => {
       frame = 0;
       const midpoint = treatmentsWindow.getBoundingClientRect().left + treatmentsWindow.clientWidth / 2;
       let nearest = 0, distance = Infinity;
       cards.forEach((card, i) => {
-        const r = card.getBoundingClientRect();
-        const d = Math.abs(r.left + r.width / 2 - midpoint);
-        if (d < distance) { nearest = i; distance = d; }
+        const rect = card.getBoundingClientRect();
+        const delta = Math.abs(rect.left + rect.width / 2 - midpoint);
+        if (delta < distance) {nearest = i; distance = delta;}
       });
       setActive(nearest);
     };
-    previous?.addEventListener('click', () => { hasInteracted = true; goTo(activeIndex - 1); });
-    next?.addEventListener('click', () => { hasInteracted = true; goTo(activeIndex + 1); });
+    const paintPin = () => {
+      pinFrame = 0;
+      if (!pinned) return;
+      const offset = clampTravel(window.scrollY - pinTop);
+      // scrollLeft is controlled by the page's native vertical scroll only on desktop.
+      treatmentsWindow.scrollLeft = offset;
+      updateOnScroll();
+    };
+    const requestPin = () => {
+      if (pinned && !pinFrame) pinFrame = requestAnimationFrame(paintPin);
+    };
+    const measurePin = () => {
+      if (pinFrame) cancelAnimationFrame(pinFrame);
+      pinFrame = 0;
+      const hadPin = pinned;
+      pinned = false;
+      treatmentsStory.classList.remove('is-scroll-ready');
+      treatmentsStory.style.height = '';
+      if (desktopScroll.matches && cards.length > 1) {
+        treatmentsStory.classList.add('is-scroll-ready');
+        travel = Math.max(0, treatmentsWindow.scrollWidth - treatmentsWindow.clientWidth);
+        if (travel > 10) {
+          pinned = true;
+          treatmentsStory.style.height = Math.ceil(window.innerHeight + travel) + 'px';
+          pinTop = window.scrollY + treatmentsStory.getBoundingClientRect().top;
+          requestPin();
+        } else {
+          treatmentsStory.classList.remove('is-scroll-ready');
+        }
+      }
+      if (!pinned) {
+        travel = 0;
+        if (hadPin) treatmentsWindow.scrollLeft = 0;
+        goTo(activeIndex, false);
+      }
+    };
+
+    previous?.addEventListener('click', () => {hasInteracted = true; goTo(activeIndex - 1);});
+    next?.addEventListener('click', () => {hasInteracted = true; goTo(activeIndex + 1);});
     dots.forEach((dot, index) => dot.addEventListener('click', () => {
-      hasInteracted = true; goTo(index);
+      hasInteracted = true;
+      goTo(index);
     }));
     treatmentsWindow.addEventListener('scroll', () => {
       if (!frame) frame = requestAnimationFrame(updateOnScroll);
-    }, {passive: true});
-    treatmentsWindow.addEventListener('pointerdown', () => { hasInteracted = true; }, {passive: true});
+    }, {passive:true});
+    treatmentsWindow.addEventListener('pointerdown', () => {hasInteracted = true;}, {passive:true});
     treatmentsWindow.addEventListener('keydown', event => {
       if (event.target !== treatmentsWindow) return;
       if (['ArrowRight','ArrowLeft','Home','End'].includes(event.key)) {
@@ -123,13 +170,23 @@
       hasInteracted = true;
       goTo(index, false);
     }));
-    // Start on a visually centered second card on desktop (the reference composition);
-    // on mobile start with the first service so no treatment is skipped.
-    const initial = window.innerWidth >= 721 ? 1 : 0;
-    requestAnimationFrame(() => goTo(initial, false));
-    window.addEventListener('resize', () => goTo(activeIndex, false), {passive: true});
+    // Desktop begins on first card so all six appear in the scroll narrative.
+    // Mobile retains its existing first-card starting position and native swipe.
+    const initial = window.innerWidth >= 721 && !desktopScroll.matches ? 1 : 0;
+    requestAnimationFrame(() => {
+      setActive(initial);
+      measurePin();
+      if (!pinned) goTo(initial, false);
+    });
+    window.addEventListener('scroll', requestPin, {passive:true});
+    window.addEventListener('resize', measurePin, {passive:true});
+    desktopScroll.addEventListener?.('change', measurePin);
+    document.fonts?.ready.then(measurePin);
     window.addEventListener('pageshow', event => {
-      if (event.persisted && !hasInteracted) goTo(initial, false);
+      if (event.persisted) {
+        measurePin();
+        if (!hasInteracted && !pinned) goTo(initial, false);
+      }
     });
   }
 
