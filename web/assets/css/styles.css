@@ -168,6 +168,7 @@
  .site-header:before{height:110px}
  .site-header .header-inner{height:75px}
  .site-header .brand-name{font-size:16px}
+ .site-header .header-cta{display:none}
  .site-header .mobile-nav{margin:0 17px}
  .hero{min-height:890px;min-height:max(890px,100svh)}
  .hero-inner{min-height:inherit;justify-content:flex-start;padding-top:142px;padding-bottom:180px}
