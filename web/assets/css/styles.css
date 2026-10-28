@@ -63,7 +63,7 @@
  .treatments-heading-slider h2{font-size:clamp(36px,8.6vw,50px)}
  .treatments-heading-aside>p{font-size:12.5px;line-height:1.75;margin-bottom:15px}
  .treatments-rail{--t-card-w:min(83vw,390px);gap:14px;padding-block:16px 23px}
- .treatment-card{height:475px;transform:scale(.965);border-radius:13px}
+ .treatment-card{height:520px;transform:scale(.965);border-radius:13px}
  .treatment-card.is-active{transform:scale(1.015)}
  .treatment-card-content{padding:21px}
  .treatment-card-icon{width:40px;height:40px;margin-bottom:11px}
@@ -78,7 +78,7 @@
 }
 @media(max-width:410px){
  .treatments-rail{--t-card-w:83vw}
- .treatment-card{height:470px}
+ .treatment-card{height:515px}
  .treatment-card-content h3{font-size:27px}
  .treatment-card-description{font-size:11px}
  .treatments-arrow{width:37px;height:37px;font-size:19px}
@@ -136,7 +136,8 @@
   .treatments-slider.is-scroll-ready .treatments-heading-slider h2{font-size:clamp(39px,4.3vw,60px)}
   .treatments-slider.is-scroll-ready .treatments-heading-aside>p{margin-bottom:11px}
   .treatments-slider.is-scroll-ready .treatments-rail{padding-block:12px 17px}
-  .treatments-slider.is-scroll-ready .treatment-card{height:clamp(330px,47svh,490px)}
+  .treatments-slider.is-scroll-ready .treatment-card{height:clamp(440px,61svh,670px);box-shadow:none}
+  .treatments-slider.is-scroll-ready .treatment-card.is-active{box-shadow:none}
   .treatments-slider.is-scroll-ready .treatment-card-content{padding:clamp(18px,2svh,25px) 24px}
   .treatments-slider.is-scroll-ready .treatment-card-icon{width:36px;height:36px;margin-bottom:8px}
   .treatments-slider.is-scroll-ready .treatment-card-icon svg{width:20px;height:20px}
@@ -148,11 +149,11 @@
   .treatments-slider.is-scroll-ready .treatments-window{
     overflow-x:hidden;overflow-y:hidden;scroll-behavior:auto;scroll-snap-type:none;
   }
-  .treatments-slider.is-scroll-ready .treatments-toolbar{min-height:44px}
+  /* Bottom navigation intentionally removed. */
   .treatments-slider.is-scroll-ready .treatments-note{padding-top:7px}
   .treatments-slider.is-scroll-ready .treatment-card:hover{
     transform:scale(1.08);z-index:6;opacity:1;
-    box-shadow:0 32px 64px rgba(44,25,17,.36);
+    box-shadow:none;
   }
 }
 /* Content scale accommodates the verified metadata; swipe rules remain intact. */
