@@ -23,7 +23,7 @@
   });
   mobileNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobile));
   window.addEventListener('keydown', e => {if (e.key === 'Escape') closeMobile();});
-  window.addEventListener('resize', () => {if (window.innerWidth > 940) closeMobile();},{passive:true});
+  window.addEventListener('resize', () => {if (window.innerWidth > 1100) closeMobile();},{passive:true});
 
   if (dialog && typeof dialog.showModal === 'function') {
     document.querySelectorAll('[data-book-dialog]').forEach(trigger => trigger.addEventListener('click', event => {
