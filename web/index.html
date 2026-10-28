@@ -33,6 +33,7 @@
         <a href="#locations">Locations</a>
         <a href="#our-approach">Our Approach</a>
         <a href="#gift-cards">Gift Cards</a>
+        <a href="#contact">Contact</a>
       </nav>
       <div class="header-actions">
         <a href="#locations" class="button button-dark header-cta" data-book-dialog>Book Now <span aria-hidden="true">↗</span></a>
@@ -40,7 +41,7 @@
       </div>
     </div>
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
-      <a href="#treatments">Treatments</a><a href="#signature">Signature Packages</a><a href="#locations">Locations</a><a href="#our-approach">Our Approach</a><a href="#gift-cards">Gift Cards</a>
+      <a href="#treatments">Treatments</a><a href="#signature">Signature Packages</a><a href="#locations">Locations</a><a href="#our-approach">Our Approach</a><a href="#gift-cards">Gift Cards</a><a href="#contact">Contact</a>
       <a class="mobile-book" href="#locations" data-book-dialog>Choose a location <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
@@ -123,10 +124,47 @@
 
     <section class="gift-section" id="gift-cards" aria-labelledby="gift-title"><div class="gift-photo" aria-hidden="true"></div><div class="gift-overlay" aria-hidden="true"></div><div class="container gift-inner"><div data-reveal><p class="eyebrow eyebrow-light">A THOUGHTFUL GESTURE</p><h2 id="gift-title">Give Someone a <em>Moment of Their Own.</em></h2><p>An experience can make a thoughtful gift. Thaissage Center offers eGift Card purchases through Square.</p><a href="https://app.squareup.com/gift/ML5VCT5JSJQYH/order" class="button button-ivory" target="_blank" rel="noopener noreferrer">Explore Gift Cards <span aria-hidden="true">↗</span></a></div></div></section>
 
+
+    <!-- Demo contact: purposefully separate from Fresha bookings. Replace test endpoint only after production authorization. -->
+    <section class="contact-section section-pad" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-editorial" data-reveal>
+          <p class="eyebrow eyebrow-dark"><span class="line-gold"></span> LET'S CONNECT</p>
+          <h2 id="contact-title">A Question <em>Before Your Visit?</em></h2>
+          <p>Curious about our treatments or need help choosing where to begin? Find the right center and explore its current services.</p>
+          <a href="#locations" data-book-dialog class="text-link text-link-dark">Book directly through Fresha <span aria-hidden="true">↗</span></a>
+          <div class="contact-editorial-note"><span class="contact-note-rule" aria-hidden="true"></span><p>In this preview, the contact form is reserved for testing. Appointment bookings remain with Thaissage Center's existing Fresha pages.</p></div>
+        </div>
+        <div class="contact-form-area" data-reveal>
+          <div class="contact-form-header">
+            <p class="eyebrow eyebrow-dark">CONTACT FORM · PREVIEW</p>
+            <h3>Send a Test Message</h3>
+            <p class="contact-test-notice"><strong>Testing only.</strong> This form sends to Atrezzo Studios, not Thaissage Center. Please do not include health details, payment information, or other sensitive personal information.</p>
+          </div>
+          <form id="contact-form" class="contact-form" action="https://formsubmit.co/atrezzostudiosv@gmail.com" method="POST" accept-charset="UTF-8">
+            <input type="hidden" name="_subject" value="[TEST] Thaissage Center — Website Contact Form">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="true">
+            <div class="form-honeypot" aria-hidden="true"><label for="contact-website">Website</label><input type="text" id="contact-website" name="_honey" tabindex="-1" autocomplete="off"></div>
+            <div class="form-row">
+              <div class="form-field"><label for="contact-name">Your name <span aria-hidden="true">*</span></label><input id="contact-name" name="name" type="text" autocomplete="name" maxlength="120" required placeholder="Your name"></div>
+              <div class="form-field"><label for="contact-email">Email address <span aria-hidden="true">*</span></label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="160" required placeholder="you@example.com"></div>
+            </div>
+            <div class="form-field"><label for="contact-location">Preferred location</label><select id="contact-location" name="location"><option value="Not specified">Select a center (optional)</option><option value="Frisco">Frisco</option><option value="Flower Mound">Flower Mound</option><option value="Southlake">Southlake</option></select></div>
+            <div class="form-field"><label for="contact-message">Your message <span aria-hidden="true">*</span></label><textarea id="contact-message" name="message" rows="5" maxlength="2500" required placeholder="This is a test message about the website."></textarea></div>
+            <label class="form-consent"><input type="checkbox" name="test_consent" value="Acknowledged" required><span>I understand that this is a test form and that my message will be sent to Atrezzo Studios, not the business.</span></label>
+            <div class="form-actions"><button class="button button-dark" type="submit" id="contact-submit">Send Test Message <span aria-hidden="true">↗</span></button><span class="form-required">* Required fields</span></div>
+            <p class="form-status" id="contact-form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            <p class="form-microcopy">This form is not for appointments. For a confirmed booking, use the Fresha link for your preferred location.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section class="last-cta" aria-labelledby="last-cta-title"><div class="container last-cta-inner"><div><p class="eyebrow eyebrow-dark">YOUR TIME TO RESET</p><h2 id="last-cta-title">Make Room <em>for Yourself.</em></h2></div><div><p>Find the treatment that feels right for you. Choose your location and continue to Fresha to book.</p><a href="#locations" data-book-dialog class="button button-dark">Choose Your Location <span aria-hidden="true">↗</span></a></div></div></section>
   </main>
 
-  <footer class="footer"><div class="container footer-grid"><div class="footer-brand"><a href="#top" class="footer-logo">THAISSAGE <span>CENTER</span></a><p>Thai massage and wellness in Frisco, Flower Mound, and Southlake, Texas.</p><span class="footer-signature">Thailand to Texas.</span></div><div><p class="footer-title">EXPLORE</p><a href="#treatments">Treatments</a><a href="#signature">Signature Packages</a><a href="#our-approach">Our Approach</a><a href="#gift-cards">Gift Cards</a></div><div><p class="footer-title">OUR CENTERS</p><a href="#locations">Frisco</a><a href="#locations">Flower Mound</a><a href="#locations">Southlake</a><a href="#locations">Choose Your Location</a></div><div><p class="footer-title">CONNECT</p><a href="https://www.instagram.com/thaissagecenter" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a><a href="https://www.facebook.com/Thaissagecenter" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">↗</span></a><a href="https://thaissagecenter.com/cryptocurrency" target="_blank" rel="noopener noreferrer">Cryptocurrency information <span aria-hidden="true">↗</span></a></div></div><div class="container footer-bottom"><span>© <span id="current-year">2026</span> Thaissage Center. All rights reserved.</span><span>Website concept by Atrezzo Studios · Unofficial design demo</span><a href="#top">BACK TO TOP ↑</a></div></footer>
+  <footer class="footer"><div class="container footer-grid"><div class="footer-brand"><a href="#top" class="footer-logo">THAISSAGE <span>CENTER</span></a><p>Thai massage and wellness in Frisco, Flower Mound, and Southlake, Texas.</p><span class="footer-signature">Thailand to Texas.</span></div><div><p class="footer-title">EXPLORE</p><a href="#treatments">Treatments</a><a href="#signature">Signature Packages</a><a href="#our-approach">Our Approach</a><a href="#gift-cards">Gift Cards</a><a href="#contact">Contact</a></div><div><p class="footer-title">OUR CENTERS</p><a href="#locations">Frisco</a><a href="#locations">Flower Mound</a><a href="#locations">Southlake</a><a href="#locations">Choose Your Location</a></div><div><p class="footer-title">CONNECT</p><a href="https://www.instagram.com/thaissagecenter" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a><a href="https://www.facebook.com/Thaissagecenter" target="_blank" rel="noopener noreferrer">Facebook <span aria-hidden="true">↗</span></a><a href="https://thaissagecenter.com/cryptocurrency" target="_blank" rel="noopener noreferrer">Cryptocurrency information <span aria-hidden="true">↗</span></a></div></div><div class="container footer-bottom"><span>© <span id="current-year">2026</span> Thaissage Center. All rights reserved.</span><span>Website preview by Atrezzo Studios · Not yet published</span><a href="#top">BACK TO TOP ↑</a></div></footer>
 
   <dialog id="booking-dialog" class="booking-dialog" aria-labelledby="booking-title"><div class="dialog-inner"><button class="dialog-close" type="button" aria-label="Close location selector">×</button><p class="eyebrow eyebrow-dark">YOUR MOMENT STARTS HERE</p><h2 id="booking-title">Where Would You <em>Like to Visit?</em></h2><p>Choose a Thaissage Center location to view its current services, times, and booking options on Fresha.</p><div class="dialog-links"><a href="https://www.fresha.com/a/thaissage-center-frisco-9300-john-hickman-parkway-kaw23s8f" target="_blank" rel="noopener noreferrer"><span>Frisco</span><span aria-hidden="true">↗</span></a><a href="https://www.fresha.com/a/thaissage-center-flower-mound-1021-long-prairie-road-kiv9ttxc" target="_blank" rel="noopener noreferrer"><span>Flower Mound</span><span aria-hidden="true">↗</span></a><a href="https://www.fresha.com/a/thaissage-center-southlake-101-river-oaks-drive-t52fypr6" target="_blank" rel="noopener noreferrer"><span>Southlake</span><span aria-hidden="true">↗</span></a></div><p class="dialog-note">Treatment availability and appointment times may vary by location.</p></div></dialog>
 </body>
