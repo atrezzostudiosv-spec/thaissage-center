@@ -154,3 +154,14 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **VERIFICADO:** GitHub Pages build y deploy correctos en ejecución `40753024528` para commit `a5954d1e61576924a8b88a5c57f105af7b1acc72`.
 - **PREVIEW:** https://atrezzostudiosv-spec.github.io/thaissage-center/
 - **NO COMPROBADO:** navegación renderizada del ajuste a 375/768/1024/1440 y comportamiento real del formulario.
+
+
+## Nueva sección Treatments cinematográfica — 28 octubre 2026
+- **REALIZADO:** sustitución del antiguo listado vertical por carrusel horizontal a ancho completo con 6 tarjetas editoriales y las seis descripciones y servicios originales.
+- **IMÁGENES:** 6 WebP de 1100×760 px (317.066 bytes en total), ilustrativos y basados en material gráfico generado para Atrezzo; se encuentran en `web/assets/images/`. No representan empleados, clientes ni sedes reales.
+- **SCROLL:** el scroll vertical nativo desplaza horizontalmente las tarjetas a 981 px de ancho o más y altura mínima 660 px, sin interceptar rueda; en móvil/tablet se usa swipe nativo, y para movimiento reducido no se fija la sección.
+- **ACCESIBILIDAD:** botones anterior/siguiente, avance por teclado, foco en enlace fuera de pantalla, reducción de movimiento. Todos los CTA mantienen selector Fresha original.
+- **VERIFICADO:** 6 imágenes subidas, 6 tarjetas, JS válido sintácticamente, ids sin duplicados, enlaces internos existentes, 3 Fresha sin cambios, Square intacto, noindex y sin valores comerciales inventados.
+- **PREVIEW:** código y recursos sincronizados en `main`, commit `6c6f2fa76ef32c0f0150ccafed0016a05b82e7d0`. GitHub Pages desplegado desde main.
+- **PENDIENTE DE QA:** animación renderizada real en 375 / 768 / 1024 / 1440 px, contraste, scroll reverso, taps, foco y rendimiento del navegador; la fase Home sigue EN VALIDACIÓN.
+- **DOCUMENTACIÓN:** `docs/HOME-TREATMENTS-SCROLL-CINEMATICO.md`. Restantes 17 páginas sin alterar.
