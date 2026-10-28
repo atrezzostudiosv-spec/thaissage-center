@@ -123,3 +123,12 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **VERIFICADO LOCALMENTE EN CHROMIUM (fixture de fotografía):** 375, 768, 1024, 1440 px; 7/7 fondos resueltos como WebP; ausencia de overflow horizontal; hero observado a 375 y 1440 px.
 - **VERIFICADO EN GITHUB:** 11 blobs WebP en commit `c9b24bd805167361004f80cb41db576e7b68bc57`, 11 nombres referenciados por CSS, 3 destinos Fresha, noindex.
 - **PENDIENTE:** browser QA del Home final completo cargado sobre HTTP real y sin inyección de datos; FormSubmit y recepción; SEO final; otras 17 páginas.
+
+
+## Refinamiento aprobado — Header y Hero (2026-10-28)
+
+- **TRABAJO REALIZADO:** header flotante glassmorphism en cacao translúcido, hero fotográfico más cálido, CTA cápsula con flecha que se desplaza de izquierda a derecha en hover/focus/active, bloque de reseñas Frisco basado en valoración agregada 4.8/5, y pequeña llamada eGift Card a Square en el extremo inferior derecho.
+- **CONSERVADO:** H1 y descripción originales, resto del Home, las 3 URL Fresha, consentimiento del formulario y `noindex`.
+- **VERIFICADO EN CÓDIGO:** 17/17 controles estáticos sobre los ficheros de la rama `work/home-v1`.
+- **NO COMPROBADO:** pruebas de interacción y layout renderizado de esta versión a 375/768/1024/1440 px. La valoración exacta de Google no se ha leído directamente; fuente agregadora documentada.
+- **ESTADO:** implementación en revisión visual. Véase `docs/HOME-HEADER-HERO-REFINEMENT-2026-10-28.md`.
