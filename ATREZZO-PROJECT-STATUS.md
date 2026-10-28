@@ -190,3 +190,8 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **ORIGEN DE TARIFAS**: thaissagecenter.com (Thai, Thai Combination, Swedish, Deep Tissue $80/60min; Couples $160/60min). Duraciones hasta 120 minutos. Precio final según Fresha.
 - **VERIFICADO**: 22/22 controles estáticos y sintaxis JS. **PENDIENTE**: comprobación renderizada y de interacción a 375/768/1024/1440.
 - **ALCANCE**: solo Treatments; las demás secciones sin cambios.
+
+### Preview Treatments v3 desplegada — 2026-10-29
+- **GitHub Pages:** ejecución `40786240432` para `9a649c0b5d222f887f20a6a99d0978e17d67b8b2`: build, deploy y report-build-status terminados con éxito.
+- **Sincronización verificada:** archivos `index.html`, `assets/css/styles.css` y `assets/js/app.js` de `main` corresponden byte a byte en SHA Git a `work/home-v1/web/`.
+- **Sin cambio en el estado QA visual:** aún debe probarse el pinned scroll y hover real en escritorio (1024/1440) y verificar que móvil conserve su interacción (375/768). FormSubmit sigue pendiente de prueba de recepción.
