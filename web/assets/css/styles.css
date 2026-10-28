@@ -137,6 +137,14 @@
   .treatments-slider.is-scroll-ready .treatments-heading-aside>p{margin-bottom:11px}
   .treatments-slider.is-scroll-ready .treatments-rail{padding-block:12px 17px}
   .treatments-slider.is-scroll-ready .treatment-card{height:clamp(330px,47svh,490px)}
+  .treatments-slider.is-scroll-ready .treatment-card-content{padding:clamp(18px,2svh,25px) 24px}
+  .treatments-slider.is-scroll-ready .treatment-card-icon{width:36px;height:36px;margin-bottom:8px}
+  .treatments-slider.is-scroll-ready .treatment-card-icon svg{width:20px;height:20px}
+  .treatments-slider.is-scroll-ready .treatment-card-content h3{font-size:clamp(26px,2.3vw,33px);margin-bottom:8px}
+  .treatments-slider.is-scroll-ready .treatment-card-description{font-size:11px;line-height:1.46;margin-bottom:10px}
+  .treatments-slider.is-scroll-ready .treatment-card-detail{padding-top:9px}
+  .treatments-slider.is-scroll-ready .treatment-card-book{min-height:37px;padding-block:8px;margin-top:9px}
+
   .treatments-slider.is-scroll-ready .treatments-window{
     overflow-x:hidden;overflow-y:hidden;scroll-behavior:auto;scroll-snap-type:none;
   }
