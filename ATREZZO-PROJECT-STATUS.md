@@ -11,9 +11,9 @@
 | 1. Auditoría original | CERRADA (alcance documental) | Auditoría compartida y avance autorizado con «siguiente fase»; pruebas interactivas originales no realizadas, registradas como limitación. |
 | 2. Estrategia y arquitectura | CERRADA (aprobación de avance) | La instrucción posterior «inicia la fase 3» autoriza trabajar sobre las 18 rutas, los CTA por sede y la arquitectura de Fase 02. Los datos comerciales contradictorios siguen pendientes, sin reabrir la fase estratégica. |
 | 3. Contenido completo | CERRADA PARA CONTINUIDAD (validación comercial pendiente) | 18 páginas redactadas y mapa editorial documentado. La orden «Sigue a siguiente fase» autoriza continuidad de diseño, **no** aprobación de datos comerciales para publicación. Archivo: `FASE-03-CONTENIDO-COMPLETO-18-PAGINAS.md`. |
-| 4. Dirección artística / partitura visual | EN VALIDACIÓN | Propuesta integral de identidad, movimiento y 92 escenas en 18 rutas, con fuentes, fotografías requeridas y CTA. Archivo: `FASE-04-DIRECCION-ARTISTICA-Y-SCROLL-18-PAGINAS.md`. No se ha escrito código ni probado diseño. |
-| 4B. Desarrollo visual / prototipo | PENDIENTE | No iniciado. Primero Home y su revisión visual. |
-| 5. Validación | PENDIENTE | No existen nuevos componentes desarrollados. |
+| 4. Dirección artística / partitura visual | EN VALIDACIÓN | Propuesta integral de identidad, movimiento y 92 escenas en 18 rutas, con fuentes, fotografías requeridas y CTA. Archivo: `FASE-04-DIRECCION-ARTISTICA-Y-SCROLL-18-PAGINAS.md`. Partitura documentada; ya existe Home v1 de desarrollo. La aceptación visual sigue pendiente. |
+| 4B. Desarrollo visual / prototipo | EN VALIDACIÓN | Home v1 implementado en `work/home-v1` con HTML/CSS/JS; controles y responsive comprobados localmente con fotografías de sustitución. Pendiente revisión visual con fotos remotas. |
+| 5. Validación | EN PROCESO (solo Home) | QA de Home registrada en `docs/QA-HOME-V1.md`: 375/768/1024/1440 px, menú, selector, anclas, reduced motion. Auditoría visual y demás 17 páginas pendientes. |
 | 6. Entrega / publicación | PENDIENTE | No autorizado. |
 
 ## Hechos sustentados
@@ -91,3 +91,11 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Repositorio y estructura: CERRADO (verificados 11 archivos en `main` y lectura de `README.md` en `work/home-v1`).**
 - Siguiente fase: prototipo de Home en `work/home-v1`; diseño de Fase 04 sigue EN VALIDACIÓN hasta revisión renderizada.
 - Nunca incorporar fuentes originales de terceros o fotografías de las instalaciones a este repositorio público sin derechos comprobados.
+
+## Desarrollo Home v1 — 28 octubre 2026
+
+- **REALIZADO:** código del Home en `web/index.html`, `web/assets/css/styles.css` y `web/assets/js/app.js`, en rama `work/home-v1`. 7 escenas editoriales principales con selector de las tres sedes y reserva externa.
+- **VERIFICADO (local):** sin overflow a 375/768/1024/1440 px; menú responsive y selector con Escape; enlaces de ancla; reduced motion; visibilidad sin JS; presencia de noindex.
+- **NO COMPROBADO:** encuadres de fotografías remotas reales, Lighthouse, lector de pantalla, flujo final de reservas/compras. Fotografías ilustrativas con fuentes registradas en `docs/IMAGE-SOURCES-HOME-V1.md`.
+- **ESTADO:** Home implementado, **EN VALIDACIÓN VISUAL**. No publicado ni aprobado para producción. Restantes 17 páginas **pendientes**, sin omisión de la Fase 3.
+- **SIGUIENTE PASO:** revisión visual del Home ya desarrollado y corrección limitada a defectos observados antes de comenzar las páginas internas.
