@@ -86,7 +86,8 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 ## Infraestructura GitHub — 28 octubre 2026
 
 - Repositorio verificado: `atrezzostudiosv-spec/thaissage-center` (público, rama principal `main`).
-- **Repositorio inicializado** con documentación, guías, carpetas de código/recursos y rama de desarrollo separada prevista.
+- **Repositorio inicializado** con documentación, guías y carpetas de código/recursos; rama `work/home-v1` creada.
 - **El website aún NO está implementado; no hay hosting, demo ni validación en navegador.**
-- Fase siguiente activa: prototipo de Home en una rama de trabajo; diseño de Fase 04 sigue EN VALIDACIÓN hasta revisión renderizada.
+- **Repositorio y estructura: CERRADO (verificados 11 archivos en `main` y lectura de `README.md` en `work/home-v1`).**
+- Siguiente fase: prototipo de Home en `work/home-v1`; diseño de Fase 04 sigue EN VALIDACIÓN hasta revisión renderizada.
 - Nunca incorporar fuentes originales de terceros o fotografías de las instalaciones a este repositorio público sin derechos comprobados.
