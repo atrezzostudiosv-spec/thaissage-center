@@ -52,6 +52,84 @@
     window.addEventListener('pageshow',e=>{if(e.persisted) reveals.forEach(el=>el.classList.add('is-visible'));});
   }
 
+  // Treatments · vertical scroll maps to the full-width photo rail, never intercepts wheel.
+  // On touch/small screens or reduced motion, use native horizontal swiping instead.
+  const treatmentsStory = document.getElementById('treatments');
+  const treatmentsWindow = document.getElementById('treatments-window');
+  const treatmentsRail = document.getElementById('treatments-rail');
+  if (treatmentsStory && treatmentsWindow && treatmentsRail) {
+    const cards = [...treatmentsRail.querySelectorAll('.treatment-card')];
+    const current = document.getElementById('treatments-current');
+    const progress = document.getElementById('treatments-progress-bar');
+    const previous = document.getElementById('treatments-prev');
+    const next = document.getElementById('treatments-next');
+    const motion = window.matchMedia('(min-width: 981px) and (min-height: 660px) and (prefers-reduced-motion: no-preference)');
+    let enabled = false;
+    let travel = 0;
+    let sectionStart = 0;
+    let activeIndex = 0;
+    let rafId = 0;
+    const itemStep = () => cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : (cards[0]?.offsetWidth || 1);
+    const sync = index => {
+      activeIndex = Math.max(0, Math.min(cards.length - 1, index));
+      if (current) current.textContent = String(activeIndex + 1).padStart(2, '0');
+      if (progress) progress.style.width = String((activeIndex + 1) / cards.length * 100) + '%';
+      if (previous) previous.disabled = activeIndex === 0;
+      if (next) next.disabled = activeIndex === cards.length - 1;
+    };
+    const paint = () => {
+      rafId = 0;
+      if (!enabled) return;
+      const offset = Math.max(0, Math.min(travel, window.scrollY - sectionStart));
+      treatmentsRail.style.transform = 'translate3d(' + (-offset) + 'px,0,0)';
+      sync(Math.round(offset / Math.max(1, itemStep())));
+    };
+    const requestPaint = () => { if (!rafId) rafId = requestAnimationFrame(paint); };
+    const measure = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = 0;
+      treatmentsStory.classList.remove('is-scroll-ready');
+      treatmentsStory.style.height = '';
+      treatmentsRail.style.transform = '';
+      enabled = motion.matches;
+      if (enabled) {
+        travel = Math.max(0, treatmentsRail.scrollWidth - treatmentsWindow.clientWidth);
+        if (travel > 4) {
+          treatmentsStory.style.height = String(window.innerHeight + travel) + 'px';
+          treatmentsStory.classList.add('is-scroll-ready');
+          sectionStart = window.scrollY + treatmentsStory.getBoundingClientRect().top;
+          requestPaint();
+        } else enabled = false;
+      }
+      if (!enabled) sync(Math.round(treatmentsWindow.scrollLeft / Math.max(1, itemStep())));
+    };
+    const navigate = delta => {
+      const target = Math.max(0, Math.min(cards.length - 1, activeIndex + delta));
+      const wanted = target * itemStep();
+      if (enabled) {
+        window.scrollTo({top: sectionStart + Math.min(travel, wanted), behavior:'smooth'});
+      } else {
+        treatmentsWindow.scrollTo({left: wanted, behavior: reducedMotion.matches ? 'auto' : 'smooth'});
+      }
+      sync(target);
+    };
+    previous?.addEventListener('click', () => navigate(-1));
+    next?.addEventListener('click', () => navigate(1));
+    treatmentsWindow.addEventListener('scroll', () => {
+      if (!enabled) sync(Math.round(treatmentsWindow.scrollLeft / Math.max(1, itemStep())));
+    }, {passive:true});
+    treatmentsWindow.addEventListener('keydown', event => {
+      if (event.target !== treatmentsWindow || (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight')) return;
+      event.preventDefault();
+      navigate(event.key === 'ArrowRight' ? 1 : -1);
+    });
+    window.addEventListener('scroll', requestPaint, {passive:true});
+    window.addEventListener('resize', measure, {passive:true});
+    motion.addEventListener?.('change', measure);
+    measure();
+    document.fonts?.ready.then(measure);
+  }
+
   // Only the background photograph moves in the single cinematic scene.
   const scene = document.querySelector('.heritage');
   const photo = scene?.querySelector('.heritage-photo');
