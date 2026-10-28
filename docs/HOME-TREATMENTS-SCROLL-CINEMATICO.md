@@ -62,3 +62,22 @@ Todos los archivos se sirven localmente desde `web/assets/images/` y cargan de f
 - **Pendiente:** revisión de render, swipe/teclado/foco, contraste sobre fotografías y desempeño en la URL publicada.
 
 **Estado:** implementado / EN VALIDACIÓN VISUAL.
+
+
+## Treatments v3 — datos comerciales y secuencia de escritorio (2026-10-29)
+
+**Cambio solicitado**: mantener intacto el comportamiento táctil en móvil, reincorporar en escritorio el efecto de escena detenida y tarjetas avanzando a medida que el usuario hace scroll vertical, añadir zoom de la tarjeta con hover, duración/precio y botones de contorno delicado como la referencia.
+
+**Fuente comercial contrastada**: sitio original Thaissage Center, https://thaissagecenter.com/, secciones Thai Massage, Thai Combination, Swedish, Deep Tissue y Couples; además del anexo Fase 3. Valores publicados: masajes individuales 60 min $80, 90 min $120, 120 min $160. Couples 60 min $160, 90 min $240, 120 min $320. No se han inferido precios entre sedes.
+
+**Precios en las seis tarjetas**: Thai, Thai Combination, Deep Tissue y Swedish = `60–120 min · From $80`; Couples = `60–120 min · From $160`; More Ways to Unwind = `Varies by treatment · See pricing`, ya que agrupa servicios con tarifas/duraciones diferentes.
+
+**Implementación**:
+- Desktop: sección sticky con `is-scroll-ready`, activada solamente por `(min-width:981px) and (min-height:690px) and (hover:hover) and (prefers-reduced-motion:no-preference)`. Altura de sección = viewport + distancia horizontal real. Scroll vertical nativo mueve `scrollLeft` sin bloquear wheel. Zoom de toda la card al pasar el mouse.
+- Móvil: conserva el scroll-snap táctil, deslizamiento horizontal, controles y reglas de ampliación previas. No se habilita sticky en móvil ni movimiento forzado.
+- CTA: cápsula fina de contorno translúcido y flecha con hover discreto; se mantienen enlaces al selector Fresha.
+- Nota comercial: tarifa inicial orientativa del sitio publicado; el precio y disponibilidad deben confirmarse con cada sede por Fresha.
+
+**QA estático**: 22/22 controles superados en archivos de la rama, incluyendo JS sintáctico, 6 grupos, 6 duraciones/precios, valores confirmados, sticky acotado al escritorio, continuidad móvil, noindex, enlaces Fresha/Square e IDs/anclas.
+
+**PENDIENTE**: QA real de sticky (scroll hacia adelante/atrás, enlace con foco y hover zoom) en desktop 1024/1440 y mobile 375/768; navegación visual del website desplegado. Prohibido marcar como acabado visualmente sin verificar.
