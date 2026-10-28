@@ -195,3 +195,13 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **GitHub Pages:** ejecución `40786240432` para `9a649c0b5d222f887f20a6a99d0978e17d67b8b2`: build, deploy y report-build-status terminados con éxito.
 - **Sincronización verificada:** archivos `index.html`, `assets/css/styles.css` y `assets/js/app.js` de `main` corresponden byte a byte en SHA Git a `work/home-v1/web/`.
 - **Sin cambio en el estado QA visual:** aún debe probarse el pinned scroll y hover real en escritorio (1024/1440) y verificar que móvil conserve su interacción (375/768). FormSubmit sigue pendiente de prueba de recepción.
+
+
+## Treatments v4 — altura, controles inferiores y sombras (2026-10-29)
+- **CAMBIO APROBADO:** tarjetas más altas; eliminados números, puntos y flechas del panel INFERIOR del carrusel (se conservan los pequeños índices de fotografía dentro de cada card).
+- **TAMAÑOS:** en desktop pinned, altura responsive clamp(440px, 61svh, 670px) frente a clamp(330px,47svh,490px). En móvil la altura aumenta modestamente a 520px/515px sin cambiar el comportamiento swipe.
+- **CORRECCIÓN VISUAL:** eliminado box-shadow externo de cards en desktop pinned y ampliado el margen vertical de la rail para que zoom y borde no terminen en un recorte horizontal. Conservados el zoom de hover y el movimiento ligado al scroll.
+- **ALCANCE:** solo sección Treatments. HTML elimina la toolbar; CSS controla altura y sombreado. JavaScript original sin cambios; el deslizado móvil permanece intacto.
+- **QA ESTÁTICO:** 20/20 comprobaciones (estructura, 6 cards, precios, CTA, noindex, sintaxis JS y CSS, scroll desktop, swipe móvil, links internos).
+- **QA VISUAL:** sigue pendiente comprobación real en navegador a 375/768/1024/1440 px, incluida la zona sombreada denunciada en el video del cliente.
+- **ESTADO:** implementado y pendiente validación visual final. Nada más del Home ha cambiado.
