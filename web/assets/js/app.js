@@ -52,89 +52,85 @@
     window.addEventListener('pageshow',e=>{if(e.persisted) reveals.forEach(el=>el.classList.add('is-visible'));});
   }
 
-  // Treatments · vertical scroll maps to the full-width photo rail, never intercepts wheel.
-  // On touch/small screens or reduced motion, use native horizontal swiping instead.
-  const treatmentsStory = document.getElementById('treatments');
+  // Treatments — native, user-controlled horizontal carousel with centered zoom.
+  // Vertical scrolling always continues normally; no sticky or scroll-to-slide mapping.
   const treatmentsWindow = document.getElementById('treatments-window');
   const treatmentsRail = document.getElementById('treatments-rail');
-  if (treatmentsStory && treatmentsWindow && treatmentsRail) {
+  if (treatmentsWindow && treatmentsRail) {
     const cards = [...treatmentsRail.querySelectorAll('.treatment-card')];
+    const dots = [...document.querySelectorAll('[data-treatment-index]')];
     const current = document.getElementById('treatments-current');
-    const progress = document.getElementById('treatments-progress-bar');
     const previous = document.getElementById('treatments-prev');
     const next = document.getElementById('treatments-next');
-    const motion = window.matchMedia('(min-width: 981px) and (min-height: 660px) and (prefers-reduced-motion: no-preference)');
-    let enabled = false;
-    let travel = 0;
-    let sectionStart = 0;
     let activeIndex = 0;
-    let rafId = 0;
-    const itemStep = () => cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : (cards[0]?.offsetWidth || 1);
-    const sync = index => {
+    let frame = 0;
+    let hasInteracted = false;
+
+    const setActive = index => {
       activeIndex = Math.max(0, Math.min(cards.length - 1, index));
+      cards.forEach((card, i) => card.classList.toggle('is-active', i === activeIndex));
+      dots.forEach((dot, i) => {
+        if (i === activeIndex) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
       if (current) current.textContent = String(activeIndex + 1).padStart(2, '0');
-      if (progress) progress.style.width = String((activeIndex + 1) / cards.length * 100) + '%';
       if (previous) previous.disabled = activeIndex === 0;
       if (next) next.disabled = activeIndex === cards.length - 1;
     };
-    const paint = () => {
-      rafId = 0;
-      if (!enabled) return;
-      const offset = Math.max(0, Math.min(travel, window.scrollY - sectionStart));
-      treatmentsRail.style.transform = 'translate3d(' + (-offset) + 'px,0,0)';
-      sync(Math.round(offset / Math.max(1, itemStep())));
+    const centerLeft = index => {
+      const card = cards[index];
+      if (!card) return 0;
+      return Math.max(0, card.offsetLeft - (treatmentsWindow.clientWidth - card.offsetWidth) / 2);
     };
-    const requestPaint = () => { if (!rafId) rafId = requestAnimationFrame(paint); };
-    const measure = () => {
-      if (rafId) cancelAnimationFrame(rafId);
-      rafId = 0;
-      treatmentsStory.classList.remove('is-scroll-ready');
-      treatmentsStory.style.height = '';
-      treatmentsRail.style.transform = '';
-      enabled = motion.matches;
-      if (enabled) {
-        travel = Math.max(0, treatmentsRail.scrollWidth - treatmentsWindow.clientWidth);
-        if (travel > 4) {
-          treatmentsStory.style.height = String(window.innerHeight + travel) + 'px';
-          treatmentsStory.classList.add('is-scroll-ready');
-          sectionStart = window.scrollY + treatmentsStory.getBoundingClientRect().top;
-          requestPaint();
-        } else enabled = false;
-      }
-      if (!enabled) sync(Math.round(treatmentsWindow.scrollLeft / Math.max(1, itemStep())));
-    };
-    const navigate = delta => {
-      const target = Math.max(0, Math.min(cards.length - 1, activeIndex + delta));
-      const wanted = target * itemStep();
-      if (enabled) {
-        window.scrollTo({top: sectionStart + Math.min(travel, wanted), behavior:'smooth'});
-      } else {
-        treatmentsWindow.scrollTo({left: wanted, behavior: reducedMotion.matches ? 'auto' : 'smooth'});
-      }
-      sync(target);
-    };
-    // Keep keyboard-focused booking links visible during the sticky sequence.
-    cards.forEach((card, index) => {
-      card.querySelector('a')?.addEventListener('focus', () => {
-        if (!enabled) return;
-        window.scrollTo({top: sectionStart + Math.min(travel, index * itemStep()), behavior:'auto'});
+    const goTo = (index, animate = true) => {
+      if (!cards.length) return;
+      const target = Math.max(0, Math.min(cards.length - 1, index));
+      setActive(target);
+      treatmentsWindow.scrollTo({
+        left: centerLeft(target),
+        behavior: animate && !reducedMotion.matches ? 'smooth' : 'instant'
       });
-    });
-    previous?.addEventListener('click', () => navigate(-1));
-    next?.addEventListener('click', () => navigate(1));
+    };
+    const updateOnScroll = () => {
+      frame = 0;
+      const midpoint = treatmentsWindow.getBoundingClientRect().left + treatmentsWindow.clientWidth / 2;
+      let nearest = 0, distance = Infinity;
+      cards.forEach((card, i) => {
+        const r = card.getBoundingClientRect();
+        const d = Math.abs(r.left + r.width / 2 - midpoint);
+        if (d < distance) { nearest = i; distance = d; }
+      });
+      setActive(nearest);
+    };
+    previous?.addEventListener('click', () => { hasInteracted = true; goTo(activeIndex - 1); });
+    next?.addEventListener('click', () => { hasInteracted = true; goTo(activeIndex + 1); });
+    dots.forEach((dot, index) => dot.addEventListener('click', () => {
+      hasInteracted = true; goTo(index);
+    }));
     treatmentsWindow.addEventListener('scroll', () => {
-      if (!enabled) sync(Math.round(treatmentsWindow.scrollLeft / Math.max(1, itemStep())));
-    }, {passive:true});
+      if (!frame) frame = requestAnimationFrame(updateOnScroll);
+    }, {passive: true});
+    treatmentsWindow.addEventListener('pointerdown', () => { hasInteracted = true; }, {passive: true});
     treatmentsWindow.addEventListener('keydown', event => {
-      if (event.target !== treatmentsWindow || (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight')) return;
-      event.preventDefault();
-      navigate(event.key === 'ArrowRight' ? 1 : -1);
+      if (event.target !== treatmentsWindow) return;
+      if (['ArrowRight','ArrowLeft','Home','End'].includes(event.key)) {
+        event.preventDefault();
+        hasInteracted = true;
+        goTo(event.key === 'Home' ? 0 : event.key === 'End' ? cards.length - 1 : activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
+      }
     });
-    window.addEventListener('scroll', requestPaint, {passive:true});
-    window.addEventListener('resize', measure, {passive:true});
-    motion.addEventListener?.('change', measure);
-    measure();
-    document.fonts?.ready.then(measure);
+    cards.forEach((card, index) => card.querySelector('a')?.addEventListener('focus', () => {
+      hasInteracted = true;
+      goTo(index, false);
+    }));
+    // Start on a visually centered second card on desktop (the reference composition);
+    // on mobile start with the first service so no treatment is skipped.
+    const initial = window.innerWidth >= 721 ? 1 : 0;
+    requestAnimationFrame(() => goTo(initial, false));
+    window.addEventListener('resize', () => goTo(activeIndex, false), {passive: true});
+    window.addEventListener('pageshow', event => {
+      if (event.persisted && !hasInteracted) goTo(initial, false);
+    });
   }
 
   // Only the background photograph moves in the single cinematic scene.
