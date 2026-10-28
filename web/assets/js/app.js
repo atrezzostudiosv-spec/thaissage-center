@@ -69,6 +69,46 @@
     window.addEventListener('resize',onScroll,{passive:true});
     onScroll();
   }
+  // Contact testing is explicitly separated from all Fresha booking links.
+  // FormSubmit may require email activation before messages reach the Atrezzo inbox.
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('contact-form-status');
+  const formButton = document.getElementById('contact-submit');
+  if (contactForm && formStatus && formButton && window.fetch) {
+    contactForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!contactForm.reportValidity()) return;
+      if (contactForm.elements.namedItem('_honey')?.value) return;
+      formButton.disabled = true;
+      formButton.setAttribute('aria-busy', 'true');
+      formStatus.removeAttribute('data-state');
+      formStatus.textContent = 'Submitting your test message…';
+      try {
+        const fields = new FormData(contactForm);
+        const payload = Object.fromEntries(fields.entries());
+        payload._captcha = 'false'; // AJAX demo uses honeypot rather than an interactive captcha.
+        const response = await fetch('https://formsubmit.co/ajax/atrezzostudiosv@gmail.com', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json','Accept':'application/json'},
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        if (!response.ok || (result.success !== 'true' && result.success !== true)) {
+          throw new Error('FormSubmit rejected the submission.');
+        }
+        formStatus.dataset.state = 'success';
+        formStatus.textContent = 'The test form accepted your submission. Atrezzo must still verify receipt in its email inbox.';
+        contactForm.reset();
+      } catch (error) {
+        formStatus.dataset.state = 'error';
+        formStatus.textContent = 'The test message could not be confirmed as submitted. Please try again later; bookings remain available through Fresha.';
+      } finally {
+        formButton.disabled = false;
+        formButton.removeAttribute('aria-busy');
+      }
+    });
+  }
+
   const onScrollHeader = () => header?.classList.toggle('is-scrolled',window.scrollY > 30);
   window.addEventListener('scroll',onScrollHeader,{passive:true});
   onScrollHeader();
