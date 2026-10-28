@@ -205,3 +205,8 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **QA ESTÁTICO:** 20/20 comprobaciones (estructura, 6 cards, precios, CTA, noindex, sintaxis JS y CSS, scroll desktop, swipe móvil, links internos).
 - **QA VISUAL:** sigue pendiente comprobación real en navegador a 375/768/1024/1440 px, incluida la zona sombreada denunciada en el video del cliente.
 - **ESTADO:** implementado y pendiente validación visual final. Nada más del Home ha cambiado.
+
+### Preview Treatments v4 desplegada — 2026-10-29
+- **GitHub Pages:** `b79106af5276bd7721b2ce1d664ed5583eb2754b`, ejecución `40789960990` con build y deploy **success**.
+- **Archivos verificados:** `main/index.html` y `main/assets/css/styles.css` con SHA idénticos a los de `work/home-v1/web/`.
+- **PENDIENTE:** comprobar visualmente a 375/768/1024/1440 la altura, el zoom y la ausencia de línea cortada. No se ha validado el resultado visual en navegador real.
