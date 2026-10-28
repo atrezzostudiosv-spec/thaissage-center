@@ -10,7 +10,7 @@ Desde la carpeta `web/`: `python3 -m http.server 4173`, luego abrir `http://loca
 - El cliente autoriza diseño, desarrollo y fotografías ilustrativas cinematográficas creadas para el proyecto; solo se conservarán tratamientos e información realmente ofrecidos.
 - Los enlaces existentes de **Fresha se mantienen intactos**. El formulario de contacto de **pruebas**, distinto de las reservas, apunta temporalmente a Atrezzo Studios (`atrezzostudiosv@gmail.com`) mediante FormSubmit.
 - El formulario comunica de forma visible su condición de prueba y no acepta información sanitaria o financiera sensible. El envío al servicio y la recepción en el buzón son verificaciones distintas.
-- El cliente autoriza imágenes originales, pero las imágenes ilustrativas externas que muestra actualmente el Home **todavía no se han sustituido** por fotografías generadas alojadas en este repositorio.
+- El Home utiliza **fotografías ilustrativas generadas y preparadas por Atrezzo** y autohospedadas en `assets/images/` (11 WebP contando las variantes móviles). No representan empleados, clientes ni sedes reales.
 - Registro detallado en [`../docs/DECISIONES-DE-CLIENTE-Y-FORMULARIOS.md`](../docs/DECISIONES-DE-CLIENTE-Y-FORMULARIOS.md).
 
 ## Implementado

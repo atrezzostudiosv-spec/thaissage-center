@@ -109,3 +109,11 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **NO COMPROBADO:** recepción efectiva en el correo, activación de FormSubmit, recorrido de envío en servicio real, QA completo del nuevo bloque en los cuatro breakpoints y sustitución de las fotografías ilustrativas externas por nuevos assets propios.
 - **ESTADO:** formulario implementado, EN VALIDACIÓN. Sitio de 18 páginas aún en desarrollo, no publicado.
 - **Referencia:** `docs/DECISIONES-DE-CLIENTE-Y-FORMULARIOS.md`.
+
+
+## Integración fotográfica propia — 28 octubre 2026
+
+- **REALIZADO:** biblioteca de 11 archivos WebP generados/recompuestos de imágenes originales del proyecto, para 7 escenas y 4 variantes móviles.
+- **IMPLEMENTADO:** todas las 14 referencias CSS a fotografías de Unsplash sustituidas por recursos locales; preload del hero por dispositivo; overlays, CTA, reservas y movimiento conservados.
+- **PROCEDENCIA:** imágenes ilustrativas, no muestran sedes, trabajadores ni clientela reales de Thaissage Center.
+- **ESTADO:** integración fotográfica desarrollada, **EN VALIDACIÓN VISUAL**; faltan pruebas renderizadas a 375/768/1024/1440 y rendimiento en red.

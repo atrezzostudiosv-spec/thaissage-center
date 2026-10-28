@@ -1,15 +1,21 @@
-# Illustrative photograph sources — Thaissage Center Home v1
+# Thaissage Center — Original cinematic photo library (Home)
 
-**Important:** These images are licensed illustrations, not photos of actual Thaissage Center venues, staff or guests. All sources were observed offering **Download free** under the Unsplash License (28 October 2026). Read https://unsplash.com/license; credit is appreciated. Photos are served from Unsplash CDN with width and quality parameters, not copied from another massage provider.
+**Client approval:** 2026-10-28, expressly authorizes original illustrative cinematic images for this website. All photographs here are **illustrative**, not documentary images of Thaissage Center staff, visitors, or physical locations.
 
-| Home scene | Subject | Photo / author | Source |
-|---|---|---|---|
-| Hero | Massage room ready for a session | Jakub Klucký | https://unsplash.com/photos/a-massage-room-is-clean-and-ready-for-a-session-oAvwAKFiU7Q |
-| Treatments editorial photo | Therapist providing a back massage | Jakub Klucký | https://unsplash.com/photos/massage-therapist-giving-a-back-massage-7yeqemd-p90 |
-| Heritage transition | Aromatherapy diffuser, candles and towel | Mediamodifier | https://unsplash.com/photos/reed-diffuser-with-candles-and-towel-W7AyAs7azHc |
-| Chiang Mai package | Cream-colored towel / textile still life | Sohail Asim | https://unsplash.com/photos/a-cream-colored-textured-towel-draped-over-a-basket-ftj5cJbA2UY |
-| Bangkok package | Rustic spa towel scene | Kier in Sight Archives | https://unsplash.com/photos/white-towel-on-stainless-steel-towel-holder-WkIO-E43dbo |
-| Phuket package | White flowers and green ceramic bowl | SURABHI | https://unsplash.com/photos/white-flower-beside-green-ceramic-bowl-D26kn1AQ0-E |
-| Gift section | Candle on towels and plant | Jennie Razumnaya | https://unsplash.com/photos/a-candle-sits-on-a-stack-of-towels-next-to-a-plant-Q8Acb0NuaW8 |
+| Asset in `web/assets/images/` | Home scene | English descriptive/SEO alt suggestion (if used as an informative `img`) |
+|---|---|---|
+| thaissage-hero-spa-interior-desktop.webp | Hero desktop | Warm spa interior with prepared massage table and filtered afternoon light |
+| thaissage-hero-spa-interior-mobile.webp | Hero mobile | Warm spa treatment room with softly lit linens |
+| thaissage-massage-hands-treatment-editorial.webp | Treatment editorial | Hands providing a massage treatment in a warmly lit spa setting |
+| thaissage-massage-hands-treatment-mobile.webp | Treatment mobile | Close-up of hands during massage |
+| thaissage-thai-massage-ritual-wide.webp | Thailand to Texas cinematic transition | Spa massage therapist attending to a guest in warm natural light |
+| thaissage-thai-massage-ritual-mobile.webp | Ritual mobile | Illustrative Thai-style massage scene |
+| thaissage-signature-chiang-mai-soft-linens.webp | Chiang Mai package | Cozy treatment room with soft white linens and dark wood detailing |
+| thaissage-signature-bangkok-massage.webp | Bangkok package | Massage therapist's hands applying pressure in a calm treatment setting |
+| thaissage-signature-phuket-floral-ritual.webp | Phuket package | White blossoms and natural spa ritual accessories |
+| thaissage-gift-experience-cinematic.webp | Gift card panoramic | Relaxing spa treatment with soft floral accents |
+| thaissage-gift-experience-mobile.webp | Gift card mobile | Peaceful massage scene with floral accents |
 
-**Remaining before publication:** obtain approval and source photos of Frisco, Flower Mound and Southlake; replace stock as appropriate; self-host optimized WebP/AVIF assets instead of relying on a third-party image CDN; verify visually with external images loaded in a browser with network access.
+**Provenance:** source material generated in this project with an image-generation model; room and close-up photographs were originally generated as standalone images, others cropped, color-graded or assembled from generated spa-design visuals. No third-party Unsplash requests are necessary for the homepage photography.
+
+**Implementation:** images are CSS backgrounds marked decorative with accessible narrative HTML; avoid adding `alt` to non-existent `img` elements. WebP assets optimized for each scene and mobile variants. Do not misrepresent their content as actual treatments performed or real facilities. Image-focal-point and quality checks remain open.
