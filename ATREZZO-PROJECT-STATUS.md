@@ -148,3 +148,9 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **CONSERVADO:** H1, párrafo, fotografías, resto de secciones, 3 enlaces Fresha, gift cards Square, reseñas Frisco y formulario de prueba.
 - **VERIFICADO EN CÓDIGO:** 21/21 comprobaciones estáticas incluyendo anchors, elementos duplicados, flujos de navegación, media query, noindex, balance de CSS y prefers-reduced-motion.
 - **PENDIENTE:** inspección visual real en navegador a 375/768/1024/1440 px, tap/hover y recepción del formulario. Fase Home sigue EN VALIDACIÓN.
+
+### Publicación de preview — ajuste 2026-10-28
+- **VERIFICADO:** sincronización de HTML, CSS y JS desde `work/home-v1/web` a la raíz de `main` (mismos SHA de blob).
+- **VERIFICADO:** GitHub Pages build y deploy correctos en ejecución `40753024528` para commit `a5954d1e61576924a8b88a5c57f105af7b1acc72`.
+- **PREVIEW:** https://atrezzostudiosv-spec.github.io/thaissage-center/
+- **NO COMPROBADO:** navegación renderizada del ajuste a 375/768/1024/1440 y comportamiento real del formulario.
