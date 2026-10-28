@@ -165,3 +165,8 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **PREVIEW:** código y recursos sincronizados en `main`, commit `6c6f2fa76ef32c0f0150ccafed0016a05b82e7d0`. GitHub Pages desplegado desde main.
 - **PENDIENTE DE QA:** animación renderizada real en 375 / 768 / 1024 / 1440 px, contraste, scroll reverso, taps, foco y rendimiento del navegador; la fase Home sigue EN VALIDACIÓN.
 - **DOCUMENTACIÓN:** `docs/HOME-TREATMENTS-SCROLL-CINEMATICO.md`. Restantes 17 páginas sin alterar.
+
+
+### Verificación del despliegue — tratamientos
+- Ejecución GitHub Pages `40772453399` para commit `6c6f2fa76ef32c0f0150ccafed0016a05b82e7d0`: jobs **build, deploy y report-build-status = success**.
+- Se confirma despliegue técnico; **no** equivale a comprobación visual del scroll horizontal en navegadores reales.
