@@ -178,3 +178,9 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **VERIFICADO EN SOURCE:** 20/20 checks estáticos incl. JS compilable, servicios/URLs Fresha y Square, cero precios ficticios, noindex y media query reduced-motion.
 - **PENDIENTE:** QA visual en navegador a 375/768/1024/1440, foco y swipe reales; Chromium del entorno bloqueó acceso público.
 - **ALCANCE:** solo sección Treatments, sin cambios a Home aprobado fuera de esta sección.
+
+### Publicación Treatments Slider v2 — 2026-10-28
+- **PUBLICADO EN PREVIEW:** GitHub Pages desde `main`, commit `0ae81abf3b8661365ff5ca5a7e54d4fcc91d0e37`.
+- **CONFIRMADO POR GITHUB:** build, report-build-status y deploy = success, ejecución `40783643105`.
+- **ESTADO DE VALIDACIÓN:** comprobaciones estructurales 20/20 superadas; permanece pendiente QA visual real de la versión desplegada y pruebas con gesto táctil.
+- **NO PUBLICADO COMO PRODUCCIÓN:** demo sigue protegida por `noindex`.
