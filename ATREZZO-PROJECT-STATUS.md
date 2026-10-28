@@ -170,3 +170,11 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 ### Verificación del despliegue — tratamientos
 - Ejecución GitHub Pages `40772453399` para commit `6c6f2fa76ef32c0f0150ccafed0016a05b82e7d0`: jobs **build, deploy y report-build-status = success**.
 - Se confirma despliegue técnico; **no** equivale a comprobación visual del scroll horizontal en navegadores reales.
+
+
+## Treatments — Carrusel fotográfico central v2 (2026-10-28)
+- **DESARROLLADO:** nueva composición con fondo fotográfico desenfocado, cards a sangre, tipografía editorial y gradiente; 6 tratamientos y fotografías WebP originales conservados; card central ampliada y laterales visibles.
+- **ELIMINADO:** comportamiento sticky y mapeo del scroll vertical a desplazamiento horizontal. Ahora carousel deslizante nativo (swipe/flechas/puntos/teclado), scroll normal de la página.
+- **VERIFICADO EN SOURCE:** 20/20 checks estáticos incl. JS compilable, servicios/URLs Fresha y Square, cero precios ficticios, noindex y media query reduced-motion.
+- **PENDIENTE:** QA visual en navegador a 375/768/1024/1440, foco y swipe reales; Chromium del entorno bloqueó acceso público.
+- **ALCANCE:** solo sección Treatments, sin cambios a Home aprobado fuera de esta sección.
