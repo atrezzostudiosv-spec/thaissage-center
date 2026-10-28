@@ -184,3 +184,9 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **CONFIRMADO POR GITHUB:** build, report-build-status y deploy = success, ejecución `40783643105`.
 - **ESTADO DE VALIDACIÓN:** comprobaciones estructurales 20/20 superadas; permanece pendiente QA visual real de la versión desplegada y pruebas con gesto táctil.
 - **NO PUBLICADO COMO PRODUCCIÓN:** demo sigue protegida por `noindex`.
+
+## Treatments v3 — scroll desktop y tarifas (2026-10-29)
+- **IMPLEMENTADO en work/home-v1**: duraciones/precios publicados (5 tratamientos con tarifa concreta, grupo restante «Varies/See pricing»), botones de contorno, scroll sticky horizontal solo en escritorio con zoom hover. Movimiento móvil conservado.
+- **ORIGEN DE TARIFAS**: thaissagecenter.com (Thai, Thai Combination, Swedish, Deep Tissue $80/60min; Couples $160/60min). Duraciones hasta 120 minutos. Precio final según Fresha.
+- **VERIFICADO**: 22/22 controles estáticos y sintaxis JS. **PENDIENTE**: comprobación renderizada y de interacción a 375/768/1024/1440.
+- **ALCANCE**: solo Treatments; las demás secciones sin cambios.
