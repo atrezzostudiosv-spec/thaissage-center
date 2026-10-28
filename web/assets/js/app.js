@@ -113,6 +113,13 @@
       }
       sync(target);
     };
+    // Keep keyboard-focused booking links visible during the sticky sequence.
+    cards.forEach((card, index) => {
+      card.querySelector('a')?.addEventListener('focus', () => {
+        if (!enabled) return;
+        window.scrollTo({top: sectionStart + Math.min(travel, index * itemStep()), behavior:'auto'});
+      });
+    });
     previous?.addEventListener('click', () => navigate(-1));
     next?.addEventListener('click', () => navigate(1));
     treatmentsWindow.addEventListener('scroll', () => {
