@@ -78,60 +78,72 @@
 }
 
 
-
-/* ATREZZO 2026 — approved refinement, limited to header and Home hero.
-   A smoked-glass floating menu, warmer photographic overlay, tactile split-pill actions.
-   This block overrides the initial header/hero implementation without changing inner pages. */
+/* ATREZZO — approved revision of header and hero only.
+   Integrated full-width translucent header, understated capsule buttons, and
+   editorial eGift feature visible in the normal mobile reading flow.
+   Replaces the previous floating-pill implementation; no stacked overrides. */
 .announcement{display:none}
-.site-header,.site-header.is-scrolled{position:fixed;top:0;left:0;right:0;z-index:85;background:transparent;border:0;box-shadow:none;pointer-events:none;transition:none}
-.site-header:before{content:"";position:absolute;inset:0 0 auto;height:120px;background:linear-gradient(180deg,rgba(32,23,18,.55),transparent);opacity:1;pointer-events:none;transition:opacity .3s}
-.site-header.is-scrolled:before{height:100%;background:rgba(39,31,27,.84);backdrop-filter:blur(17px);-webkit-backdrop-filter:blur(17px);border-bottom:1px solid rgba(255,255,255,.12)}
-.site-header .header-inner{position:relative;z-index:1;height:102px;pointer-events:auto;gap:20px}
+.site-header,.site-header.is-scrolled{
+  position:fixed;top:0;right:0;left:0;z-index:85;
+  border:0;border-bottom:1px solid rgba(255,250,245,.30);
+  background:rgba(53,40,34,.28);
+  backdrop-filter:blur(18px) saturate(105%);
+  -webkit-backdrop-filter:blur(18px) saturate(105%);
+  box-shadow:none;transition:background .3s,border-color .3s;
+}
+.site-header.is-scrolled{background:rgba(49,37,31,.88);border-bottom-color:rgba(255,255,255,.19)}
+.site-header .header-inner{height:82px;gap:24px}
 .site-header .brand{color:#fff}
-.site-header .brand-mark{stroke:#f4e9da}
-.site-header .brand-name{font-size:19px;letter-spacing:.13em;text-shadow:0 2px 12px rgba(0,0,0,.22)}
-.site-header .brand-name small{font-size:8px;letter-spacing:.45em}
-.site-header .desktop-nav{background:rgba(50,38,32,.48);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:15px 23px;gap:clamp(14px,1.6vw,26px);backdrop-filter:blur(18px) saturate(120%);-webkit-backdrop-filter:blur(18px) saturate(120%);box-shadow:0 10px 28px rgba(25,17,14,.1)}
-.site-header .desktop-nav a{color:#fff8ed;font-size:10px;font-weight:600;letter-spacing:.01em}
-.site-header .desktop-nav a::after{background:#e5d1b9}
-.site-header .header-actions{position:relative;z-index:2}
-.site-header .mobile-toggle{border-radius:50%;border-color:rgba(255,255,255,.55);background:rgba(52,41,36,.46);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.site-header .brand-mark{stroke:#f2d9b8}
+.site-header .brand-name{color:#fff}
+.site-header .desktop-nav{display:flex;align-items:center;gap:clamp(15px,1.8vw,29px);padding:0;background:transparent;border:0;border-radius:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.site-header .desktop-nav a{color:#fff7ef;font-size:11px;font-weight:600}
+.site-header .desktop-nav a::after{background:#ead6c1}
+.site-header .header-actions{flex-shrink:0}
+.site-header .mobile-toggle{border:1px solid rgba(255,255,255,.57);border-radius:999px;background:rgba(255,255,255,.07)}
 .site-header .mobile-toggle span{background:#fff}
-.site-header .mobile-nav{pointer-events:auto;background:rgba(43,34,29,.96);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:23px;margin:0 22px;padding:16px 26px 24px;box-shadow:0 26px 54px #170e0c50;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
-.site-header .mobile-nav a{border-color:rgba(255,255,255,.16)}
-.site-header .mobile-nav .mobile-book{color:#f6dfc7}
-.site-header .brand:focus-visible,.site-header a:focus-visible,.site-header button:focus-visible,.hero a:focus-visible{outline:3px solid #f2d39f;outline-offset:4px}
+.site-header .mobile-nav{background:rgba(49,37,32,.96);color:#fff;border:1px solid rgba(255,255,255,.15);margin:0 clamp(15px,3.5vw,45px);border-radius:0 0 14px 14px;padding:16px 26px 24px;box-shadow:0 22px 46px #20161354;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.site-header .mobile-nav a{border-bottom-color:rgba(255,255,255,.16)}
+.site-header .mobile-nav .mobile-book{color:#f3d9c0}
+.site-header a:focus-visible,.site-header button:focus-visible,.hero a:focus-visible{outline:2px solid #f4d7ad;outline-offset:4px}
 
-/* Arrow capsule slides from left to right on hover, touch-active, or keyboard focus. */
-.motion-pill{--pill-diameter:36px;position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;min-height:54px;min-width:205px;padding:12px 20px 12px 57px;border-radius:999px!important;gap:0!important;white-space:nowrap;text-decoration:none;border:1px solid transparent;transform:none!important;transition:padding .42s cubic-bezier(.22,.8,.28,1),background .25s,color .25s,border-color .25s}
-.motion-pill .pill-text{position:relative;z-index:1;line-height:1.3;font-size:12px;letter-spacing:.01em;font-weight:700;transition:transform .42s cubic-bezier(.22,.8,.28,1)}
-.motion-pill .pill-orb{position:absolute;top:50%;left:5px;z-index:1;display:grid;place-items:center;width:var(--pill-diameter);height:var(--pill-diameter);border-radius:50%;font-family:Arial,sans-serif;font-size:20px;font-weight:400;line-height:1;transform:translateY(-50%);transition:left .46s cubic-bezier(.22,.8,.28,1),background .3s,color .3s}
-.motion-pill:hover,.motion-pill:focus-visible,.motion-pill:active{padding-left:20px;padding-right:57px}
-.motion-pill:hover .pill-orb,.motion-pill:focus-visible .pill-orb,.motion-pill:active .pill-orb{left:calc(100% - var(--pill-diameter) - 5px)}
-.motion-pill-header{background:rgba(255,251,246,.96);border-color:rgba(255,255,255,.84);color:#49362e;min-width:155px;min-height:49px;padding-left:52px}
-.motion-pill-header .pill-orb{background:#a57a76;color:#fff}
-.motion-pill-header:hover{background:#fff}
-.motion-pill-header:hover,.motion-pill-header:focus-visible{padding-left:18px;padding-right:54px}
-.motion-pill-light{background:#fff8ef;color:#4e3c32;border-color:#fff8ef}
-.motion-pill-light .pill-orb{background:#9d788f;color:#fff}
-.motion-pill-light:hover{background:#fff}
-.motion-pill-outline{background:rgba(36,28,23,.19);color:#fff;border-color:rgba(255,255,255,.74);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
-.motion-pill-outline .pill-orb{background:rgba(255,255,255,.9);color:#5b443a}
-.motion-pill-outline:hover{background:rgba(255,255,255,.16)}
+/* Refined CTA: no moving orb or circular icon. Only a small arrow response. */
+.refined-cta{border-radius:999px;min-height:52px;padding:13px 24px;gap:22px;letter-spacing:.01em;font-size:12px;font-weight:600;transform:none!important;transition:background .22s,border-color .22s,color .22s,box-shadow .22s!important}
+.refined-cta span{display:inline-block;font:400 16px/1 'Open Sans',Arial,sans-serif;transition:transform .22s ease}
+.refined-cta:hover span,.refined-cta:focus-visible span{transform:translate(3px,-2px)}
+.refined-cta:active{filter:brightness(.96)}
+.site-header .header-cta{padding:12px 21px;min-height:46px;gap:20px;background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.84);color:#fff;white-space:nowrap}
+.site-header .header-cta:hover{background:rgba(255,255,255,.16);border-color:#fff;color:#fff}
+.hero-cta-primary{background:#f9f4ed;border-color:#f9f4ed;color:#4c3c33}
+.hero-cta-primary:hover{background:#fff;border-color:#fff;color:#3d3029}
+.hero-cta-secondary{background:rgba(39,29,25,.16);border-color:rgba(255,255,255,.78);color:#fff;backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.hero-cta-secondary:hover{background:rgba(255,255,255,.16);border-color:#fff;color:#fff}
 
-/* Hero remains full-bleed and all original editorial copy remains intact. */
+/* Preserve existing image and copy, with a light warm filter that improves atmosphere. */
 .hero{min-height:clamp(740px,100svh,980px);background:#614938}
-.hero-inner{padding-top:148px;padding-bottom:130px}
-.hero-content{max-width:685px}
+.hero-inner{padding-top:136px;padding-bottom:110px}
+.hero-content{max-width:690px}
 .hero h1{font-size:clamp(52px,5.35vw,84px)}
-.hero-shade{background:linear-gradient(90deg,rgba(36,25,20,.76) 0%,rgba(41,29,23,.63) 34%,rgba(35,25,22,.11) 77%,rgba(35,25,22,.06) 100%),linear-gradient(0deg,rgba(28,21,18,.56) 0%,transparent 25%)}
-.hero-actions{gap:13px}
-.hero-vertical{color:#f5e6d5}
+.hero-shade{background:linear-gradient(90deg,rgba(36,25,20,.77) 0%,rgba(41,29,23,.62) 33%,rgba(35,25,22,.14) 76%,rgba(35,25,22,.07) 100%),linear-gradient(0deg,rgba(29,21,18,.52),transparent 24%)}
+.hero-actions{gap:12px}
+.hero-vertical{color:#f1dfce}
 .hero-bottom{bottom:27px}
 .hero-bottom>span{opacity:.86}
 
-/* Google review proof: score references verified Frisco aggregate listing, no invented faces. */
-.hero-review-proof{display:inline-flex;align-items:center;gap:13px;max-width:100%;margin-top:36px;color:#f8eee2;border-radius:12px;padding:8px 2px;text-decoration:none;transition:opacity .2s,transform .2s}
+/* eGift card: elevated on desktop, positioned directly below booking buttons
+   on smaller screens; it is never pinned below a fixed hero. */
+.hero-gift-card{position:absolute;right:0;bottom:clamp(165px,19vh,240px);z-index:4;display:grid;grid-template-columns:65px minmax(0,1fr) 20px;gap:13px;align-items:center;width:344px;max-width:100%;min-height:90px;padding:10px 13px 10px 10px;background:rgba(64,46,37,.73);color:#fff;border:1px solid rgba(255,255,255,.40);border-radius:13px;box-shadow:0 18px 40px rgba(27,19,16,.23);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .23s,transform .23s}
+.hero-gift-card:hover{background:rgba(72,50,41,.90);transform:translateY(-2px)}
+.hero-gift-image{display:block;width:65px;height:65px;border-radius:8px;background:#6f5948 url('../images/thaissage-gift-experience-cinematic.webp') center/cover}
+.hero-gift-copy{display:flex;flex-direction:column;gap:3px;min-width:0}
+.hero-gift-copy small{font-size:9px;font-weight:700;line-height:1.25;letter-spacing:.15em;color:#f5d9b8}
+.hero-gift-copy strong{font:400 18px/1.2 'Playfair Display',Georgia,serif;letter-spacing:-.01em}
+.hero-gift-copy>span{font-size:11px;font-weight:600;line-height:1.4;color:#fff8f1}
+.hero-gift-arrow{display:block;justify-self:center;font:400 19px/1 'Open Sans',Arial,sans-serif;transition:transform .23s}
+.hero-gift-card:hover .hero-gift-arrow,.hero-gift-card:focus-visible .hero-gift-arrow{transform:translate(2px,-2px)}
+
+/* Existing verified review proof remains, without invented avatars. */
+.hero-review-proof{display:inline-flex;align-items:center;gap:13px;max-width:100%;margin-top:34px;color:#f8eee2;border-radius:12px;padding:8px 2px;text-decoration:none;transition:opacity .2s,transform .2s}
 .hero-review-proof:hover{opacity:.92;transform:translateY(-2px)}
 .proof-stars{font:20px/1 Arial,sans-serif;white-space:nowrap;letter-spacing:1px;color:#f1be76}
 .proof-star-fraction{display:inline-block;clip-path:inset(0 20% 0 0);margin-left:-1px}
@@ -140,72 +152,61 @@
 .proof-copy{display:flex;flex-direction:column;gap:0;border-left:1px solid rgba(255,255,255,.38);padding-left:13px}
 .proof-copy strong{font-size:11px;line-height:1.5;font-weight:700}
 .proof-copy small{font-size:10px;line-height:1.6;opacity:.9}
-.hero-gift-card{position:absolute;right:clamp(36px,4vw,85px);bottom:100px;z-index:4;display:grid;grid-template-columns:76px minmax(0,1fr) 26px;gap:13px;align-items:center;width:min(350px,30vw);min-width:285px;min-height:91px;padding:8px 12px 8px 8px;border:1px solid rgba(255,255,255,.31);border-radius:18px;background:rgba(75,60,51,.57);color:#fff;box-shadow:0 24px 60px #1d120f45;backdrop-filter:blur(24px) saturate(115%);-webkit-backdrop-filter:blur(24px) saturate(115%);transition:background .25s,transform .25s}
-.hero-gift-card:hover{background:rgba(91,68,60,.73);transform:translateY(-4px)}
-.hero-gift-image{display:block;width:76px;height:75px;border-radius:12px;background:#6f5948 url('../images/thaissage-gift-experience-cinematic.webp') center / cover}
-.hero-gift-copy{display:flex;flex-direction:column;gap:2px;min-width:0}
-.hero-gift-copy small{font-size:8px;line-height:1.3;letter-spacing:.13em;font-weight:700;color:#ead4bc}
-.hero-gift-copy strong{font:400 17px/1.22 'Playfair Display',Georgia,serif}
-.hero-gift-copy>span{font-size:10px;font-weight:600;opacity:.92}
-.hero-gift-arrow{width:26px;height:26px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.52);border-radius:50%;font-size:17px;transition:transform .25s}
-.hero-gift-card:hover .hero-gift-arrow{transform:translate(2px,-2px)}
 
-@media(max-width:1180px){
- .site-header .brand-name{font-size:16px;letter-spacing:.08em}
- .site-header .desktop-nav{gap:12px;padding:14px 16px}
+@media(max-width:1160px){
+ .site-header .header-inner{gap:14px}
+ .site-header .desktop-nav{gap:13px}
  .site-header .desktop-nav a{font-size:10px}
- .motion-pill-header{min-width:145px}
- .hero-gift-card{right:32px;width:298px}
+ .site-header .brand-name{font-size:18px}
+ .site-header .header-cta{padding-inline:17px}
+}
+@media(max-width:1100px){
+ .site-header .desktop-nav{display:none}
+ .site-header .mobile-toggle{display:flex}
+ .hero-gift-card{position:relative;right:auto;bottom:auto;width:min(100%,380px);margin:23px 0 0;box-shadow:0 14px 34px rgba(22,15,12,.18)}
+ .hero-content{max-width:665px}
+ .hero-inner{padding-top:128px;padding-bottom:100px}
+ .hero-review-proof{margin-top:19px}
 }
 @media(max-width:940px){
- .site-header .header-inner{height:80px}
- .site-header .mobile-nav{margin:0 30px}
- .hero-inner{padding-top:128px}
- .hero-gift-card{bottom:92px;right:32px}
- .hero-content{max-width:630px}
+ .site-header .header-inner{height:76px}
+ .site-header .mobile-nav{margin:0 28px}
+ .hero-inner{padding-top:118px}
 }
 @media(max-width:720px){
- .site-header:before{height:110px}
- .site-header .header-inner{height:75px}
- .site-header .brand-name{font-size:16px}
+ .site-header .header-inner{height:68px}
  .site-header .header-cta{display:none}
- .site-header .mobile-nav{margin:0 17px}
- .hero{min-height:890px;min-height:max(890px,100svh)}
- .hero-inner{min-height:inherit;justify-content:flex-start;padding-top:142px;padding-bottom:180px}
+ .site-header .mobile-nav{margin:0 16px}
+ .hero{min-height:max(750px,100svh);height:auto}
+ .hero-inner{min-height:inherit;justify-content:flex-start;padding-top:104px;padding-bottom:42px}
  .hero-content{max-width:100%}
- .hero h1{font-size:clamp(43px,10.9vw,61px);line-height:1.12;margin-bottom:22px}
- .hero-intro{font-size:13px;line-height:1.75;margin-bottom:22px}
- .hero-shade{background:linear-gradient(90deg,rgba(34,24,20,.72),rgba(42,28,23,.49) 70%,rgba(38,28,23,.35)),linear-gradient(0deg,rgba(29,19,15,.78),transparent 45%)}
+ .hero h1{font-size:clamp(41px,10.2vw,61px);line-height:1.11;margin-bottom:19px}
+ .hero-intro{font-size:13px;line-height:1.65;margin-bottom:23px}
+ .hero-shade{background:linear-gradient(90deg,rgba(34,24,20,.78),rgba(42,28,23,.51) 76%,rgba(38,28,23,.37)),linear-gradient(0deg,rgba(29,19,15,.55),transparent 48%)}
  .hero-actions{gap:10px;align-items:flex-start}
- .hero-actions .motion-pill{min-height:49px;min-width:190px;padding:9px 18px 9px 54px}
- .hero-actions .motion-pill .pill-text{font-size:11px}
- .hero-actions .motion-pill:hover,.hero-actions .motion-pill:focus-visible,.hero-actions .motion-pill:active{padding-left:18px;padding-right:54px}
- .hero-review-proof{margin-top:25px;gap:9px}
+ .hero-actions .refined-cta{min-height:46px;padding:12px 19px;gap:18px;font-size:11px}
+ .hero-actions .refined-cta span{font-size:15px}
+ .hero-gift-card{width:100%;max-width:440px;min-height:85px;grid-template-columns:62px minmax(0,1fr) 19px;gap:12px;margin-top:23px;padding:9px;border-radius:11px}
+ .hero-gift-image{width:62px;height:62px}
+ .hero-gift-copy strong{font-size:17px}
+ .hero-review-proof{margin-top:13px;gap:8px}
  .proof-stars{font-size:16px}
  .proof-rating{font-size:18px}
  .proof-copy{padding-left:10px}
  .proof-copy strong{font-size:10px}
  .proof-copy small{font-size:9px}
- .hero-bottom{display:none}
- .hero-gift-card{right:22px;left:22px;bottom:34px;width:auto;min-width:0;max-width:380px;margin-inline:auto}
- .hero-vertical{display:none}
+ .hero-bottom,.hero-vertical{display:none}
 }
 @media(max-width:410px){
- .hero{min-height:910px}
- .hero-inner{padding-top:120px;padding-bottom:166px}
- .hero h1{font-size:clamp(41px,11vw,46px)}
- .hero-intro{font-size:12.5px}
+ .hero h1{font-size:clamp(39px,10.6vw,44px)}
+ .hero-intro{font-size:12.5px;line-height:1.62;margin-bottom:19px}
  .hero-actions{gap:9px}
- .hero-actions .motion-pill{min-width:182px}
- .hero-review-proof{flex-wrap:wrap;column-gap:8px;row-gap:5px}
- .hero-gift-card{bottom:24px;right:17px;left:17px}
+ .hero-actions .refined-cta{min-height:44px;padding:10px 17px}
+ .hero-gift-card{margin-top:18px}
+ .hero-gift-copy strong{font-size:16px}
 }
 @media(prefers-reduced-motion:reduce){
- .motion-pill,.motion-pill .pill-orb,.motion-pill .pill-text,.hero-gift-card,.hero-gift-arrow,.hero-review-proof{transition:none!important;animation:none!important}
- .motion-pill:hover,.motion-pill:focus-visible,.motion-pill:active{padding-left:57px;padding-right:20px}
- .motion-pill-header:hover,.motion-pill-header:focus-visible,.motion-pill-header:active{padding-left:52px;padding-right:20px}
- .motion-pill:hover .pill-orb,.motion-pill:focus-visible .pill-orb,.motion-pill:active .pill-orb{left:5px}
+ .refined-cta,.refined-cta span,.hero-gift-card,.hero-gift-arrow,.hero-review-proof,.site-header{transition:none!important}
+ .refined-cta:hover span,.refined-cta:focus-visible span,.hero-gift-card:hover .hero-gift-arrow,.hero-gift-card:focus-visible .hero-gift-arrow{transform:none!important}
 }
-@media print{
- .site-header,.hero-gift-card,.hero-review-proof{display:none!important}
-}
+@media print{.site-header,.hero-gift-card,.hero-review-proof{display:none!important}}
