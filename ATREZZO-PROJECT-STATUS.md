@@ -132,3 +132,10 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **VERIFICADO EN CÓDIGO:** 17/17 controles estáticos sobre los ficheros de la rama `work/home-v1`.
 - **NO COMPROBADO:** pruebas de interacción y layout renderizado de esta versión a 375/768/1024/1440 px. La valoración exacta de Google no se ha leído directamente; fuente agregadora documentada.
 - **ESTADO:** implementación en revisión visual. Véase `docs/HOME-HEADER-HERO-REFINEMENT-2026-10-28.md`.
+
+
+### Preview — refinamiento de Header y Hero publicado (2026-10-28)
+- **VERIFICADO EN GITHUB:** preview en `https://atrezzostudiosv-spec.github.io/thaissage-center/`; Pages build y deploy **success** para commit `ce6e9b41ecc033cdca8b183c6efdd4cbee8ce654` (ejecución `40750701761`).
+- **VERIFICADO EN SOURCE `main`:** `index.html` y `assets/css/styles.css` corresponden exactamente con los blobs de `work/home-v1` aprobados para vista previa.
+- **PENDIENTE:** inspección visual/navegación manual del resultado nuevo a 375/768/1024/1440 px; valoración directa de Google y formulario de contacto real.
+- **ESTADO:** preview desplegada correctamente, Home en validación visual.
