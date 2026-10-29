@@ -24,10 +24,12 @@
   <link rel="stylesheet" href="assets/css/home-integration.css?v=20261029-map-end-3">
   <link rel="stylesheet" href="assets/css/home-editorial-v2.css?v=20261029-green-footer-4">
   <link rel="stylesheet" href="assets/css/home-cinematic-sections-v3.css?v=20261029-visual-1">
+  <link rel="stylesheet" href="assets/css/home-scroll-ritual-v4.css?v=20261029-scroll-v4-1">
   <script defer src="assets/js/app.js"></script>
   <script defer src="assets/js/treatments-chapters.js?v=20261029-ranchman-4"></script>
   <script defer src="assets/js/locations-map.js?v=20261029-map-mobile-v2"></script>
-  <script defer src="assets/js/center-selector.js?v=20261029-visual-1"></script>
+  <script defer src="assets/js/center-selector.js?v=20261029-scroll-v4-1"></script>
+  <script defer src="assets/js/home-scroll-ritual-v4.js?v=20261029-scroll-v4-1"></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -100,7 +102,7 @@
           <div class="locations-story-intro"><span>OUR CENTERS / NORTH TEXAS</span><p>Choose where to unwind.</p></div>
           <div class="location-choice-list" aria-label="Thaissage Center locations">
 
-          <details class="location-choice is-open" name="thaissage-centers" open>
+          <details class="location-choice" name="thaissage-centers">
             <summary class="location-choice-summary">
               <span class="location-choice-num">01 / 03</span>
               <span class="location-choice-name">Frisco</span>
@@ -154,10 +156,8 @@
       <p class="locations-footnote container">Services and booking times may vary by location. Booking opens on Fresha.</p>
     </section>
 
-<section class="treatments-section treatments-slider treatments-light-ritual" id="treatments" aria-labelledby="treatments-title">
-      <div class="treatments-ambient" aria-hidden="true"></div>
-      <div class="treatments-sticky" id="treatments-sticky">
-      <div class="container treatments-heading treatments-heading-slider">
+<div class="treatments-intro-bridge" aria-label="Introduction to massage treatments">
+  <div class="container treatments-heading treatments-heading-slider">
         <div class="treatments-heading-main" data-reveal>
           <p class="eyebrow eyebrow-dark"><span class="line-gold"></span> OUR TREATMENTS</p>
           <h2 id="treatments-title">Massage Treatments <br><em>Designed Around You.</em></h2>
@@ -167,6 +167,11 @@
           <a class="treatments-heading-link" href="#locations" data-book-dialog>Choose a Location to Book <span class="ui-arrow-wrap" aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a>
         </div>
       </div>
+</div>
+
+<section class="treatments-section treatments-slider treatments-light-ritual" id="treatments" aria-labelledby="treatments-title">
+      <div class="treatments-ambient" aria-hidden="true"></div>
+      <div class="treatments-sticky" id="treatments-sticky">
       <div class="treatments-window" id="treatments-window" role="region" aria-label="Six massage and wellness treatments with prices and booking options.">
         <div class="treatments-rail" id="treatments-rail">
           <article class="treatment-card" id="treatment-slide-1">
