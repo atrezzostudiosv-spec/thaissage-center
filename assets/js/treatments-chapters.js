@@ -10,7 +10,7 @@
   const sourceCards = [...(section?.querySelectorAll('.treatment-card') || [])];
   if (!section || !existingWindow || !heading || sourceCards.length !== 6) return;
 
-  const query = window.matchMedia('(min-width:1101px) and (min-height:720px) and (prefers-reduced-motion:no-preference)');
+  const query = window.matchMedia('(min-width:1025px) and (min-height:560px) and (prefers-reduced-motion:no-preference)');
   const create = (tag, className, textValue) => {
     const node = document.createElement(tag);
     if (className) node.className = className;
