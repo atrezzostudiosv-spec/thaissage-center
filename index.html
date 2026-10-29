@@ -23,9 +23,11 @@
   <link rel="stylesheet" href="assets/css/treatments-mobile.css?v=20261029-mobile-v1">
   <link rel="stylesheet" href="assets/css/home-integration.css?v=20261029-map-end-3">
   <link rel="stylesheet" href="assets/css/home-editorial-v2.css?v=20261029-green-footer-4">
+  <link rel="stylesheet" href="assets/css/home-cinematic-sections-v3.css?v=20261029-visual-1">
   <script defer src="assets/js/app.js"></script>
   <script defer src="assets/js/treatments-chapters.js?v=20261029-ranchman-4"></script>
   <script defer src="assets/js/locations-map.js?v=20261029-map-mobile-v2"></script>
+  <script defer src="assets/js/center-selector.js?v=20261029-visual-1"></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -80,12 +82,74 @@
       <div class="hero-vertical" aria-hidden="true">A THOUGHTFUL MOMENT OF CARE</div>
     </section>
 
-<section class="locations-section section-pad" id="locations" aria-labelledby="locations-title">
-      <div class="container locations-heading" data-reveal><p class="eyebrow eyebrow-dark"><span class="line-gold"></span> CHOOSE YOUR CENTER</p><h2 id="locations-title">Your Moment, <em>Closer to Home.</em></h2><p>Three Thaissage Center locations in North Texas. Select your center to see real-time treatments, prices and available appointments on Fresha.</p></div>
-      <div class="container location-grid">
-        <article class="location-panel" data-reveal><div class="location-city-number">01</div><div class="location-content"><p class="location-kicker">THAISSAGE CENTER / TEXAS</p><h3>Frisco</h3><address>9300 John Hickman Pkwy<br>Suite 605<br>Frisco, TX 75035</address><a href="tel:+14693521970" class="location-phone">(469) 352-1970</a><a class="location-book" href="https://www.fresha.com/a/thaissage-center-frisco-9300-john-hickman-parkway-kaw23s8f" target="_blank" rel="noopener noreferrer">Book Frisco <span class="ui-arrow-wrap" aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a><a class="location-view-map" href="#map-frisco" aria-label="View Frisco on the map">View on Map <span aria-hidden="true">↗</span></a></div></article>
-        <article class="location-panel" data-reveal><div class="location-city-number">02</div><div class="location-content"><p class="location-kicker">THAISSAGE CENTER / TEXAS</p><h3>Flower Mound</h3><address>1021 Long Prairie Rd<br>Suite 404<br>Flower Mound, TX 75022</address><a href="tel:+19728001978" class="location-phone">(972) 800-1978</a><a class="location-book" href="https://www.fresha.com/a/thaissage-center-flower-mound-1021-long-prairie-road-kiv9ttxc" target="_blank" rel="noopener noreferrer">Book Flower Mound <span class="ui-arrow-wrap" aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a><a class="location-view-map" href="#map-flower-mound" aria-label="View Flower Mound on the map">View on Map <span aria-hidden="true">↗</span></a></div></article>
-        <article class="location-panel" data-reveal><div class="location-city-number">03</div><div class="location-content"><p class="location-kicker">THAISSAGE CENTER / TEXAS</p><h3>Southlake</h3><address>101 River Oaks Dr<br>Southlake, TX</address><a href="tel:+19728001978" class="location-phone">(972) 800-1978</a><a class="location-book" href="https://www.fresha.com/a/thaissage-center-southlake-101-river-oaks-drive-t52fypr6" target="_blank" rel="noopener noreferrer">Book Southlake <span class="ui-arrow-wrap" aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a><a class="location-view-map" href="#map-southlake" aria-label="View Southlake on the map">View on Map <span aria-hidden="true">↗</span></a></div></article>
+
+    <section class="locations-section locations-cinematic section-pad" id="locations" aria-labelledby="locations-title">
+      <div class="container locations-heading" data-reveal>
+        <p class="eyebrow eyebrow-dark"><span class="line-gold"></span> CHOOSE YOUR CENTER</p>
+        <h2 id="locations-title">Your Moment, <em>Closer to Home.</em></h2>
+        <p>Three Thaissage Center locations in North Texas. Select your center to see real-time treatments, prices and available appointments on Fresha.</p>
+      </div>
+      <div class="container locations-story">
+        <div class="locations-story-visual">
+          <img src="assets/images/thaissage-massage-hands-treatment-editorial.webp"
+               width="1020" height="1275" loading="lazy" decoding="async"
+               alt="Illustrative close-up of a wellness massage treatment; not an image of a specific Thaissage location">
+          <div class="locations-story-visual-copy" aria-hidden="true"><span>THAILAND TO TEXAS</span><strong>Find your<br><em>moment.</em></strong><small>FRISCO · FLOWER MOUND · SOUTHLAKE</small></div>
+        </div>
+        <div class="locations-story-panel">
+          <div class="locations-story-intro"><span>OUR CENTERS / NORTH TEXAS</span><p>Choose where to unwind.</p></div>
+          <div class="location-choice-list" aria-label="Thaissage Center locations">
+
+          <details class="location-choice is-open" name="thaissage-centers" open>
+            <summary class="location-choice-summary">
+              <span class="location-choice-num">01 / 03</span>
+              <span class="location-choice-name">Frisco</span>
+              <span class="location-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </summary>
+            <div class="location-choice-content">
+              <address>9300 John Hickman Pkwy<br>Suite 605<br>Frisco, TX 75035</address>
+              <a class="location-choice-phone" href="tel:+14693521970">(469) 352-1970</a>
+              <div class="location-choice-actions">
+                <a class="location-choice-book" href="https://www.fresha.com/a/thaissage-center-frisco-9300-john-hickman-parkway-kaw23s8f" target="_blank" rel="noopener noreferrer">Book Frisco <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <a class="location-choice-map" href="#map-frisco">View on Map <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </details>
+
+          <details class="location-choice" name="thaissage-centers">
+            <summary class="location-choice-summary">
+              <span class="location-choice-num">02 / 03</span>
+              <span class="location-choice-name">Flower Mound</span>
+              <span class="location-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </summary>
+            <div class="location-choice-content">
+              <address>1021 Long Prairie Rd<br>Suite 404<br>Flower Mound, TX 75022</address>
+              <a class="location-choice-phone" href="tel:+19728001978">(972) 800-1978</a>
+              <div class="location-choice-actions">
+                <a class="location-choice-book" href="https://www.fresha.com/a/thaissage-center-flower-mound-1021-long-prairie-road-kiv9ttxc" target="_blank" rel="noopener noreferrer">Book Flower Mound <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <a class="location-choice-map" href="#map-flower-mound">View on Map <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </details>
+
+          <details class="location-choice" name="thaissage-centers">
+            <summary class="location-choice-summary">
+              <span class="location-choice-num">03 / 03</span>
+              <span class="location-choice-name">Southlake</span>
+              <span class="location-choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </summary>
+            <div class="location-choice-content">
+              <address>101 River Oaks Dr<br>Southlake, TX</address>
+              <a class="location-choice-phone" href="tel:+19728001978">(972) 800-1978</a>
+              <div class="location-choice-actions">
+                <a class="location-choice-book" href="https://www.fresha.com/a/thaissage-center-southlake-101-river-oaks-drive-t52fypr6" target="_blank" rel="noopener noreferrer">Book Southlake <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <a class="location-choice-map" href="#map-southlake">View on Map <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </details>
+          </div>
+          <p class="locations-story-footer">A quieter moment is closer than you think. Appointments and availability are confirmed on Fresha.</p>
+        </div>
       </div>
       <p class="locations-footnote container">Services and booking times may vary by location. Booking opens on Fresha.</p>
     </section>
@@ -204,12 +268,61 @@
       <div class="container heritage-inner"><p class="eyebrow eyebrow-light">THAILAND TO TEXAS</p><p class="heritage-phrase">An invitation <em>to slow down.</em></p><span class="heritage-stroke" aria-hidden="true"></span><p>Massage traditions, a moment of care, and room to reset — close to home.</p><a href="#locations" class="text-link text-link-white">Find your center <span class="ui-arrow-wrap" aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div>
     </section>
 
-<section class="signature-section section-pad" id="signature" aria-labelledby="signature-title">
-      <div class="container signature-heading"><div data-reveal><p class="eyebrow eyebrow-dark"><span class="line-gold"></span> TAKE A LITTLE LONGER</p><h2 id="signature-title">Three Signature <em>Experiences.</em></h2></div><p data-reveal>For a little more time to yourself, discover Thaissage Center's signature packages. Compare these longer experiences, then choose a location to confirm the current package menu and availability.</p></div>
-      <div class="container package-layout">
-        <article class="package package-one" data-reveal><div class="package-image package-image-1" aria-hidden="true"><div class="package-index">01 / 03</div></div><div class="package-content"><div class="package-eyebrow">SIGNATURE EXPERIENCE</div><h3>Chiang Mai</h3><p>A Thai-centered sequence combining traditional massage techniques and warm herbal-compress work.</p><div class="package-bottom"><span>120 min · $200*</span><a href="#locations" data-book-dialog aria-label="Check Chiang Mai package availability">Explore <span class="ui-arrow-wrap" aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div></div></article>
-        <article class="package package-two" data-reveal><div class="package-image package-image-2" aria-hidden="true"><div class="package-index">02 / 03</div></div><div class="package-content"><div class="package-eyebrow">SIGNATURE EXPERIENCE</div><h3>Bangkok</h3><p>A longer spa experience bringing together sauna, body scrub, and aromatherapy oil massage.</p><div class="package-bottom"><span>150 min · $230*</span><a href="#locations" data-book-dialog aria-label="Check Bangkok package availability">Explore <span class="ui-arrow-wrap" aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div></div></article>
-        <article class="package package-three" data-reveal><div class="package-image package-image-3" aria-hidden="true"><div class="package-index">03 / 03</div></div><div class="package-content"><div class="package-eyebrow">SIGNATURE EXPERIENCE</div><h3>Phuket</h3><p>A body scrub followed by a coconut-oil massage with a Swedish or deep tissue option.</p><div class="package-bottom"><span>120 min · $200*</span><a href="#locations" data-book-dialog aria-label="Check Phuket package availability">Explore <span class="ui-arrow-wrap" aria-hidden="true"><svg class="ui-arrow" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11"/></svg></span></a></div></div></article>
+
+    <section class="signature-section signature-cinematic section-pad" id="signature" aria-labelledby="signature-title">
+      <div class="container signature-heading">
+        <div data-reveal><p class="eyebrow eyebrow-dark"><span class="line-gold"></span> TAKE A LITTLE LONGER</p><h2 id="signature-title">Three Signature <em>Experiences.</em></h2></div>
+        <p data-reveal>For a little more time to yourself, discover Thaissage Center's signature packages. Compare these longer experiences, then choose a location to confirm the current package menu and availability.</p>
+      </div>
+      <div class="container signature-stories">
+
+        <article class="signature-story signature-story-one" aria-labelledby="signature-one-title">
+          <div class="signature-story-image" data-reveal>
+            <img src="assets/images/thaissage-signature-chiang-mai-soft-linens.webp" loading="lazy" decoding="async" width="840" height="1050" alt="Illustrative wellness suite with folded linens and a softly lit massage bed">
+            <span class="signature-story-image-caption" aria-hidden="true">THAISSAGE / SIGNATURE 01</span>
+          </div>
+          <div class="signature-story-content" data-reveal>
+            <p class="signature-story-index">01 / 03 <span aria-hidden="true"></span> SIGNATURE EXPERIENCE</p>
+            <h3 id="signature-one-title">Chiang Mai</h3>
+            <p class="signature-story-description">A Thai-centered sequence combining traditional massage techniques and warm herbal-compress work.</p>
+            <div class="signature-story-footer">
+              <span class="signature-story-duration">120 min · $200*</span>
+              <a href="#locations" data-book-dialog aria-label="Check Chiang Mai package availability">Check Availability <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="signature-story signature-story-two" aria-labelledby="signature-two-title">
+          <div class="signature-story-image" data-reveal>
+            <img src="assets/images/thaissage-signature-bangkok-massage.webp" loading="lazy" decoding="async" width="840" height="1050" alt="Illustrative spa massage scene in a calm treatment setting">
+            <span class="signature-story-image-caption" aria-hidden="true">THAISSAGE / SIGNATURE 02</span>
+          </div>
+          <div class="signature-story-content" data-reveal>
+            <p class="signature-story-index">02 / 03 <span aria-hidden="true"></span> SIGNATURE EXPERIENCE</p>
+            <h3 id="signature-two-title">Bangkok</h3>
+            <p class="signature-story-description">A longer spa experience bringing together sauna, body scrub, and aromatherapy oil massage.</p>
+            <div class="signature-story-footer">
+              <span class="signature-story-duration">150 min · $230*</span>
+              <a href="#locations" data-book-dialog aria-label="Check Bangkok package availability">Check Availability <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="signature-story signature-story-three" aria-labelledby="signature-three-title">
+          <div class="signature-story-image" data-reveal>
+            <img src="assets/images/thaissage-signature-phuket-floral-ritual.webp" loading="lazy" decoding="async" width="840" height="1050" alt="Illustrative botanical spa ritual detail with floral elements and soft light">
+            <span class="signature-story-image-caption" aria-hidden="true">THAISSAGE / SIGNATURE 03</span>
+          </div>
+          <div class="signature-story-content" data-reveal>
+            <p class="signature-story-index">03 / 03 <span aria-hidden="true"></span> SIGNATURE EXPERIENCE</p>
+            <h3 id="signature-three-title">Phuket</h3>
+            <p class="signature-story-description">A body scrub followed by a coconut-oil massage with a Swedish or deep tissue option.</p>
+            <div class="signature-story-footer">
+              <span class="signature-story-duration">120 min · $200*</span>
+              <a href="#locations" data-book-dialog aria-label="Check Phuket package availability">Check Availability <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </article>
       </div>
       <p class="package-disclaimer container">*Durations are from the original published menu and may have changed. Check current details on Fresha before booking.</p>
     </section>
