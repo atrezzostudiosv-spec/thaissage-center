@@ -204,7 +204,8 @@
   transform:translateY(calc(-100% - 3px));
   pointer-events:none;
 }
-.site-header:focus-within{
+/* Keyboard-only focus reveals the header. Mouse-clicked links do not pin it open. */
+.site-header:has(:focus-visible){
   transform:translateY(0);
   pointer-events:auto;
 }
