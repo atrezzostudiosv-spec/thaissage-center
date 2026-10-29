@@ -270,3 +270,11 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - Inspección estática en GitHub: 28/28 comprobaciones sobre JS, CSS balanceado, anchors, URLs Fresha/Square, seis duraciones y precios, CTA, SVG, overlays negros, superficies blancas, booking y noindex.
 - Contraste calculado sobre blanco: texto `#303B36` **11.64:1**; botón verde `#42675B` con texto blanco **6.32:1**; texto secundario `#66766F` **4.79:1**. Se oscurecieron etiquetas pequeñas a `#557468`.
 - **PENDIENTE antes de cerrar fase:** render visual real y prueba de navegación/legibilidad en Safari iPhone a 375 px y a 768/1024/1440 px; auditar imágenes superpuestas y CTA, sitio no indexado en demo, formulario Atrezzo real, rendimiento, teclado/foco. No afirmar QA visual sin efectuarla.
+
+
+### Confirmación publicación demo Porcelain Wellness
+- `main` commit: `350dfb9e0b2b7ca43238112d60bd72d7c0c13a7d`.
+- GitHub Actions Pages run: `40849414129`. **build = success, deploy = success, report-build-status = success**.
+- `main/index.html` y `main/assets/css/home-light-ritual.css` coinciden con `work/home-v1/web`.
+- Preview: https://atrezzostudiosv-spec.github.io/thaissage-center/
+- Fase visual **NO CERRADA**: falta inspección real 375/768/1024/1440, iPhone Safari, foco teclado, LCP/CLS, conexiones booking y video de muestra.
