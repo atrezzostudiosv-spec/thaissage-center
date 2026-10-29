@@ -183,3 +183,12 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **NO REALIZADO:** pruebas visuales reales a 375, 768, 1024 y 1440px, carga real del mapa/foto en GitHub Pages, interacciones Safari/Chrome, evaluación de contraste, Lighthouse ni comprobación de reservas. Sitio todavía no autorizado para producción.
 - **ESTADO:** Home editorial v2 **IMPLEMENTADO EN GITHUB / EN VALIDACIÓN VISUAL**. Esta entrada sustituye prioridades antiguas que decían que Locations/Approach/Signature no estaban desarrolladas.
 - **SIGUIENTE ACCIÓN ÚNICA:** revisar la demo completa con el usuario en desktop y móvil, y corregir únicamente defectos visuales/funcionales comprobados.
+
+## Ajuste visual puntual: fondo botánico del cierre + footer — 29/10/2026
+- **Solicitud:** sustituir fotografía de masaje del cierre por el fondo elegante de luz y **sombras suaves de hojas/plantas**, manteniendo continuidad desde «Make Room for Yourself» hasta el footer.
+- **Acceso GitHub:** autenticado, lectura y escritura en `atrezzostudiosv-spec/thaissage-center` confirmadas en la intervención.
+- **IMPLEMENTADO EN `main`:** creado `assets/images/thaissage-outro-botanical-shadows.svg` (SVG original ~5 KB con pared cálida, luz y sombras vegetales difusas, sin representación ficticia de instalaciones). `assets/css/home-editorial-v2.css` usa esta única imagen de fondo compartida en desktop y móvil, con focal móvil independiente, sin imagen de masaje repetida, sin gradiente de unión y con capa oscura de color uniforme para la lectura. En `index.html`, versión CSS actualizada a `20261029-botanical-outro-2` para invalidar caché.
+- **Cambios acotados:** ningún texto, CTA, enlace Fresha, menú, Treatments ni otras secciones modificadas.
+- **VERIFICACIÓN ESTÁTICA:** archivo SVG disponible en GitHub, CSS vinculado a dicho archivo en desktop/móvil, referencia versionada desde el Home, estructura CTA+footer en un solo `site-outro`, sin gradiente en el cierre, `noindex` mantenido, seis tratamientos y tres sedes conservados.
+- **POR VALIDAR:** el SVG es una composición gráfica y no fotografía. Contraste, apariencia de las sombras, nitidez, recortes de escritorio/móvil, despliegue real y scroll no han sido inspeccionados en navegador interactivo; no declarar cierre visual sin evidencia.
+- **ESTADO:** cambio puntual implementado, **EN VALIDACIÓN VISUAL**. Siguiente acción: evaluar visualmente el enlace de la demo a 375 y 1440 px, junto con la integración del Home.
