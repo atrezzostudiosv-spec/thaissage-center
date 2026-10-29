@@ -76,6 +76,8 @@
   gap:14px;
   border:0;
   border-radius:0;
+  outline:0;
+  box-shadow:none;
   background:transparent;
   color:#303B36;
   cursor:pointer;
