@@ -91,10 +91,12 @@
       active=-1;
       render(0,0,0);
 
-      observer=new IntersectionObserver(entries=>{
-        if(entries.some(x=>x.isIntersecting)) request();
-      },{rootMargin:'220px 0px'});
-      observer.observe(track);
+      if('IntersectionObserver' in window) {
+        observer=new IntersectionObserver(entries=>{
+          if(entries.some(x=>x.isIntersecting)) request();
+        },{rootMargin:'220px 0px'});
+        observer.observe(track);
+      }
       window.addEventListener('scroll',request,{passive:true});
       window.addEventListener('resize',request,{passive:true});
       window.addEventListener('pageshow',request);
