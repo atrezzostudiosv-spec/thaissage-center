@@ -132,3 +132,11 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **NO verificado:** resultado visual o ejecución de JavaScript en el despliegue de GitHub Pages, scroll real, click de botones, compatibilidad por navegador y respuesta a 375/768/1024/1440 px. La herramienta pública de lectura de la demo no permitió acceder a esa última versión. No afirmar entrega final.
 - **ESTADO:** Treatments full-bleed **EN VALIDACIÓN VISUAL**. Home restante y fases previas no modificados.
 - **SIGUIENTE ACCIÓN ÚNICA:** abrir en navegador real la demo y comprobar seis capítulos, barra inferior y flujos de reserva. Corregir únicamente fallos observados.
+
+## Tratamientos: limpieza de navegación inferior — 29/10/2026
+- **Petición del usuario:** eliminar los marcos morados que hacen parecer seis tarjetas/botones en la barra inferior, pero conservar nombres clicables, líneas de progreso y tratamiento activo. El resto del layout full-bleed está aprobado visualmente por captura de usuario.
+- **Causa identificada:** la regla global `button,a:focus-visible` de `assets/css/styles.css` genera contorno sobre todos los `button`; no se modificó la regla global para evitar impacto en secciones ya aprobadas.
+- **Cambio limitado:** `assets/css/treatments-chapters.css` restablece `outline:0`, `border:0`, `box-shadow:none` y mantiene foco de teclado distinguible con subrayado del nombre y línea clara. Se cambió la versión de la hoja en `index.html` a `20261029-nav-clean-5` para evitar caché.
+- **Móvil (SIN CAMBIOS):** se mantiene la cuadrícula en una columna a <=720px como fallback; propuesta futura de capítulos fotográficos verticales en flujo normal, sin los 6 sticky prolongados del desktop. No implementar hasta decisión de diseño; no confundir con prueba responsive.
+- **VERIFICADO:** CSS/HTML en GitHub y enlace versionado. **NO COMPROBADO:** render interactivo de la demo, foco real y todas las resoluciones.
+- **ESTADO:** ajuste desktop implementado, EN VALIDACIÓN VISUAL; fase móvil sin modificar. **SIGUIENTE PASO:** confirmar en navegador que los seis marcos desaparecieron, con foco de teclado visible y CTA intactos.
