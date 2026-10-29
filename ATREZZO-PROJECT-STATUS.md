@@ -192,3 +192,12 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **VERIFICACIÓN ESTÁTICA:** archivo SVG disponible en GitHub, CSS vinculado a dicho archivo en desktop/móvil, referencia versionada desde el Home, estructura CTA+footer en un solo `site-outro`, sin gradiente en el cierre, `noindex` mantenido, seis tratamientos y tres sedes conservados.
 - **POR VALIDAR:** el SVG es una composición gráfica y no fotografía. Contraste, apariencia de las sombras, nitidez, recortes de escritorio/móvil, despliegue real y scroll no han sido inspeccionados en navegador interactivo; no declarar cierre visual sin evidencia.
 - **ESTADO:** cambio puntual implementado, **EN VALIDACIÓN VISUAL**. Siguiente acción: evaluar visualmente el enlace de la demo a 375 y 1440 px, junto con la integración del Home.
+
+## Reversión solicitada del fondo botánico — 29/10/2026
+- **Solicitud:** volver exactamente al cierre visual anterior al último cambio de sombras de plantas.
+- **Restaurado:** `assets/css/home-editorial-v2.css` al contenido y SHA original `bcb703ebd015a6d242961a3f9009a675d9a8dca7` (foto panorámica `thaissage-thai-massage-ritual-wide.webp`, foto móvil `thaissage-thai-massage-ritual-mobile.webp` y capa uniforme previa). El CTA y footer siguen compartiendo una única fotografía.
+- **Caché:** `index.html` usa `20261029-restored-photo-3` para servir CSS restaurado.
+- **Limpieza:** eliminado el SVG botánico generado en la intervención revertida porque ya no se utiliza.
+- **SIN CAMBIOS:** Locations, mapa móvil, Our Approach, Signature, Treatments, Hero, CTA, footer, información comercial ni flujos Fresha.
+- **VERIFICADO EN CÓDIGO:** CSS restaurado y referencias originales; el despliegue visual en GitHub Pages sigue pendiente de validación en navegador.
+- **ESTADO:** reversión de último cambio completada en GitHub; vuelve a estar activa la fotografía anterior a las sombras botánicas.
