@@ -126,7 +126,7 @@
 /* Desktop: normal document wheel/trackpad scroll advances a sticky horizontal sequence.
    No wheel preventDefault, no body locking, and no sticky rule outside .is-scroll-ready. */
 @media(min-width:981px) and (min-height:690px) and (hover:hover) and (prefers-reduced-motion:no-preference){
-  .treatments-slider.is-scroll-ready{overflow:clip;padding:0}
+  .treatments-slider.is-scroll-ready{overflow:clip;padding:0 0 var(--treatments-exit-gap,160px)}
   .treatments-slider.is-scroll-ready .treatments-sticky{
     position:sticky;top:0;height:100svh;
     display:flex;flex-direction:column;justify-content:center;
@@ -152,7 +152,7 @@
   /* Bottom navigation intentionally removed. */
   .treatments-slider.is-scroll-ready .treatments-note{padding-top:7px}
   .treatments-slider.is-scroll-ready .treatment-card:hover{
-    transform:scale(1.08);z-index:6;opacity:1;
+    transform:none;z-index:1;opacity:1;
     box-shadow:none;
   }
 }
@@ -167,6 +167,49 @@
 @media(prefers-reduced-motion:reduce){
   .treatment-card-book,.treatment-card-book .treatment-book-arrow{transition:none!important}
   .treatment-card-book:hover .treatment-book-arrow{transform:none}
+}
+
+/* Treatments v5 — on desktop no automatic enlarged center card, no card collision.
+   Only the IMAGE zooms within the fixed card mask on hover. Tablet/mobile stays unchanged. */
+@media (min-width:981px) and (hover:hover) and (prefers-reduced-motion:no-preference){
+  .treatments-slider .treatment-card,
+  .treatments-slider .treatment-card.is-active,
+  .treatments-slider .treatment-card:hover{
+    transform:none;opacity:1;z-index:1;box-shadow:none;
+  }
+  .treatments-slider .treatment-card-photo,
+  .treatments-slider .treatment-card.is-active .treatment-card-photo{
+    transform:scale(1.015);
+  }
+  .treatments-slider .treatment-card:hover .treatment-card-photo{
+    transform:scale(1.085);
+  }
+  /* The last card remains visible for an extra scroll before the next scene.
+     The exit padding creates a natural visual separation from Heritage. */
+  .treatments-slider.is-scroll-ready .treatments-note{
+    padding-top:clamp(18px,2.4svh,31px);
+  }
+}
+@media (min-width:981px) and (hover:hover){
+  .treatments-slider:not(.is-scroll-ready){
+    padding-bottom:clamp(110px,12vw,185px);
+  }
+}
+/* Smart full-width navigation: down hides it, upward scroll restores it. */
+.site-header,.site-header.is-scrolled{
+  transition:transform .36s cubic-bezier(.22,.7,.26,1),background .3s,border-color .3s;
+  will-change:transform;
+}
+.site-header.is-hidden{
+  transform:translateY(calc(-100% - 3px));
+  pointer-events:none;
+}
+.site-header:focus-within{
+  transform:translateY(0);
+  pointer-events:auto;
+}
+@media(prefers-reduced-motion:reduce){
+  .site-header,.site-header.is-scrolled{transition:none!important}
 }
 
 /* Single cinematic scroll moment, no scroll hijack. */
