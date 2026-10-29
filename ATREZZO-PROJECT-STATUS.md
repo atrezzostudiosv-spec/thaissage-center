@@ -250,3 +250,23 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Github Pages SUCCESS**: build, deploy y report-build-status en ejecución `40841023879`, commit `864256ce7a90c8f3613dbff7232fd2073b78cc44`.
 - Verificado: `main/index.html`, `main/assets/css/home-light-ritual.css`, `main/assets/js/app.js` reflejan exactamente las versiones de `work/home-v1/web`.
 - **EN VALIDACIÓN VISUAL:** no se ha certificado aún mediante navegador a 375/768/1024/1440 px; el cliente verá la composición desplegada y se corregirán únicamente defectos observados. Video propio de muestra no integrado.
+
+
+## HOME v3 — Porcelain Wellness / dirección cromática APROBADA (2026-10-29)
+**Aprobación del usuario:** paleta claramente más luminosa (blanco porcelana, blanco arroz, niebla/eucalipto y grafito natural); sobre imágenes, **degradados NEGROS**, no marrones. **Vidrio ahumado** cuando realza la experiencia, sin sobrecargarla. Mantener hero, reseñas Google, eGift visible, navegación glass, booking Fresha, tipografías y fotografías originales.
+
+### Cambios en `web/assets/css/home-light-ritual.css`
+- Paleta: `#FFFFFF` fondo principal, `#F8FAF8` secundarios, `#EEF3F0` verde niebla, `#42675B` botones Book, `#303B36` tipografía. Nuevo `#F5EFED` para detalle pétalo. CSS base anterior conservado para rollback.
+- Header: cristal negro ahumado `rgba(12,18,16,.43)`, blur 20px; al desplazarse, tono más opaco; permanece su lógica hide-on-down/show-on-up.
+- Hero: composición intacta, foto original ligeramente más luminosa, overlay negro verdadero, estrellas Google y CTA Book; promoción eGift como **cristal ahumado negro** con letras blancas.
+- Locales: superficie blanca, etiquetas legibles y CTA eucalipto.
+- Tratamientos: mosaico editorial existente, pero **fotografía arriba + información sobre panel blanco abajo** (nombre, descripción, duración, precio, Book). Gradiente negro limitado a fotografía; zoom exclusivamente fotográfico. Misma información original en seis tarjetas.
+- Escena Heritage: degradado negro sobre fotografía, texto blanco. Gift chapter: fotografía full-bleed con degradado negro y CTA tipo vidrio ahumado.
+- Formulario de demostración, cierre y footer: fondos más blancos y acentos verdes. Mobile Book Now mantiene barra persistente clara y segura para la zona inferior.
+- Flechas SVG y movimientos sutiles M1/M2 y motion-reduction conservados. Metadato `theme-color` de la demo actualizado a `#FFFFFF` en `web/index.html`.
+- **NO** se ha incorporado video aún, porque no se entregó un clip específico verificado; no se han inventado imágenes, reseñas, precios, sedes o disponibilidad.
+
+### Estado y QA
+- Inspección estática en GitHub: 28/28 comprobaciones sobre JS, CSS balanceado, anchors, URLs Fresha/Square, seis duraciones y precios, CTA, SVG, overlays negros, superficies blancas, booking y noindex.
+- Contraste calculado sobre blanco: texto `#303B36` **11.64:1**; botón verde `#42675B` con texto blanco **6.32:1**; texto secundario `#66766F` **4.79:1**. Se oscurecieron etiquetas pequeñas a `#557468`.
+- **PENDIENTE antes de cerrar fase:** render visual real y prueba de navegación/legibilidad en Safari iPhone a 375 px y a 768/1024/1440 px; auditar imágenes superpuestas y CTA, sitio no indexado en demo, formulario Atrezzo real, rendimiento, teclado/foco. No afirmar QA visual sin efectuarla.
