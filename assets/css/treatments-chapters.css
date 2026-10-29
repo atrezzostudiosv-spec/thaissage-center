@@ -47,7 +47,7 @@
   .cinema-panel {
     z-index:0;
     opacity:0;
-    visibility:hidden;
+    visibility:visible;
     pointer-events:none;
     transition:opacity .42s ease;
   }
