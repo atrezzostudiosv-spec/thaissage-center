@@ -116,6 +116,30 @@
   }
 }
 
+/* Consistent direct-call action above each published timetable. */
+.directions-section .directions-call{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:5px;
+  margin:0 0 11px;
+}
+.directions-section .directions-call>span{
+  font:700 9px/1.4 'Open Sans',Arial,sans-serif;
+  color:#668574;
+  letter-spacing:.15em;
+}
+.directions-section .directions-call a{
+  color:#355B46;
+  font:700 13px/1.5 'Open Sans',Arial,sans-serif;
+  text-decoration:none;
+}
+.directions-section .directions-call a:hover,
+.directions-section .directions-call a:focus-visible{
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+
 /* Lower Google Maps directory: one compact verified timetable per branch.
    No inferred "open now" state; no dependence on browser time zone. */
 .directions-section .directions-hours{
