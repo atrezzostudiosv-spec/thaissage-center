@@ -259,3 +259,12 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Informe:** [QA multipágina / 18 rutas](docs/QA-MULTIPAGINA-18-ROUTES-NAV-CRYPTO-2026-10-29.md).
 - **LÍMITE HONESTO:** no se pudieron abrir renders de GitHub Pages en web durante esta intervención y no se ejecutó QA visual interactivo a 375/768/1024/1440 ni compras externas; la subida a GitHub no constituye validación visual/operativa ni publicación autorizada.
 - **ESTADO ÚNICO ACTIVO:** FASE 4B DESARROLLO MULTIPÁGINA **IMPLEMENTADO EN MAIN / VALIDACIÓN VISUAL Y FUNCIONAL ABIERTA**. Las fases estratégicas previas permanecen cerradas para continuidad. Siguiente acción única: verificar Cryptocurrency desktop/móvil como referencia del sistema, después páginas interiores y regresión final Home; corregir defectos probados antes de aprobar.
+
+## Favicon + Open Graph / Social Card 1200×630 — 29/10/2026
+- **Pedido:** agregar favicon e imagen para previsualización al compartir enlaces en redes, respetando diseño aprobado y protocolo SEO adjunto.
+- **IMPLEMENTADO EN `main`:** favicon `assets/icons/thaissage-favicon.svg` con símbolo floral de Thaissage, verde bosque sólido y marfil; tarjeta editorial `assets/images/thaissage-social-share-1200x630.png`, PNG 1200×630 de marca con título «THAISSAGE», «CENTER», lema «THAILAND TO TEXAS» y símbolo floral. Archivo fuente editable `assets/images/thaissage-social-share-artwork.svg` almacenado aparte.
+- **18/18 PÁGINAS:** referencia `rel=icon` con rutas relativas correctas según niveles de carpeta; `og:image` absoluta con PNG común, `og:image:type`, tamaño 1200/630, alt, `og:site_name`, `og:locale`, `og:url` demo; tags Twitter Cards `summary_large_image`, title/description/imagen/alt. Cada página conserva title/description personalizados.
+- **QA realizado:** los 18 HTML fueron releídos; 18/18 pasan las comprobaciones de favicon, OG, Twitter, dimensiones y `noindex`. Imagen binaria reobtenida desde GitHub: 1200×630, firma PNG, bloques y CRC validados; 0 errores de codificación.
+- **Conservado:** diseño aprobado, navegación, formularios/CTA, reservas, tarifas, animaciones y `noindex,nofollow,noarchive`. Ninguna página se consideró publicada en producción.
+- **Documento:** [QA favicon + social share](docs/QA-FAVICON-SOCIAL-OPEN-GRAPH-18-PAGINAS-2026-10-29.md).
+- **Pendiente:** comprobar visualización y caché reales en WhatsApp/Facebook/LinkedIn/X y despliegue GitHub Pages; no afirmar test social externo completado. Siguiente prioridad: validación de link preview Home y al menos una interior en dispositivo real.
