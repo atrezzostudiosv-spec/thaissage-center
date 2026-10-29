@@ -1,0 +1,393 @@
+/* ATREZZO · THAISSAGE CENTER / HOME SCROLL RITUAL v4
+   Approved integration: section-wide Locations ambiance, mobile-closed accordion,
+   Treatments introduction as editorial color bridge, native-scroll immersive
+   Treatments mobile and Signature desktop/mobile. Existing data/CTA retained.
+   No native wheel interception or forced user scroll.
+*/
+
+/* 01 — LOCATIONS: subtle atmosphere across the entire section, while the
+   existing left-hand editorial photograph and city selector remain intact. */
+.locations-cinematic.locations-section {
+  position:relative!important;
+  isolation:isolate;
+  background:#EDF2EC!important;
+  padding-bottom:clamp(24px,3.5vw,45px)!important;
+  overflow:hidden!important;
+}
+@media(min-width:851px) {
+  .locations-cinematic.locations-section::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:#E7EEE9 url('../images/thaissage-hero-spa-interior-desktop.webp') center 43%/cover no-repeat;
+    opacity:.15;
+    pointer-events:none;
+  }
+}
+.locations-cinematic .locations-heading,
+.locations-cinematic .locations-story,
+.locations-cinematic .locations-footnote{position:relative;z-index:1}
+.locations-cinematic .locations-story-panel{
+  background:rgba(249,252,249,.74);
+  padding:clamp(20px,3vw,45px);
+  -webkit-backdrop-filter:blur(7px);
+  backdrop-filter:blur(7px);
+}
+.locations-cinematic .locations-story-visual{box-shadow:0 27px 72px rgba(40,60,47,.06)}
+.locations-cinematic .locations-footnote{margin-top:20px!important}
+
+/* 02 — TREATMENTS: the real single heading is moved outside the sticky area
+   and displayed once, across desktop and mobile. This becomes the visual bridge
+   that prevents the large blank gap seen between locations and treatments. */
+.treatments-intro-bridge{
+  position:relative;
+  z-index:1;
+  padding:clamp(82px,8vw,132px) 0 clamp(75px,8vw,115px);
+  color:#31473A;
+  background:#E3EDE5;
+  isolation:isolate;
+}
+.treatments-intro-bridge::before{
+  content:"";position:absolute;inset:0 auto 0 0;
+  width:4px;background:#799C89;opacity:.7
+}
+.treatments-intro-bridge .treatments-heading-slider{
+  position:relative;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,.7fr)!important;
+  gap:clamp(24px,5vw,86px)!important;
+  align-items:end;
+  margin:0 auto!important;
+  max-width:1260px;
+  width:min(100% - 100px,1260px)!important;
+}
+.treatments-intro-bridge .eyebrow{color:#557767!important}
+.treatments-intro-bridge .treatments-heading-slider h2{
+  font:400 clamp(47px,5vw,76px)/1.09 'Playfair Display',Georgia,serif!important;
+  color:#314139!important;
+  letter-spacing:-.04em;
+  margin:13px 0 0!important;
+  text-wrap:balance;
+}
+.treatments-intro-bridge .treatments-heading-slider h2 em{color:#6C947F!important}
+.treatments-intro-bridge .treatments-heading-aside>p{
+  font:400 13px/1.85 'Open Sans',Arial,sans-serif!important;
+  color:#60776A!important;
+  max-width:450px;
+  margin:0 0 20px!important;
+}
+.treatments-intro-bridge .treatments-heading-link{
+  display:inline-flex;
+  align-items:center;
+  gap:24px;
+  background:rgba(255,255,255,.55)!important;
+  border:1px solid #9FB9A8!important;
+  color:#365C49!important;
+  text-decoration:none;
+  min-height:46px;
+  padding:12px 20px;
+}
+.treatments-intro-bridge .treatments-heading-link:hover,
+.treatments-intro-bridge .treatments-heading-link:focus-visible{
+  background:#FFF!important;border-color:#476E5A!important
+}
+
+/* 03 — shared architecture for true scroll-progress chapters.
+   A track is tall; its full-viewport frame is sticky; all user scrolling
+   remains native. Each scroll segment lets the image zoom *before* the next
+   photograph arrives. No imperative window.scrollTo or wheel event listeners. */
+.treatment-scroll-track,
+.signature-scroll-track{
+  position:relative;
+  width:100%;
+  overflow:visible;
+  background:#1E2C26;
+}
+.treatment-scroll-track{height:850svh}
+.signature-scroll-track{height:470svh}
+.scroll-ritual-stage{
+  position:sticky;top:0;
+  width:100%;
+  height:100svh;
+  min-height:560px;
+  color:#FFF;
+  isolation:isolate;
+  overflow:hidden;
+  background:#23342B;
+}
+.scroll-ritual-stack,.scroll-ritual-panel,
+.scroll-ritual-image,.scroll-ritual-photo,.scroll-ritual-scrim{
+  position:absolute;inset:0;width:100%;height:100%;
+}
+.scroll-ritual-panel{
+  opacity:0;
+  z-index:0;
+  pointer-events:none;
+  will-change:transform,opacity;
+}
+.scroll-ritual-panel:first-child{opacity:1}
+.scroll-ritual-image{overflow:hidden;background:#253B2D}
+.scroll-ritual-photo{
+  display:block;
+  object-fit:cover;object-position:center center;
+  filter:saturate(.9) contrast(1.04);
+  transform:scale(1.015);
+  transform-origin:center;
+  will-change:transform;
+}
+.scroll-ritual-scrim{
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.65) 0%,rgba(0,0,0,.33) 49%,rgba(0,0,0,.09) 93%),
+    linear-gradient(0deg,rgba(0,0,0,.81) 0%,rgba(0,0,0,.3) 31%,transparent 75%);
+  pointer-events:none;
+}
+.scroll-ritual-copy{
+  position:absolute;
+  z-index:4;
+  left:clamp(30px,6vw,100px);
+  right:clamp(30px,6vw,100px);
+  bottom:clamp(77px,13svh,155px);
+  max-width:min(760px,65vw);
+  color:#fff;
+  text-shadow:0 2px 18px rgba(0,0,0,.16);
+}
+.scroll-ritual-eyebrow{
+  font:600 10px/1.4 'Open Sans',Arial,sans-serif!important;
+  color:#EFF5F0!important;
+  letter-spacing:.19em;
+  margin:0 0 17px!important;
+}
+.scroll-ritual-title{
+  color:#FFF!important;
+  font:400 clamp(60px,6vw,93px)/1.035 'Playfair Display',Georgia,serif!important;
+  letter-spacing:-.042em;
+  text-wrap:balance;
+  margin:0 0 16px!important;
+}
+.scroll-ritual-description{
+  color:#F2F7F2!important;
+  max-width:570px;
+  font:400 clamp(12px,1.06vw,15px)/1.72 'Open Sans',Arial,sans-serif!important;
+  margin:0 0 23px!important;
+  text-wrap:pretty;
+}
+.scroll-ritual-meta{
+  display:flex;align-items:center;flex-wrap:wrap;
+  gap:15px 28px;
+  font:600 12px/1.5 'Open Sans',Arial,sans-serif;
+  color:#EEF6EF;
+  margin-bottom:24px;
+}
+.scroll-ritual-price{
+  border-left:1px solid rgba(255,255,255,.55);
+  padding-left:24px;
+}
+.scroll-ritual-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:35px;
+  min-height:49px;
+  padding:13px 20px 13px 24px;
+  border:1px solid rgba(255,255,255,.93);
+  border-radius:100px;
+  background:rgba(18,38,27,.27);
+  color:#FFF!important;
+  font:600 12px/1.4 'Open Sans',Arial,sans-serif;
+  text-decoration:none;
+  text-shadow:none;
+  -webkit-backdrop-filter:blur(7px);
+  backdrop-filter:blur(7px);
+}
+.scroll-ritual-cta:hover,
+.scroll-ritual-cta:focus-visible{
+  background:rgba(50,90,68,.75);
+  color:#FFF!important;
+}
+.scroll-ritual-arrow{font-size:19px;line-height:1}
+.scroll-ritual-top{
+  position:absolute;z-index:8;
+  top:clamp(33px,6svh,72px);
+  left:clamp(30px,6vw,100px);
+  right:clamp(30px,6vw,100px);
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  color:#F3F7F2;
+  font:600 10px/1.5 'Open Sans',Arial,sans-serif;
+  letter-spacing:.17em;
+  pointer-events:none;
+}
+.scroll-ritual-count{font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll-ritual-bottom{
+  position:absolute;z-index:8;
+  bottom:clamp(22px,4svh,42px);
+  left:clamp(30px,6vw,100px);
+  right:clamp(30px,6vw,100px);
+  display:flex;justify-content:space-between;align-items:center;
+  gap:24px;color:#E8F1E9;
+  font:600 9px/1.5 'Open Sans',Arial,sans-serif;
+  letter-spacing:.17em;pointer-events:none;
+}
+.scroll-ritual-progress{
+  position:relative;
+  width:clamp(90px,18vw,220px);
+  height:2px;
+  background:rgba(255,255,255,.37)
+}
+.scroll-ritual-progress::after{
+  content:"";position:absolute;inset:0 auto 0 0;
+  width:calc(var(--ritual-progress,0)*100%);
+  background:#FFF
+}
+
+/* 04 — mobile Treatments: preserve original cards as accessible/no-JS
+   fallback but display the six full-screen native-scroll chapters when ready.
+   The bridge above is *never* hidden by this switch. */
+@media(max-width:720px) and (min-height:560px) and (prefers-reduced-motion:no-preference){
+  section.treatments-light-ritual.is-mobile-scroll-ritual{
+    position:relative!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:0!important;
+    margin:0!important;
+    overflow:visible!important;
+    background:#1C2D24!important;
+  }
+  section.treatments-light-ritual.is-mobile-scroll-ritual .treatments-sticky,
+  section.treatments-light-ritual.is-mobile-scroll-ritual .treatments-ambient{display:none!important}
+}
+
+/* 05 — Signature: retain native, informative 3-chapter fallback;
+   scenic mode starts only if JS, device height and motion preference allow. */
+section.signature-section.is-signature-scroll-ritual{
+  position:relative!important;
+  height:auto!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  background:#F6F9F6!important;
+  overflow:visible!important;
+}
+section.signature-section.is-signature-scroll-ritual .signature-heading{
+  box-sizing:content-box;
+  width:min(100% - 100px,1290px)!important;
+  padding:clamp(80px,8vw,135px) 0 clamp(68px,7vw,108px);
+  margin:0 auto!important;
+}
+section.signature-section.is-signature-scroll-ritual .signature-stories{display:none!important}
+section.signature-section.is-signature-scroll-ritual .package-disclaimer{
+  background:#F6F9F6;
+  width:100%!important;
+  max-width:none!important;
+  box-sizing:border-box;
+  padding:28px max(24px,calc((100vw - 1290px)/2)) 48px!important;
+  margin:0 auto!important;
+  color:#678171;
+}
+.signature-scroll-track .scroll-ritual-copy{max-width:min(750px,68vw)}
+.signature-scroll-track .scroll-ritual-photo{object-position:center 51%}
+.signature-scroll-track .scroll-ritual-scrim{
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.64),rgba(0,0,0,.29) 55%,rgba(0,0,0,.07)),
+    linear-gradient(0deg,rgba(0,0,0,.72),rgba(0,0,0,.20) 40%,transparent 79%);
+}
+
+/* 06 — phone and narrow-display editing */
+@media(max-width:850px){
+  .treatments-intro-bridge .treatments-heading-slider{
+    grid-template-columns:1fr!important;
+    gap:20px!important;
+    width:min(100% - 48px,1260px)!important;
+  }
+  section.signature-section.is-signature-scroll-ritual .signature-heading{width:min(100% - 48px,1290px)!important}
+}
+@media(max-width:720px){
+  .locations-cinematic.locations-section{
+    padding-bottom:20px!important;
+    background:#EDF3EE!important;
+  }
+  .locations-cinematic .locations-story-panel{background:transparent!important;padding:0!important;backdrop-filter:none}
+  .locations-cinematic .locations-footnote{margin:11px auto 0!important}
+  .treatments-intro-bridge{
+    padding:clamp(60px,7.5svh,82px) 0 clamp(62px,7svh,84px);
+    background:#DFEBE1;
+  }
+  .treatments-intro-bridge .treatments-heading-slider{
+    display:flex!important;flex-direction:column;align-items:flex-start;
+    width:min(100% - 40px,1260px)!important;
+    gap:22px!important;
+  }
+  .treatments-intro-bridge .treatments-heading-slider h2{
+    font-size:clamp(38px,9.6vw,57px)!important;
+    line-height:1.105!important;
+  }
+  .treatments-intro-bridge .treatments-heading-aside>p{
+    font-size:12.5px!important;line-height:1.76!important;
+  }
+  .treatments-intro-bridge .treatments-heading-link{min-height:46px;font-size:11px}
+  .treatments-intro-bridge .treatments-heading-slider h2 br{display:none}
+  .scroll-ritual-stage{height:100svh;min-height:560px}
+  .scroll-ritual-top{top:clamp(24px,5svh,42px);left:22px;right:22px;font-size:9px;gap:12px}
+  .scroll-ritual-label{max-width:245px;letter-spacing:.11em}
+  .scroll-ritual-copy{
+    left:clamp(22px,5.5vw,32px);
+    right:clamp(22px,5.5vw,32px);
+    bottom:calc(99px + env(safe-area-inset-bottom,0px));
+    max-width:none!important;
+  }
+  .scroll-ritual-title{
+    font-size:clamp(37px,10vw,57px)!important;
+    line-height:1.07!important;
+    margin-bottom:10px!important;
+  }
+  .scroll-ritual-eyebrow{font-size:9px!important;margin-bottom:11px!important}
+  .scroll-ritual-description{
+    font-size:12px!important;line-height:1.58!important;
+    margin-bottom:14px!important;
+    max-width:480px;
+  }
+  .scroll-ritual-meta{font-size:11px;margin-bottom:14px;gap:11px 18px}
+  .scroll-ritual-price{padding-left:16px}
+  .scroll-ritual-cta{min-height:46px;padding:10px 18px;gap:23px;font-size:11px}
+  .scroll-ritual-scrim{
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.32) 0%,transparent 25%),
+      linear-gradient(0deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.61) 37%,rgba(0,0,0,.09) 79%);
+  }
+  .scroll-ritual-bottom{
+    bottom:calc(80px + env(safe-area-inset-bottom,0px));
+    left:22px;right:22px;
+    font-size:8px;
+  }
+  .scroll-ritual-progress{width:clamp(79px,26vw,130px)}
+  section.signature-section.is-signature-scroll-ritual .signature-heading{
+    padding:75px 0 67px!important;
+    width:min(100% - 40px,1290px)!important;
+  }
+  section.signature-section.is-signature-scroll-ritual .signature-heading h2{font-size:clamp(46px,10.1vw,63px)!important}
+  .signature-scroll-track .scroll-ritual-copy{max-width:none!important}
+  .signature-scroll-track .scroll-ritual-title{font-size:clamp(52px,12.9vw,74px)!important}
+  .signature-scroll-track .scroll-ritual-photo{object-position:center 50%}
+  .signature-scroll-track .scroll-ritual-scrim{
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.29),transparent 29%),
+      linear-gradient(0deg,rgba(0,0,0,.86),rgba(0,0,0,.50) 42%,rgba(0,0,0,.07) 85%);
+  }
+  section.signature-section.is-signature-scroll-ritual .package-disclaimer{
+    padding:25px 22px 40px!important;
+  }
+}
+@media(max-width:390px){
+  .scroll-ritual-title{font-size:35px!important}
+  .signature-scroll-track .scroll-ritual-title{font-size:49px!important}
+  .scroll-ritual-copy{bottom:calc(97px + env(safe-area-inset-bottom,0px))}
+  .scroll-ritual-description{font-size:11.5px!important}
+}
+@media(max-height:670px) and (min-height:560px) {
+  .scroll-ritual-copy{bottom:calc(93px + env(safe-area-inset-bottom,0px))}
+  .scroll-ritual-title{font-size:clamp(34px,8.6vw,54px)!important}
+  .scroll-ritual-description{line-height:1.4!important;font-size:11.5px!important}
+  .scroll-ritual-meta{margin-bottom:9px}
+  .scroll-ritual-eyebrow{margin-bottom:8px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .locations-cinematic .locations-story-panel{backdrop-filter:none}
+  .scroll-ritual-panel,.scroll-ritual-photo,.scroll-ritual-copy{animation:none!important;transition:none!important;will-change:auto!important}
+}
