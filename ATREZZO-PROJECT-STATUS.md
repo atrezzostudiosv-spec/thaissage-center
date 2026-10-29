@@ -150,3 +150,12 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Pendiente:** probar el deploy interactivo y recortes de las seis fotografías a 375 px, 390 px y tamaños intermedios, altura baja, pantalla horizontal, visibilidad del CTA con barra móvil fija, contraste, loading y comportamiento de scroll. La herramienta web no ha podido abrir GitHub Pages en esta sesión.
 - **ESTADO:** móvil **IMPLEMENTADO EN REPOSITORIO / EN VALIDACIÓN VISUAL**. No marcar cerrado ni listo para producción.
 - **SIGUIENTE ACCIÓN:** observar en teléfono o navegador 375×667 y 390×844, comprobar seis encuadres/CTA y corregir solo defectos reproducibles.
+
+## Auditoría integral del Home y plan de integración visual — 29/10/2026
+- **Alcance:** revisión documental de las nueve secciones del Home, cuatro hojas CSS, dos JS, arquitectura de CTAs, fuentes visuales, flujo de scroll y responsive previsto en código; contrastada con la captura de Treatments del usuario y documentos de Fase 04.
+- **Informe nuevo:** [docs/AUDITORIA-HOME-UNIFICACION-VISUAL-2026-10-29.md](docs/AUDITORIA-HOME-UNIFICACION-VISUAL-2026-10-29.md).
+- **Decisión recomendada:** conservar Hero y Treatments como polos visuales aprobados, sin replicar la secuencia larga sticky en otras secciones. Focalizar mejoras en Locations (directorio editorial), Our Approach (pausa fotográfica de identidad, no masaje repetido) y Signature (composición asimétrica). Gift y cierre: retoques posteriores solo si hay problemas comprobados.
+- **Deuda técnica observada:** 4 CSS ~94KB fuente y 230 `!important`; salto en barra de Treatments con `behavior:'instant'`, las tres sedes del footer enlazan al mismo `#locations`, repetición de imagen Gift, fotos apaisadas usadas en móvil; falta `og:image`. Precios, rating y formulario de prueba son bloqueos de validación comercial, no motivos para rehacer fases cerradas.
+- **CAMBIOS EN CÓDIGO:** ninguno en esta auditoría. No se reclaman pruebas visuales a 375/768/1024/1440 ni validación de compras/correos.
+- **ESTADO:** Home / Dirección artística unificada **EN VALIDACIÓN**. Fases 01–03 documentales permanecen cerradas; no se crea una segunda fase activa.
+- **SIGUIENTE ACCIÓN ÚNICA:** intervenir de forma focalizada las tres secciones (Locations, Our Approach y Signature) conforme a la partitura y verificar su integración sin alterar Hero ni Treatments.
