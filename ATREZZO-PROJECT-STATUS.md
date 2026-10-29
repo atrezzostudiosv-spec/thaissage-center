@@ -210,3 +210,17 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **GitHub Pages:** `b79106af5276bd7721b2ce1d664ed5583eb2754b`, ejecución `40789960990` con build y deploy **success**.
 - **Archivos verificados:** `main/index.html` y `main/assets/css/styles.css` con SHA idénticos a los de `work/home-v1/web/`.
 - **PENDIENTE:** comprobar visualmente a 375/768/1024/1440 la altura, el zoom y la ausencia de línea cortada. No se ha validado el resultado visual en navegador real.
+
+
+## Ajuste UX v5 — Treatments y header direccional (2026-10-29)
+**Motivo:** la grabación de revisión muestra solapamiento de tarjetas cuando la central tiene zoom automático y el cursor se posa en otra, salida demasiado inmediata al terminar la sexta tarjeta y header fijo ocultando textos.
+
+**REALIZADO (solo CSS + JS):**
+- Desktop (>=981px, dispositivo hover): las tarjetas mantienen escala normal, sin ampliación automática al centrarse ni zoom de la caja completa al hover. En su lugar solo hace zoom la fotografía, dentro de su máscara, sin tocar las tarjetas vecinas.
+- Sticky desktop: tras llegar a la sexta tarjeta, la sección conserva una pausa adicional de scroll vertical de 0.82 viewport (mínimo 500 px), más un margen de salida de 125–190 px antes del siguiente bloque. No se intercepta la rueda, ni se bloquea el desplazamiento.
+- Header: se oculta con transición discreta al desplazarse hacia abajo y reaparece al subir; siempre visible cerca del inicio, al abrir navegación o enfocar controles. Respeta movimiento reducido.
+- **Sin modificar** textos, precios, fotografías, enlaces ni movimientos táctiles de móvil y tablet.
+
+**VERIFICACIÓN ESTÁTICA:** 20/20 controles sobre código en GitHub (sintaxis JS, CSS, seis tarjetas, precios, Fresha, Square, noindex, responsive y reglas de interacción).
+
+**PENDIENTE:** QA real en browser a 375, 768, 1024 y 1440 px, comprobando el desplazamiento inverso, la pausa tras la última tarjeta y el header en teclado y móvil. No declarar cierre visual sin estas pruebas.
