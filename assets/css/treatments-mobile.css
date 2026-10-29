@@ -1,0 +1,277 @@
+/* THAISSAGE CENTER / ATREZZO STUDIOS
+   Mobile Treatment Journey — 2026-10-29.
+   Full-width, photographic vertical chapters built from the original six
+   service articles. No artificial scroll pinning, no duplicate content,
+   no new claims or services. Desktop cinematic section is untouched. */
+@media (max-width:720px) {
+  section.treatments-light-ritual.treatments-slider {
+    background:#F8FAF8!important;
+    padding:74px 0 66px!important;
+    overflow:visible!important;
+  }
+  .treatments-light-ritual .treatments-heading-slider {
+    width:min(100% - 40px,1260px);
+    max-width:none;
+    margin:0 auto 34px!important;
+    gap:21px!important;
+    align-items:start;
+  }
+  .treatments-light-ritual .treatments-heading-slider h2 {
+    font-size:clamp(38px,9.2vw,53px)!important;
+    line-height:1.09!important;
+    letter-spacing:-.038em;
+  }
+  .treatments-light-ritual .treatments-heading-aside > p {
+    color:#60716A;
+    font-size:12px;
+    line-height:1.78;
+    margin-bottom:18px;
+  }
+  .treatments-light-ritual .treatments-heading-link {
+    min-height:46px;
+    background:#FFF;
+    border:1px solid #D2E0D8;
+    color:#36594C;
+    padding:12px 20px;
+  }
+  .treatments-light-ritual .treatments-window,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatments-window {
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    overflow:visible!important;
+    scroll-snap-type:none!important;
+  }
+  .treatments-light-ritual .treatments-rail,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatments-rail {
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    width:100%!important;
+    min-width:0!important;
+    padding:0!important;
+    margin:0!important;
+    gap:10px!important;
+    transform:none!important;
+  }
+  .treatments-light-ritual .treatment-card,
+  .treatments-light-ritual .treatment-card.is-active,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card.is-active {
+    grid-column:1 / -1!important;
+    display:block!important;
+    position:relative!important;
+    isolation:isolate;
+    width:100%!important;
+    height:clamp(550px,82svh,740px)!important;
+    min-height:550px!important;
+    max-width:none!important;
+    flex:none!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    outline-offset:0;
+    box-shadow:none!important;
+    transform:none!important;
+    opacity:1!important;
+    overflow:hidden!important;
+    background:#27362F!important;
+    scroll-snap-align:none!important;
+  }
+  .treatments-light-ritual .treatment-card::before {
+    content:"";
+    position:absolute;
+    top:28px;
+    left:clamp(22px,5.7vw,34px);
+    z-index:5;
+    color:#fff;
+    opacity:.95;
+    font:600 10px/1.2 'Open Sans',Arial,sans-serif;
+    letter-spacing:.18em;
+    text-shadow:0 2px 12px rgba(0,0,0,.35);
+    pointer-events:none;
+  }
+  .treatments-light-ritual .treatment-card:nth-child(1)::before{content:"01 / 06 · THAILAND TO TEXAS"}
+  .treatments-light-ritual .treatment-card:nth-child(2)::before{content:"02 / 06 · THAILAND TO TEXAS"}
+  .treatments-light-ritual .treatment-card:nth-child(3)::before{content:"03 / 06 · THAILAND TO TEXAS"}
+  .treatments-light-ritual .treatment-card:nth-child(4)::before{content:"04 / 06 · THAILAND TO TEXAS"}
+  .treatments-light-ritual .treatment-card:nth-child(5)::before{content:"05 / 06 · THAILAND TO TEXAS"}
+  .treatments-light-ritual .treatment-card:nth-child(6)::before{content:"06 / 06 · THAILAND TO TEXAS"}
+
+  .treatments-light-ritual .treatment-card-photo,
+  .treatments-light-ritual .treatment-card.is-active .treatment-card-photo,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card-photo,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card.is-active .treatment-card-photo {
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:none!important;
+    object-fit:cover!important;
+    object-position:center center;
+    transform:scale(1.02)!important;
+    filter:saturate(.92) contrast(1.04)!important;
+    transition:none!important;
+    z-index:0;
+  }
+  .treatments-light-ritual .treatment-card:nth-child(1) .treatment-card-photo {object-position:48% center}
+  .treatments-light-ritual .treatment-card:nth-child(2) .treatment-card-photo {object-position:51% center}
+  .treatments-light-ritual .treatment-card:nth-child(3) .treatment-card-photo {object-position:49% center}
+  .treatments-light-ritual .treatment-card:nth-child(4) .treatment-card-photo {object-position:47% center}
+  .treatments-light-ritual .treatment-card:nth-child(5) .treatment-card-photo {object-position:51% center}
+  .treatments-light-ritual .treatment-card:nth-child(6) .treatment-card-photo {object-position:48% center}
+  .treatments-light-ritual .treatment-card-gradient {
+    position:absolute!important;
+    inset:0!important;
+    z-index:1;
+    height:100%!important;
+    pointer-events:none;
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 20%),
+      linear-gradient(0deg,rgba(0,0,0,.86) 0%,rgba(0,0,0,.64) 34%,rgba(0,0,0,.13) 71%,rgba(0,0,0,.02) 100%)!important;
+  }
+  .treatments-light-ritual .treatment-card-content,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card-content {
+    position:absolute!important;
+    inset:auto 0 0!important;
+    z-index:3;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0;
+    margin:0!important;
+    padding:24px clamp(22px,5.7vw,34px) clamp(33px,5svh,58px)!important;
+    background:transparent!important;
+    color:#FFF!important;
+    gap:0;
+  }
+  .treatments-light-ritual .treatment-card-icon,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card-icon {
+    display:none!important;
+  }
+  .treatments-light-ritual .treatment-card-content h3,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card-content h3 {
+    color:#FFF!important;
+    font:400 clamp(33px,8.65vw,47px)/1.07 'Playfair Display',Georgia,serif!important;
+    letter-spacing:-.037em!important;
+    max-width:470px;
+    margin:0 0 14px!important;
+    text-wrap:balance;
+    text-shadow:0 2px 18px rgba(0,0,0,.15);
+  }
+  .treatments-light-ritual .treatment-card-description,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card-description {
+    color:#F1F4F1!important;
+    max-width:470px!important;
+    font:400 12.5px/1.65 'Open Sans',Arial,sans-serif!important;
+    margin:0 0 19px!important;
+    text-wrap:pretty;
+  }
+  .treatments-light-ritual .treatment-card-detail,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card-detail {
+    border-top:1px solid rgba(255,255,255,.48)!important;
+    padding:13px 0 0!important;
+    margin:0 0 13px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:10px;
+    width:100%;
+  }
+  .treatments-light-ritual .treatment-card-detail .treatment-card-time,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card-detail .treatment-card-time {
+    color:#F4F6F3!important;
+    font:500 11px/1.5 'Open Sans',Arial,sans-serif!important;
+    white-space:normal;
+  }
+  .treatments-light-ritual .treatment-card-detail .treatment-card-price,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card-detail .treatment-card-price {
+    color:#FFF!important;
+    font:700 12px/1.5 'Open Sans',Arial,sans-serif!important;
+    white-space:nowrap;
+  }
+  .treatments-light-ritual .treatment-card-detail .treatment-card-time svg{
+    width:16px!important;
+    height:16px!important;
+    stroke:#FFF;
+  }
+  .treatments-light-ritual .treatment-card-book,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card-book {
+    display:flex!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    min-height:48px!important;
+    margin:0!important;
+    padding:12px 19px!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:12px;
+    border:1px solid rgba(255,255,255,.89)!important;
+    border-radius:999px!important;
+    background:rgba(17,26,22,.40)!important;
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+    color:#FFF!important;
+    font:600 12px/1.3 'Open Sans',Arial,sans-serif!important;
+    text-shadow:none;
+    transition:background .22s ease!important;
+  }
+  .treatments-light-ritual .treatment-card-book .treatment-book-label,
+  .treatments-light-ritual .treatment-card-book .treatment-book-arrow {
+    color:#FFF!important;
+  }
+  .treatments-light-ritual .treatment-card-book:hover,
+  .treatments-light-ritual .treatment-card-book:focus-visible {
+    background:#315447!important;
+    color:#FFF!important;
+    border-color:#FFF!important;
+  }
+  .treatments-light-ritual .treatments-note{
+    max-width:none!important;
+    width:min(100% - 40px,1260px)!important;
+    margin:28px auto 0!important;
+    color:#64756C;
+    font-size:11px;
+    line-height:1.75;
+  }
+}
+@media (max-width:410px) {
+  .treatments-light-ritual .treatment-card-content h3,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card-content h3{
+    font-size:clamp(31px,8.4vw,39px)!important;
+  }
+  .treatments-light-ritual .treatment-card-description,
+  .treatments-light-ritual.treatments-slider.is-scroll-ready .treatment-card-description {
+    font-size:12px!important;
+  }
+}
+/* Browsers with scroll-driven animation support add photographic motion only.
+   Content never depends on an animation to become visible. */
+@supports (animation-timeline: view()) {
+  @media (max-width:720px) and (prefers-reduced-motion:no-preference) {
+    @keyframes treatment-mobile-slowzoom {
+      from {scale:1.00}
+      to {scale:1.065}
+    }
+    .treatments-light-ritual .treatment-card-photo {
+      scale:1.00;
+      animation-name:treatment-mobile-slowzoom;
+      animation-duration:1s;
+      animation-timing-function:linear;
+      animation-fill-mode:both;
+      animation-timeline:view();
+      animation-range:entry 0% exit 100%;
+    }
+  }
+}
+@media (max-width:720px) and (prefers-reduced-motion:reduce) {
+  .treatments-light-ritual .treatment-card-photo {
+    scale:1!important;
+    animation:none!important;
+    transition:none!important;
+  }
+}
