@@ -1,0 +1,161 @@
+/* ATREZZO / THAISSAGE CENTER — Heritage + verified locations v6
+   Preserves Home design; adds natural scroll zoom and consistent commercial
+   contact/hour details. Content is derived from the client's published site.
+*/
+.heritage-scroll-journey{
+  position:relative;
+  display:block;
+  isolation:isolate;
+  width:100%;
+  background:#25342D;
+  margin:0;
+  padding:0;
+}
+.heritage-scroll-journey .heritage{
+  box-sizing:border-box;
+  position:relative!important;
+  min-height:100svh!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+}
+.heritage-scroll-journey .heritage-photo{
+  transform:scale(var(--heritage-scroll-scale,1.018))!important;
+  transform-origin:center;
+  will-change:transform;
+}
+.heritage-scroll-journey.is-heritage-scroll-active{
+  height:195svh;
+  overflow:visible;
+}
+.heritage-scroll-journey.is-heritage-scroll-active .heritage{
+  position:sticky!important;
+  top:0!important;
+  height:100svh!important;
+  min-height:100svh!important;
+  overflow:hidden!important;
+}
+@media(max-width:720px){
+  .heritage-scroll-journey .heritage-photo{
+    background-image:url('../images/thaissage-thai-massage-ritual-mobile.webp')!important;
+    background-position:55% center!important;
+  }
+  .heritage-scroll-journey .heritage-inner{
+    padding-bottom:calc(95px + env(safe-area-inset-bottom,0px))!important;
+  }
+}
+@media(max-height:639px){
+  .heritage-scroll-journey .heritage-photo{will-change:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .heritage-scroll-journey .heritage-photo{
+    transform:none!important;
+    will-change:auto!important;
+  }
+}
+
+/* An orderly contact and opening-hours hierarchy inside the already approved
+   Choose Your Center accordion. Desktop: two aligned information columns.
+   Phone: the information stacks without shrinking tap targets. */
+.locations-cinematic .location-choice-details{
+  display:grid;
+  grid-template-columns:minmax(112px,.88fr) minmax(0,1.12fr);
+  gap:14px 24px;
+  margin:0 0 4px;
+  max-width:570px;
+}
+.locations-cinematic .location-contact-item{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:7px;
+  min-width:0;
+}
+.locations-cinematic .location-data-label{
+  color:#738D7A;
+  font:700 9px/1.4 'Open Sans',Arial,sans-serif;
+  letter-spacing:.16em;
+}
+.locations-cinematic .location-contact-item p{
+  margin:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:3px 10px;
+  color:#5D7265;
+  font:400 11px/1.55 'Open Sans',Arial,sans-serif;
+}
+.locations-cinematic .location-contact-item p strong{
+  color:#344E40;
+  font-weight:600;
+  white-space:nowrap;
+}
+.locations-cinematic .location-choice-phone{
+  font-size:13px;
+  font-weight:600;
+  color:#345843;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.locations-cinematic .location-choice-actions{
+  margin-top:18px;
+}
+@media(max-width:1100px){
+ .locations-cinematic .location-choice-details{
+    grid-template-columns:minmax(0,1fr);
+    gap:17px;
+  }
+}
+@media(max-width:720px){
+  .locations-cinematic .location-choice-details{
+    grid-template-columns:minmax(0,1fr);
+    gap:17px;
+  }
+  .locations-cinematic .location-contact-item p{
+    gap:3px 12px;
+    font-size:11px;
+  }
+}
+
+/* Lower Google Maps directory: one compact verified timetable per branch.
+   No inferred "open now" state; no dependence on browser time zone. */
+.directions-section .directions-hours{
+  display:grid;
+  gap:4px;
+  margin:0 0 15px;
+  padding:13px 0 0;
+  border-top:1px solid #DDE7DF;
+}
+.directions-section .directions-hours>span{
+  margin:0 0 4px;
+  color:#668574;
+  font:700 9px/1.35 'Open Sans',Arial,sans-serif;
+  letter-spacing:.16em;
+}
+.directions-section .directions-hours p{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  column-gap:14px;
+  row-gap:3px;
+  margin:0;
+  color:#586D60;
+  font:500 11px/1.55 'Open Sans',Arial,sans-serif;
+}
+.directions-section .directions-hours p strong{
+  color:#354C40;
+  font-weight:600;
+}
+@media(max-width:850px){
+  .directions-section .directions-hours p{
+    display:block;
+    font-size:10.5px;
+  }
+  .directions-section .directions-hours p strong{display:inline-block;min-width:76px}
+}
+@media(max-width:720px){
+  .directions-section .directions-hours p{
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+  }
+}
