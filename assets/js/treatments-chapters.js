@@ -1,221 +1,214 @@
-/* Thaissage Center · treatment chapter experience · native-scroll enhancement.
-   Uses the six documented treatment cards as the single content source.
-   The untouched accessible cards are always the fallback for mobile, tablet,
-   reduced motion, short desktop windows or JavaScript failures. */
+/* ATREZZO · THAISSAGE CENTER
+   Cinematic Treatments, 2026-10-29.
+   Original implementation informed by the user-supplied Ranchman visual-story
+   and atlas reference: native vertical scroll, sticky photography, six bottom
+   chapter controls. No Ranchman source code or assets reused.
+   Non-JS / mobile / reduced-motion: original six service cards stay accessible.
+*/
 (() => {
   'use strict';
   const section = document.getElementById('treatments');
-  const existingWindow = document.getElementById('treatments-window');
-  const heading = section?.querySelector('.treatments-heading-slider');
-  const sourceCards = [...(section?.querySelectorAll('.treatment-card') || [])];
-  if (!section || !existingWindow || !heading || sourceCards.length !== 6) return;
+  if (!section) return;
+  const cards = Array.from(section.querySelectorAll('.treatment-card'));
+  if (cards.length !== 6) return;
 
-  const query = window.matchMedia('(min-width:1025px) and (min-height:560px) and (prefers-reduced-motion:no-preference)');
-  const create = (tag, className, textValue) => {
-    const node = document.createElement(tag);
-    if (className) node.className = className;
-    if (textValue != null) node.textContent = textValue;
+  const media = window.matchMedia('(min-width:1025px) and (min-height:560px) and (prefers-reduced-motion:no-preference)');
+  const content = cards.map(card => {
+    const photo = card.querySelector('.treatment-card-photo');
+    const link = card.querySelector('.treatment-card-book');
+    return {
+      name:card.querySelector('h3')?.textContent.trim(),
+      description:card.querySelector('.treatment-card-description')?.textContent.trim(),
+      duration:card.querySelector('.treatment-card-time')?.textContent.trim(),
+      price:card.querySelector('.treatment-card-price')?.textContent.trim(),
+      image:photo?.getAttribute('src'),
+      alt:photo?.getAttribute('alt') || '',
+      sourceLink:link
+    };
+  });
+  if (content.some(entry => !entry.name || !entry.image || !entry.sourceLink)) return;
+
+  const clamp = value => Math.max(0,Math.min(1,value));
+  const ease = value => {const v=clamp(value);return v*v*(3-2*v);};
+  const create = (tag,cls,text) => {
+    const node=document.createElement(tag);
+    if (cls) node.className=cls;
+    if (text != null) node.textContent=text;
     return node;
   };
-  const clamp = value => Math.max(0, Math.min(1, value));
-  const labels = sourceCards.map(card => ({
-    title:card.querySelector('h3')?.textContent.trim(),
-    description:card.querySelector('.treatment-card-description')?.textContent.trim(),
-    time:card.querySelector('.treatment-card-time')?.textContent.trim(),
-    price:card.querySelector('.treatment-card-price')?.textContent.trim(),
-    photo:card.querySelector('.treatment-card-photo')?.getAttribute('src'),
-    alt:card.querySelector('.treatment-card-photo')?.getAttribute('alt'),
-    icon:card.querySelector('.treatment-card-icon svg'),
-    timeIcon:card.querySelector('.treatment-card-time svg'),
-    booking:card.querySelector('.treatment-card-book')
-  }));
-  if (labels.some(item => !item.title || !item.photo || !item.booking)) return;
+  let stage=null, panels=[], buttons=[], active=-1;
+  let observer=null, visible=false, raf=0;
+  let sectionRoot=null;
 
-  let experience = null;
-  let stage = null;
-  let scenes = [];
-  let tabs = [];
-  let previous = null;
-  let next = null;
-  let selected = -1;
-  let frame = 0;
-
-  function chapterTo(index, smooth = true) {
-    if (!experience || !stage) return;
-    const target = Math.max(0,Math.min(labels.length-1,index));
-    const boxTop = experience.getBoundingClientRect().top + window.scrollY;
-    const travel = Math.max(1,experience.offsetHeight - stage.offsetHeight);
-    // Travel to the center of the target chapter; scroll remains native.
-    const y = boxTop + (target + .18) / labels.length * travel;
-    window.scrollTo({top:y,behavior:smooth?'smooth':'instant'});
-    setActive(target);
-  }
-
-  function setActive(index) {
-    if (index === selected) return;
-    selected = index;
-    scenes.forEach((scene,i) => {
-      const active = i === index;
-      scene.classList.toggle('is-current',active);
-      scene.setAttribute('aria-hidden',String(!active));
-      scene.inert = !active;
+  function paint(index, local, blend) {
+    const selected=blend>=0.5?Math.min(content.length-1,index+1):index;
+    if (selected!==active) {
+      active=selected;
+      buttons.forEach((b,i)=>{
+        b.setAttribute('aria-current',i===active?'step':'false');
+      });
+      panels.forEach((p,i)=>{
+        const accessible=i===active;
+        p.inert=!accessible;
+        p.setAttribute('aria-hidden',String(!accessible));
+      });
+      const counter=stage.querySelector('.cinema-counter-number');
+      if (counter) counter.textContent=String(active+1).padStart(2,'0');
+    }
+    panels.forEach((p,i)=>{
+      let opacity=0,within=0;
+      if (i===index) {opacity=1-blend;within=local;}
+      if (i===index+1 && i<content.length) {opacity=blend;within=0;}
+      if (index===content.length-1 && i===index) {opacity=1;within=local;}
+      p.style.opacity=String(opacity);
+      p.style.visibility=opacity>0.004?'visible':'hidden';
+      const image=p.querySelector('img');
+      if (opacity>0.004 && image) {
+        const scale=i===content.length-1
+          ?1.025+ease(within)*.058
+          :1.025+Math.min(1,within)*.045;
+        image.style.transform='scale('+scale.toFixed(4)+')';
+      }
+      const copy=p.querySelector('.cinema-copy');
+      if(copy){
+        const show=i===index?1-ease((local-.73)/.23):ease((local-.65)/.30);
+        const copyOpacity=index===content.length-1?1:show;
+        copy.style.opacity=String(clamp(copyOpacity));
+        copy.style.transform='translate3d(0,'+((1-clamp(copyOpacity))*16).toFixed(1)+'px,0)';
+      }
     });
-    tabs.forEach((button,i) => button.setAttribute('aria-pressed',String(i === index)));
-    if (previous) previous.disabled = index === 0;
-    if (next) next.disabled = index === labels.length-1;
+    buttons.forEach((b,i)=>{
+      const fill=i<index?1:i===index?local:0;
+      b.style.setProperty('--cinema-fill',String(clamp(fill)));
+    });
   }
 
   function update() {
-    frame = 0;
-    if (!experience || !stage) return;
-    const top = experience.getBoundingClientRect().top;
-    const travel = Math.max(1,experience.offsetHeight - stage.offsetHeight);
-    const progress = clamp(-top / travel);
-    const current = Math.min(labels.length-1,Math.floor(progress*labels.length));
-    setActive(current);
-    const within = clamp(progress*labels.length-current);
-    // The sixth chapter receives a slow photographic close-up before release.
-    const zoom = current === labels.length-1 ? 1.025 + within*.055 : 1.025 + within*.012;
-    scenes[current]?.style.setProperty('--t-chapter-photo-scale',zoom.toFixed(4));
+    raf=0;
+    if (!stage || !sectionRoot || document.hidden) return;
+    const rect=section.getBoundingClientRect();
+    const distance=Math.max(1,section.offsetHeight-stage.offsetHeight);
+    const progress=clamp(-rect.top/distance);
+    const position=Math.min(content.length-0.000001,progress*content.length);
+    const index=Math.min(content.length-1,Math.floor(position));
+    const local=clamp(position-index);
+    const blend=index>=content.length-1?0:ease((local-.66)/.32);
+    paint(index,local,blend);
   }
-  function schedule() {
-    if (!frame) frame = window.requestAnimationFrame(update);
-  }
-
-  function build() {
-    if (experience) return;
-    experience = create('div','treatment-experience');
-    experience.setAttribute('aria-label','Massage treatments — six chapters');
-    stage = create('div','treatment-stage');
-    const viewport = create('div','treatment-chapters-viewport');
-    const navigation = create('nav','treatment-chapter-nav');
-    navigation.setAttribute('aria-label','Choose a massage treatment');
-
-    labels.forEach((item,i) => {
-      const article = create('article','treatment-chapter');
-      article.setAttribute('aria-label',item.title);
-      article.setAttribute('aria-hidden','true');
-      article.inert = true;
-      const picture = create('div','treatment-chapter-photo');
-      const image = create('img');
-      image.src = item.photo;
-      image.alt = item.alt || '';
-      image.width = 1100;
-      image.height = 760;
-      image.decoding = 'async';
-      image.loading = i === 0 ? 'eager' : 'lazy';
-      picture.append(image);
-      const copy = create('div','treatment-chapter-content');
-      const num = String(i+1).padStart(2,'0');
-      copy.append(create('p','treatment-chapter-count',num+' / 06'));
-      const seal = create('div','treatment-chapter-icon');
-      seal.setAttribute('aria-hidden','true');
-      if (item.icon) seal.append(item.icon.cloneNode(true));
-      copy.append(seal);
-      copy.append(create('h3','',item.title));
-      copy.append(create('p','treatment-chapter-description',item.description));
-      const meta = create('div','treatment-chapter-meta');
-      const duration = create('span','duration',item.time);
-      if (item.timeIcon) duration.prepend(item.timeIcon.cloneNode(true));
-      meta.append(duration,create('span','price',item.price));
-      copy.append(meta);
-      const booking = create('a','treatment-chapter-book');
-      booking.href = '#locations';
-      booking.setAttribute('aria-label','Choose a location to book '+item.title);
-      booking.append(create('span','', 'Book Now'));
-      const arrowSvg = document.createElementNS('http://www.w3.org/2000/svg','svg');
-      arrowSvg.setAttribute('viewBox','0 0 24 24');
-      arrowSvg.setAttribute('fill','none');
-      arrowSvg.setAttribute('stroke','currentColor');
-      arrowSvg.setAttribute('stroke-width','1.65');
-      arrowSvg.setAttribute('stroke-linecap','round');
-      arrowSvg.setAttribute('stroke-linejoin','round');
-      arrowSvg.setAttribute('aria-hidden','true');
-      const arrowPath = document.createElementNS('http://www.w3.org/2000/svg','path');
-      arrowPath.setAttribute('d','M5 19 19 5M8 5h11v11');
-      arrowSvg.append(arrowPath);
-      booking.append(arrowSvg);
-      booking.addEventListener('click',event => {
-        event.preventDefault();
-        item.booking.click(); // Existing source link already owns the Fresha location selector.
-      });
-      copy.append(booking);
-      if (i===0) {
-        previous = create('button','treatment-chapter-arrow');
-        previous.type='button';
-        previous.setAttribute('aria-label','Previous treatment');
-        const left = document.createElementNS('http://www.w3.org/2000/svg','svg');
-        left.setAttribute('viewBox','0 0 24 24');
-        left.setAttribute('fill','none');
-        left.setAttribute('stroke','currentColor');
-        left.setAttribute('stroke-width','1.6');
-        const p=document.createElementNS('http://www.w3.org/2000/svg','path');
-        p.setAttribute('d','M15 5 8 12l7 7');
-        left.append(p);previous.append(left);
-        previous.addEventListener('click',()=>chapterTo(selected-1));
-      }
-      // Arrow controls belong to the always-present stage, rather than each hidden chapter.
-      article.append(picture,copy);
-      viewport.append(article);
-      scenes.push(article);
-
-      const button = create('button','treatment-chapter-tab');
-      button.type='button';
-      button.setAttribute('aria-label','Show '+item.title);
-      button.setAttribute('aria-pressed','false');
-      button.append(create('span','treatment-tab-number',num));
-      const thumb = create('img');
-      thumb.src = item.photo;
-      thumb.alt = '';
-      thumb.width = 260;
-      thumb.height = 160;
-      thumb.decoding='async';
-      thumb.loading='lazy';
-      button.append(thumb,create('span','treatment-tab-title',item.title));
-      button.addEventListener('click',()=>chapterTo(i,false));
-      navigation.append(button);
-      tabs.push(button);
-    });
-    // Non-duplicated arrow controls stay visible as chapters change.
-    const controls = create('div','treatment-chapter-controls');
-    previous = previous || create('button','treatment-chapter-arrow');
-    next = create('button','treatment-chapter-arrow');
-    next.type='button';
-    next.setAttribute('aria-label','Next treatment');
-    const right = document.createElementNS('http://www.w3.org/2000/svg','svg');
-    right.setAttribute('viewBox','0 0 24 24');
-    right.setAttribute('fill','none');
-    right.setAttribute('stroke','currentColor');
-    right.setAttribute('stroke-width','1.6');
-    const path=document.createElementNS('http://www.w3.org/2000/svg','path');
-    path.setAttribute('d','m9 5 7 7-7 7');
-    right.append(path);
-    next.append(right);
-    next.addEventListener('click',()=>chapterTo(selected+1));
-    controls.append(previous,next);
-    stage.append(viewport,controls,navigation);
-    experience.append(stage);
-    heading.after(experience);
-    section.classList.add('is-treatment-chapters');
-    selected=-1;
-    setActive(0);
-    window.addEventListener('scroll',schedule,{passive:true});
-    window.addEventListener('resize',schedule,{passive:true});
+  function schedule(){if(!raf && stage) raf=requestAnimationFrame(update);}
+  function goTo(index){
+    if (!stage) return;
+    const target=Math.max(0,Math.min(content.length-1,index));
+    const from=section.getBoundingClientRect().top+window.scrollY;
+    const travel=Math.max(1,section.offsetHeight-stage.offsetHeight);
+    const offset=(target+.2)/content.length*travel;
+    // Ranchman-style direct chapter selection: no forced sweep past every
+    // intervening treatment; image/copy transition softly at the destination.
+    window.scrollTo({top:from+offset,behavior:'instant'});
     schedule();
   }
-  function destroy() {
-    if (!experience) return;
+
+  function build(){
+    if (stage) return;
+    const immersive=create('div','cinema-stage');
+    immersive.setAttribute('aria-label','Explore six massage treatments');
+
+    const background=create('div','cinema-backgrounds');
+    const nav=create('nav','cinema-navigation');
+    nav.setAttribute('aria-label','Choose a massage treatment');
+
+    content.forEach((item,i)=>{
+      const panel=create('article','cinema-panel');
+      panel.setAttribute('aria-label',item.name);
+      panel.setAttribute('aria-hidden','true');
+      panel.inert=true;
+      const image=create('img','cinema-photo');
+      image.src=item.image;
+      image.alt=item.alt;
+      image.width=1100;image.height=760;
+      image.decoding='async'; image.loading=i<2?'eager':'lazy';
+      const imgWrap=create('div','cinema-image-wrap');
+      imgWrap.append(image);
+      panel.append(imgWrap,create('div','cinema-scrim'));
+
+      const copy=create('div','cinema-copy');
+      copy.append(create('p','cinema-copy-kicker','MASSAGE TREATMENTS / '+String(i+1).padStart(2,'0')));
+      copy.append(create('h2','cinema-title',item.name));
+      copy.append(create('p','cinema-description',item.description));
+      const meta=create('div','cinema-meta');
+      meta.append(create('span','cinema-duration',item.duration));
+      meta.append(create('span','cinema-price',item.price));
+      copy.append(meta);
+      const book=create('a','cinema-book','Book Now');
+      book.href='#locations';
+      book.setAttribute('aria-label','Choose a location to book '+item.name);
+      book.addEventListener('click',event=>{
+        event.preventDefault();
+        item.sourceLink.click();
+      });
+      const arrow=create('span','cinema-book-arrow','↗');
+      arrow.setAttribute('aria-hidden','true');
+      book.append(arrow);
+      copy.append(book);
+      panel.append(copy);
+      background.append(panel);
+      panels.push(panel);
+
+      const button=create('button','cinema-nav-button');
+      button.type='button';
+      button.setAttribute('aria-label','Go to '+item.name);
+      button.setAttribute('aria-current','false');
+      button.append(create('span','cinema-nav-rule'));
+      button.append(create('span','cinema-nav-label',item.name));
+      button.addEventListener('click',()=>goTo(i));
+      nav.append(button);
+      buttons.push(button);
+    });
+    immersive.append(background);
+    const top=create('div','cinema-top');
+    top.append(create('span','cinema-top-label','THAILAND TO TEXAS · OUR TREATMENTS'));
+    const counter=create('span','cinema-counter');
+    counter.append(create('span','cinema-counter-number','01'));
+    counter.append(document.createTextNode(' / 06'));
+    top.append(counter);
+    immersive.append(top);
+    const footer=create('div','cinema-footer');
+    const hint=create('div','cinema-hint');
+    hint.append(create('span','', 'SCROLL TO EXPLORE'));
+    const disclaimer=create('span','cinema-disclaimer','Services, pricing and availability vary by location. Confirm on Fresha.');
+    hint.append(disclaimer);
+    footer.append(hint,nav);
+    immersive.append(footer);
+    section.append(immersive);
+    stage=immersive;
+    sectionRoot=section;
+    section.classList.add('is-treatment-immersive');
+    paint(0,0,0);
+
+    observer=new IntersectionObserver(entries=>{
+      visible=entries.some(entry=>entry.isIntersecting);
+      if(visible) schedule();
+    },{rootMargin:'240px 0px'});
+    observer.observe(section);
+    window.addEventListener('scroll',schedule,{passive:true});
+    window.addEventListener('resize',schedule,{passive:true});
+    document.addEventListener('visibilitychange',schedule);
+    requestAnimationFrame(schedule);
+  }
+  function destroy(){
+    if (!stage) return;
+    observer?.disconnect();observer=null;
     window.removeEventListener('scroll',schedule);
     window.removeEventListener('resize',schedule);
-    if (frame) window.cancelAnimationFrame(frame);
-    frame=0;
-    experience.remove();
-    experience=null;stage=null;scenes=[];tabs=[];
-    previous=null;next=null;selected=-1;
-    section.classList.remove('is-treatment-chapters');
+    document.removeEventListener('visibilitychange',schedule);
+    if(raf) cancelAnimationFrame(raf);
+    raf=0;
+    stage.remove();stage=null;sectionRoot=null;visible=false;
+    panels=[];buttons=[];active=-1;
+    section.classList.remove('is-treatment-immersive');
   }
-  function reconcile() {if (query.matches) build();else destroy();}
-  if (query.addEventListener) query.addEventListener('change',reconcile);
-  else query.addListener(reconcile);
+  const reconcile=()=>media.matches?build():destroy();
+  if(media.addEventListener) media.addEventListener('change',reconcile);
+  else media.addListener(reconcile);
   reconcile();
 })();
