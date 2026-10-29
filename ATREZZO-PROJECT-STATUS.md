@@ -278,3 +278,5 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - `main/index.html` y `main/assets/css/home-light-ritual.css` coinciden con `work/home-v1/web`.
 - Preview: https://atrezzostudiosv-spec.github.io/thaissage-center/
 - Fase visual **NO CERRADA**: falta inspección real 375/768/1024/1440, iPhone Safari, foco teclado, LCP/CLS, conexiones booking y video de muestra.
+
+**Publicación final con caché renovada (2026-10-29):** commit de `main` `83cee4c1ebfaa8d6c6c1b2e6cc020713d8a93046`, ejecución Pages `40849603182` **build/deploy/report success**. Se actualizó la etiqueta CSS de `main/index.html` y `work/home-v1/web/index.html` a `home-light-ritual.css?v=porcelain-20261029` para evitar la hoja de estilos antigua en Safari/iPhone. Demo aún `noindex`. **QA visual real de dispositivos sigue abierto.**
