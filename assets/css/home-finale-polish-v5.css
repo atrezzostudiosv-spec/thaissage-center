@@ -1,0 +1,233 @@
+/* ATREZZO · THAISSAGE CENTER / HOME FINALE POLISH v5
+   29 Oct 2026. Focused only on the approved four changes:
+   white Treatments intro, viewport-height Heritage, Signature-to-Gift
+   continuity, viewport-height Gift Cards with native-scroll photo zoom.
+   No copies, commercial data, booking links, or other chapters changed.
+*/
+
+/* 01 — White porcelain introduction; preserve its editorial typography. */
+.treatments-intro-bridge {
+  background:#FFFFFF!important;
+  background-image:none!important;
+}
+.treatments-intro-bridge::before{
+  background:#86A694;
+  opacity:.46;
+}
+.treatments-intro-bridge .treatments-heading-link{
+  background:#FFFFFF!important;
+  border-color:#D1DFD5!important;
+}
+@media(max-width:720px) {
+  .treatments-intro-bridge{
+    background:#FFFFFF!important;
+    background-image:none!important;
+  }
+}
+
+/* 02 — THAILAND TO TEXAS: a full-viewport photographic scene at every width. */
+main .heritage {
+  position:relative!important;
+  box-sizing:border-box;
+  width:100%!important;
+  max-width:none!important;
+  min-height:100svh!important;
+  height:auto;
+  display:grid!important;
+  place-items:center;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  overflow:hidden!important;
+  isolation:isolate;
+  background:#26362D;
+}
+main .heritage .heritage-photo,
+main .heritage .heritage-gradient{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+}
+main .heritage .heritage-photo{
+  background-size:cover!important;
+  background-position:center 52%;
+}
+main .heritage .heritage-inner{
+  position:relative;
+  box-sizing:border-box;
+  width:min(100% - 100px,1280px);
+  max-width:1280px;
+  padding:clamp(85px,10svh,145px) 0!important;
+  margin:0 auto;
+}
+@media(max-width:720px){
+  main .heritage .heritage-photo{
+    background-position:60% center;
+  }
+  main .heritage .heritage-inner{
+    width:min(100% - 40px,1280px);
+    padding:clamp(70px,8svh,110px) 0!important;
+  }
+}
+@media(max-height:640px) {
+  main .heritage .heritage-inner{padding:52px 0!important}
+  main .heritage .heritage-phrase{font-size:clamp(41px,7vw,72px)!important}
+}
+
+/* 03 — Keep Signature's existing disclaimer, but put it BEFORE the photos.
+   No pale band AFTER the last full-screen Phuket scene. */
+.signature-cinematic .signature-heading + .package-disclaimer {
+  box-sizing:border-box;
+  max-width:1290px;
+  margin:0 auto clamp(25px,4vw,44px)!important;
+  padding:0!important;
+  color:#668173;
+  font:400 11px/1.75 'Open Sans',Arial,sans-serif;
+}
+section.signature-section.is-signature-scroll-ritual{
+  padding-bottom:0!important;
+  margin-bottom:0!important;
+  border-bottom:0!important;
+}
+section.signature-section.is-signature-scroll-ritual .signature-heading + .package-disclaimer{
+  background:#F6F9F6;
+  width:min(100% - 100px,1290px)!important;
+  max-width:1290px!important;
+  margin:0 auto!important;
+  padding:0 0 clamp(29px,3.6vw,46px)!important;
+}
+section.signature-section.is-signature-scroll-ritual .signature-scroll-track{
+  margin-bottom:0!important;
+  border-bottom:0!important;
+  padding-bottom:0!important;
+  background:#1E2C26;
+}
+section.signature-section.is-signature-scroll-ritual .signature-scroll-track + .signature-stories{
+  display:none!important;
+}
+
+/* Fallback: content remains readable without JS or when reduced-motion.
+   Avoid any artificially large white padding before Gift. */
+section.signature-cinematic:not(.is-signature-scroll-ritual){
+  padding-bottom:clamp(22px,3vw,38px)!important;
+}
+
+/* 04 — GIFT CARDS: the photo is always full bleed, full viewport.
+   When progressive JS runs, the wrapper provides an additional viewport
+   of NATIVE scrolling while the photo scales slowly behind static copy. */
+.gift-scroll-journey {
+  position:relative;
+  display:block;
+  width:100%;
+  max-width:none;
+  padding:0;
+  margin:0;
+  background:#25362C;
+  isolation:isolate;
+}
+.gift-scroll-journey .gift-section {
+  position:relative;
+  width:100%!important;
+  max-width:none!important;
+  min-height:100svh!important;
+  height:auto;
+  margin:0!important;
+  padding:0!important;
+  box-sizing:border-box;
+  display:flex!important;
+  align-items:center!important;
+  border:0!important;
+  border-radius:0!important;
+  overflow:hidden!important;
+  isolation:isolate;
+  background:#25362C!important;
+}
+.gift-scroll-journey .gift-photo,
+.gift-scroll-journey .gift-overlay{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.gift-scroll-journey .gift-photo{
+  background-size:cover!important;
+  background-position:center 47%;
+  filter:saturate(.96) contrast(1.03);
+  transform:scale(var(--gift-photo-scale,1.015));
+  transform-origin:center center;
+  will-change:transform;
+}
+.gift-scroll-journey .gift-overlay{
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.68) 0%,rgba(0,0,0,.49) 41%,rgba(0,0,0,.12) 82%)!important;
+}
+.gift-scroll-journey .gift-inner {
+  position:relative;
+  z-index:2;
+  box-sizing:border-box;
+  min-height:100svh!important;
+  width:min(100% - 100px,1280px);
+  max-width:1280px;
+  margin:0 auto;
+  padding:clamp(88px,11svh,146px) 0!important;
+  display:flex!important;
+  align-items:center;
+}
+.gift-scroll-journey .gift-inner>div{max-width:690px}
+.gift-scroll-journey.is-gift-scroll-active{
+  height:205svh;
+  overflow:visible;
+}
+.gift-scroll-journey.is-gift-scroll-active .gift-section{
+  position:sticky!important;
+  top:0!important;
+  height:100svh!important;
+  min-height:100svh!important;
+  z-index:1;
+}
+.gift-scroll-journey.is-gift-scroll-active .gift-inner{
+  height:100svh;
+}
+@media(max-width:720px){
+  .signature-cinematic .signature-heading + .package-disclaimer,
+  section.signature-section.is-signature-scroll-ritual .signature-heading + .package-disclaimer{
+    width:min(100% - 40px,1280px)!important;
+    padding-bottom:26px!important;
+    margin:0 auto!important;
+  }
+  .gift-scroll-journey .gift-photo{
+    background-image:url('../images/thaissage-gift-experience-mobile.webp');
+    background-position:56% center;
+  }
+  .gift-scroll-journey .gift-overlay{
+    background:linear-gradient(0deg,rgba(0,0,0,.70) 0%,rgba(0,0,0,.45) 64%,rgba(0,0,0,.19) 100%)!important;
+  }
+  .gift-scroll-journey .gift-inner{
+    width:min(100% - 40px,1280px);
+    min-height:100svh!important;
+    padding:clamp(75px,9svh,105px) 0 calc(115px + env(safe-area-inset-bottom,0px))!important;
+  }
+  .gift-scroll-journey .gift-inner h2{
+    font-size:clamp(43px,10vw,61px)!important;
+    line-height:1.1!important;
+  }
+  .gift-scroll-journey .gift-inner p:not(.eyebrow){
+    font-size:12.5px;
+    line-height:1.7;
+  }
+}
+@media(max-height:639px){
+  .gift-scroll-journey .gift-inner{padding-top:65px!important;padding-bottom:75px!important}
+  .gift-scroll-journey .gift-inner h2{font-size:clamp(40px,7vw,59px)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .gift-scroll-journey .gift-photo{
+    transform:none!important;
+    will-change:auto!important;
+  }
+}
+@media print{
+  .gift-scroll-journey,
+  .gift-scroll-journey.is-gift-scroll-active{height:auto!important}
+  .gift-scroll-journey .gift-section{position:relative!important;height:auto!important;min-height:0!important}
+}
