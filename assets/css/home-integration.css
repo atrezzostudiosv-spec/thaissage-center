@@ -184,7 +184,7 @@
 }
 .location-view-map:hover,.location-view-map:focus-visible{color:#315447;border-bottom-color:#315447}
 
-/* Signature closing photo: an illustrative wellness room, never identified
+/* Closing photo: intentionally echoes the original hero room as a visual bookend; never identified
    as a real Thaissage Center branch. */
 section.cinematic-ending.last-cta{
   position:relative;
@@ -201,7 +201,7 @@ section.cinematic-ending.last-cta{
   position:absolute;inset:0;width:100%;height:100%;pointer-events:none;
 }
 .cinematic-ending-photo{
-  background:#3C4B40 url('../images/thaissage-signature-chiang-mai-soft-linens.webp') center 55%/cover no-repeat;
+  background:#3C4B40 url('../images/thaissage-hero-spa-interior-desktop.webp') 62% center/cover no-repeat;
   transform:scale(1.04);
   will-change:transform;
 }
