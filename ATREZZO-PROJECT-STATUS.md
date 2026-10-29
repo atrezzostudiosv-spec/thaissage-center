@@ -113,3 +113,12 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **NO COMPROBADO:** renderizado público de la última versión de GitHub Pages, QA visual/scroll real en 375/768/1024/1440, click en navegación y reservas en navegador, métricas de rendimiento y accesibilidad ejecutada. No declarar la escena cerrada hasta probarla.
 - **ESTADO:** Treatments desktop **EN VALIDACIÓN VISUAL**. Resto del Home **NO MODIFICADO**. No autorizado a producción.
 - **SIGUIENTE ACCIÓN ÚNICA:** observar la sección en navegador real a 1440/1024/768/375 y corregir únicamente defectos reproducibles.
+
+## Corrección de activación de la sección Treatments — 29/10/2026
+- **Incidencia:** el usuario recargó la demo y seguía viendo el catálogo antiguo.
+- **Causa técnica identificada en código:** el nuevo componente requería un viewport de al menos 1101 px de ancho y 720 px de alto, condición demasiado estricta para portátiles con barras del navegador visibles. No se ha confirmado mediante inspector que fuera la única causa.
+- **Corrección en main:** condición de activación sincronizada entre CSS y JS a ancho >=1025 px, alto >=560 px y motion permitido. CSS responsive compacto para altos 560–760 px, manteniendo el flujo original en tablet/móvil, ventanas inferiores y motion reducido.
+- **Caché:** referencias CSS y JS del Home actualizadas a versión `20261029-2` para invalidar recursos previos.
+- **Comprobado por repositorio:** HTML enlaza ambos archivos nuevos, existe contenido actualizado, JavaScript sintácticamente válido; se mantienen los seis tratamientos y sus CTA del selector Fresha.
+- **No comprobado:** build/despliegue final en GitHub Pages y navegación visual en el navegador del usuario. Hasta observarlo, estado EN VALIDACIÓN; no atribuir la incidencia exclusivamente al breakpoint.
+- **SIGUIENTE ACCIÓN:** confirmar visualmente la aparición en la demo de escritorio y, en caso de persistir, inspeccionar el origen publicado (respuesta de recursos y errores de consola).
