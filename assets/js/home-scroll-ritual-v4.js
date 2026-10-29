@@ -215,7 +215,7 @@
   const signatureCinema=createStory({
     section:signature,media:signatureMedia,count:3,className:'is-signature-scroll-ritual',
     trackClass:'signature-scroll-track',aria:'Three full-screen signature experiences',
-    before:signature?.querySelector('.package-disclaimer'),eyebrow:'SIGNATURE EXPERIENCE',
+    before:signature?.querySelector('.signature-stories'),eyebrow:'SIGNATURE EXPERIENCE',
     topLabel:'TAKE A LITTLE LONGER · SIGNATURE EXPERIENCES',cta:'Check Availability',
     fallbackFocus:'.signature-story-footer a',
     collect:()=>stories.map(story=>{
