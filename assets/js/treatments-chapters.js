@@ -50,6 +50,7 @@
       panels.forEach((p,i)=>{
         const accessible=i===active;
         p.inert=!accessible;
+        p.style.pointerEvents=accessible?'auto':'none';
         p.setAttribute('aria-hidden',String(!accessible));
       });
       const counter=stage.querySelector('.cinema-counter-number');
@@ -61,7 +62,7 @@
       if (i===index+1 && i<content.length) {opacity=blend;within=0;}
       if (index===content.length-1 && i===index) {opacity=1;within=local;}
       p.style.opacity=String(opacity);
-      p.style.visibility=opacity>0.004?'visible':'hidden';
+      // Keep transparent panels rendered so even direct chapter jumps crossfade smoothly.
       const image=p.querySelector('img');
       if (opacity>0.004 && image) {
         const scale=i===content.length-1
