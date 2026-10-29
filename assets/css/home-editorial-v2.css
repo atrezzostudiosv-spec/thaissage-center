@@ -260,7 +260,7 @@
   .directions-section .directions-disclaimer{margin-top:14px!important}
 }
 
-/* OUTRO / ORIGINAL BOTANICAL SHADOW ARTWORK ACROSS CTA + FOOTER; NO GRADIENT SEAM */
+/* OUTRO / ONE CONTINUOUS PHOTOGRAPH FOR CTA + FOOTER; NO GRADIENT SEAM */
 .site-outro{
   position:relative;
   isolation:isolate;
@@ -270,14 +270,14 @@
 }
 .site-outro>.site-outro-photo{
   position:absolute;inset:0;z-index:-2;
-  background:#4D4035 url('../images/thaissage-outro-botanical-shadows.svg') 58% 50%/cover no-repeat;
+  background:#28362E url('../images/thaissage-thai-massage-ritual-wide.webp') 57% 52%/cover no-repeat;
   pointer-events:none;
-  filter:none;
+  filter:saturate(.88) brightness(.69);
   transform:scale(1.017);
 }
 .site-outro>.site-outro-tonal{
   position:absolute;inset:0;z-index:-1;
-  background:rgba(13,19,15,.29);
+  background:rgba(10,22,17,.40);
   pointer-events:none;
 }
 .site-outro .cinematic-ending.last-cta{
@@ -368,8 +368,8 @@
   .signature-section .package-two .package-content,.signature-section .package-three .package-content{padding:5px 0 4px!important}
   .signature-section .package-one h3,.signature-section .package-two h3,.signature-section .package-three h3{font-size:clamp(36px,9vw,49px)!important}
   .site-outro>.site-outro-photo{
-    background-image:url('../images/thaissage-outro-botanical-shadows.svg');
-    background-position:71% 45%;
+    background-image:url('../images/thaissage-thai-massage-ritual-mobile.webp');
+    background-position:52% top;
   }
   .site-outro .cinematic-ending.last-cta{min-height:max(650px,78svh)!important}
   .site-outro .cinematic-ending-inner{padding:125px 0 100px!important}
