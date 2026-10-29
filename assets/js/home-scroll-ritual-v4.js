@@ -157,6 +157,18 @@
       const local=clamp(position-index);
       const blend=index<items.length-1?smooth((local-.78)/.22):0;
       render(index,local,blend);
+      // The first mobile Treatment also enters gently from the right as
+      // the story stage becomes visible below the editorial introduction.
+      if(section===treatment && window.innerWidth<=720 && index===0 && rect.top>0) {
+        const arrival=smooth(1-rect.top/(window.innerHeight*.72));
+        const first=panels[0];
+        if(first){
+          first.style.opacity=String(arrival);
+          first.style.transform='translate3d('+((1-arrival)*22).toFixed(1)+'%,0,0)';
+          const copy=first.querySelector('.scroll-ritual-copy');
+          if(copy)copy.style.opacity=String(arrival);
+        }
+      }
     }
     function request() {if(track&&!raf)raf=window.requestAnimationFrame(update)}
     function destroy() {
