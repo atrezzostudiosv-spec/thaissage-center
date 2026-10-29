@@ -240,3 +240,13 @@ img{max-width:100%;display:block}
  .hero-photo,.chapter-image img{transform:none!important;transition:none!important;will-change:auto!important}
 }
 @media print{.site-header,.menu-toggle,.page-booking,.page-footer{display:none}.hero-photo,.hero-overlay{display:none}.page-hero{min-height:0;color:#000;background:#FFF}.page-hero h1,.hero-lead{color:#000}}
+
+/* Responsive portrait WebP scenes: real matching mobile crops, no stretched
+   desktop originals. Explicit layering protects copy, header and CTA. */
+.page-hero > .hero-photo,
+.page-hero > .hero-media{position:absolute;inset:0;z-index:0;pointer-events:none}
+.page-hero > .hero-media{overflow:hidden}
+.page-hero > .hero-media .hero-photo{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.page-hero > .hero-overlay{z-index:1}
+.page-hero > .hero-content{z-index:2}
+.page-hero > .hero-micro{z-index:3}
