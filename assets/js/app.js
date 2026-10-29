@@ -264,7 +264,8 @@
     const delta = y - lastHeaderY;
     lastHeaderY = y;
     const navOpen = toggle?.getAttribute('aria-expanded') === 'true';
-    if (y < 115 || navOpen || dialog?.open || header.contains(document.activeElement)) {
+    const keyboardFocus = !!header.querySelector(':focus-visible');
+    if (y < 115 || navOpen || dialog?.open || keyboardFocus) {
       header.classList.remove('is-hidden');
       directionTravel = 0;
       return;
