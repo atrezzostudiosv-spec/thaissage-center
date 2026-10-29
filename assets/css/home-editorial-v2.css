@@ -260,53 +260,73 @@
   .directions-section .directions-disclaimer{margin-top:14px!important}
 }
 
-/* OUTRO / ONE CONTINUOUS PHOTOGRAPH FOR CTA + FOOTER; NO GRADIENT SEAM */
+/* OUTRO / TWO INTENTIONALLY DISTINCT CHAPTERS
+   The approved cinematic image belongs ONLY to Make Room for Yourself.
+   Footer begins with its own muted forest-green surface, no image bleed,
+   no conspicuous gradient or artificial photographic blend.
+   All other Home sections retain their approved styling. */
 .site-outro{
   position:relative;
   isolation:isolate;
   overflow:hidden;
-  background:#1D2A23;
+  background:#344A40;
   color:#FFF;
-}
-.site-outro>.site-outro-photo{
-  position:absolute;inset:0;z-index:-2;
-  background:#28362E url('../images/thaissage-thai-massage-ritual-wide.webp') 57% 52%/cover no-repeat;
-  pointer-events:none;
-  filter:saturate(.88) brightness(.69);
-  transform:scale(1.017);
-}
-.site-outro>.site-outro-tonal{
-  position:absolute;inset:0;z-index:-1;
-  background:rgba(10,22,17,.40);
-  pointer-events:none;
 }
 .site-outro .cinematic-ending.last-cta{
   position:relative;
-  isolation:auto!important;
+  isolation:isolate!important;
   display:flex!important;
   align-items:center;
-  min-height:clamp(560px,70svh,800px)!important;
+  min-height:clamp(530px,70svh,720px)!important;
   padding:0!important;
-  background:transparent!important;
+  overflow:hidden!important;
+  background:#344A40!important;
   color:#FFF!important;
 }
-.site-outro .cinematic-ending-inner{padding:clamp(110px,12vw,190px) 0!important}
-.site-outro .cinematic-ending h2,.site-outro .cinematic-ending h2 em{color:#FFF!important}
-.site-outro .cinematic-ending-count{opacity:.76}
-.site-outro .footer{
+.site-outro .cinematic-ending .site-outro-photo{
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background:#344A40 url('../images/thaissage-thai-massage-ritual-wide.webp') 57% 52%/cover no-repeat;
+  filter:saturate(.88) brightness(.79);
+  transform:scale(1.017);
+}
+.site-outro .cinematic-ending .site-outro-tonal{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:rgba(28,48,37,.33);
+}
+.site-outro .cinematic-ending-inner{
   position:relative;
   z-index:2;
-  background:transparent!important;
-  color:#F5F8F4!important;
-  border-top:1px solid rgba(255,255,255,.18);
-  padding-top:clamp(58px,5vw,86px);
-  padding-bottom:clamp(28px,3vw,45px);
+  padding:clamp(85px,8vw,124px) 0!important;
 }
+.site-outro .cinematic-ending h2,
+.site-outro .cinematic-ending h2 em{color:#FFF!important}
+.site-outro .cinematic-ending-count{opacity:.83}
+.site-outro .footer{
+  position:relative;
+  isolation:auto;
+  z-index:2;
+  background:#344A40!important;
+  color:#F5F8F4!important;
+  border:0!important;
+  box-shadow:none!important;
+  padding-top:clamp(54px,5.2vw,75px);
+  padding-bottom:clamp(28px,3vw,43px);
+}
+.site-outro .footer-grid{padding-bottom:clamp(52px,5vw,70px)}
 .site-outro .footer a{color:#F6F9F4!important}
-.site-outro .footer p,.site-outro .footer span{color:#E4EEE5}
-.site-outro .footer-title{color:#F3F7F2!important}
-.site-outro .footer-bottom{border-top:1px solid rgba(255,255,255,.20)}
-.site-outro .footer-bottom a{color:#EEF6EE!important}
+.site-outro .footer a:hover,
+.site-outro .footer a:focus-visible{color:#D5E9DA!important}
+.site-outro .footer p,.site-outro .footer span{color:#D9E7DC}
+.site-outro .footer-title{color:#F1F6F0!important}
+.site-outro .footer-signature{color:#D3E8D8!important}
+.site-outro .footer-bottom{border-top:1px solid rgba(244,251,245,.19)}
+.site-outro .footer-bottom a{color:#EDF6EE!important}
 @media(max-width:1080px){
   .locations-section .location-content{grid-template-columns:80px minmax(185px,1.5fr) minmax(170px,1.05fr) minmax(125px,.9fr);column-gap:20px}
   .locations-section .location-content h3{font-size:clamp(41px,5vw,63px)!important}
@@ -367,16 +387,17 @@
   }
   .signature-section .package-two .package-content,.signature-section .package-three .package-content{padding:5px 0 4px!important}
   .signature-section .package-one h3,.signature-section .package-two h3,.signature-section .package-three h3{font-size:clamp(36px,9vw,49px)!important}
-  .site-outro>.site-outro-photo{
+  .site-outro .cinematic-ending .site-outro-photo{
     background-image:url('../images/thaissage-thai-massage-ritual-mobile.webp');
     background-position:52% top;
   }
-  .site-outro .cinematic-ending.last-cta{min-height:max(650px,78svh)!important}
-  .site-outro .cinematic-ending-inner{padding:125px 0 100px!important}
-  .site-outro .cinematic-ending-count{bottom:25px!important}
-  .site-outro .footer{padding-top:56px!important}
+  .site-outro .cinematic-ending.last-cta{min-height:clamp(580px,72svh,720px)!important}
+  .site-outro .cinematic-ending-inner{padding:95px 0 96px!important}
+  .site-outro .cinematic-ending-count{bottom:22px!important}
+  .site-outro .footer{padding-top:48px!important}
+  .site-outro .footer-grid{padding-bottom:43px}
 }
 @media(prefers-reduced-motion:reduce){
-  .site-outro>.site-outro-photo{transform:none!important}
+  .site-outro .cinematic-ending .site-outro-photo{transform:none!important}
   .locations-section .location-panel::before{transition:none!important}
 }
