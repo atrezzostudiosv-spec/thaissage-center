@@ -134,7 +134,12 @@
         travel = Math.max(0, treatmentsWindow.scrollWidth - treatmentsWindow.clientWidth);
         if (travel > 10) {
           pinned = true;
-          treatmentsStory.style.height = Math.ceil(window.innerHeight + travel) + 'px';
+          // Hold the final card for another deliberate scroll beat before moving on.
+          // Include the CSS exit gap in the measured section length, never lock the wheel.
+          const finalPause = Math.max(500, Math.round(window.innerHeight * .82));
+          const exitGap = Math.max(125, Math.min(190, Math.round(window.innerHeight * .18)));
+          treatmentsStory.style.setProperty('--treatments-exit-gap', exitGap + 'px');
+          treatmentsStory.style.height = Math.ceil(window.innerHeight + travel + finalPause + exitGap) + 'px';
           pinTop = window.scrollY + treatmentsStory.getBoundingClientRect().top;
           requestPin();
         } else {
@@ -247,7 +252,35 @@
     });
   }
 
-  const onScrollHeader = () => header?.classList.toggle('is-scrolled',window.scrollY > 30);
+  // Smart header: hidden when moving down, revealed when scrolling up.
+  // At page top, with navigation open, or when its controls are focused, keep it visible.
+  let lastHeaderY = Math.max(0, window.scrollY);
+  let headerDirection = 0;
+  let directionTravel = 0;
+  const onScrollHeader = () => {
+    if (!header) return;
+    const y = Math.max(0, window.scrollY);
+    header.classList.toggle('is-scrolled',y > 30);
+    const delta = y - lastHeaderY;
+    lastHeaderY = y;
+    const navOpen = toggle?.getAttribute('aria-expanded') === 'true';
+    if (y < 115 || navOpen || dialog?.open || header.contains(document.activeElement)) {
+      header.classList.remove('is-hidden');
+      directionTravel = 0;
+      return;
+    }
+    if (Math.abs(delta) < 1) return;
+    const newDirection = Math.sign(delta);
+    directionTravel = newDirection === headerDirection
+      ? directionTravel + Math.abs(delta) : Math.abs(delta);
+    headerDirection = newDirection;
+    if (directionTravel >= 14) {
+      header.classList.toggle('is-hidden',newDirection > 0);
+      directionTravel = 0;
+    }
+  };
   window.addEventListener('scroll',onScrollHeader,{passive:true});
+  header?.addEventListener('focusin',()=>header.classList.remove('is-hidden'));
+  toggle?.addEventListener('click',()=>header?.classList.remove('is-hidden'));
   onScrollHeader();
 })();
