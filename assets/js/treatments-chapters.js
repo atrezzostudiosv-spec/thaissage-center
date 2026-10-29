@@ -39,7 +39,6 @@
   let next = null;
   let selected = -1;
   let frame = 0;
-  let navigating = false;
 
   function chapterTo(index, smooth = true) {
     if (!experience || !stage) return;
@@ -141,7 +140,6 @@
         item.booking.click(); // Existing source link already owns the Fresha location selector.
       });
       copy.append(booking);
-      const actions = create('div','treatment-chapter-actions');
       if (i===0) {
         previous = create('button','treatment-chapter-arrow');
         previous.type='button';
@@ -174,7 +172,7 @@
       thumb.decoding='async';
       thumb.loading='lazy';
       button.append(thumb,create('span','treatment-tab-title',item.title));
-      button.addEventListener('click',()=>chapterTo(i));
+      button.addEventListener('click',()=>chapterTo(i,false));
       navigation.append(button);
       tabs.push(button);
     });
