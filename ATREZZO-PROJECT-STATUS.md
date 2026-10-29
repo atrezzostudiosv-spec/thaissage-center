@@ -201,3 +201,12 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **SIN CAMBIOS:** Locations, mapa móvil, Our Approach, Signature, Treatments, Hero, CTA, footer, información comercial ni flujos Fresha.
 - **VERIFICADO EN CÓDIGO:** CSS restaurado y referencias originales; el despliegue visual en GitHub Pages sigue pendiente de validación en navegador.
 - **ESTADO:** reversión de último cambio completada en GitHub; vuelve a estar activa la fotografía anterior a las sombras botánicas.
+
+## Nueva decisión aprobada: cierre contenido + footer verde sólido — 29/10/2026
+- **Contexto:** tras explorar la foto integrada hasta el footer y revertir las sombras botánicas, el usuario decidió evitar una escena final demasiado larga o confusa. Quiere una separación limpia entre fotografía y footer con coherencia cromática, sin degradado evidente.
+- **Implementación realizada en `main`:** capas `.site-outro-photo` y `.site-outro-tonal` reubicadas **dentro** de la sección `.cinematic-ending` en `index.html`; footer separado con fondo sólido **`#344A40`**. `assets/css/home-editorial-v2.css` limita el cierre a aproximadamente **70svh** en desktop, con altura responsive mínima para contenido y CTA, y 72svh móvil con mínimo 580 px. Footer con tipografía clara, divisores interiores suaves y separación visual intencional, sin foto por detrás ni degradado de unión.
+- **Fotografía conservada:** `thaissage-thai-massage-ritual-wide.webp` y `thaissage-thai-massage-ritual-mobile.webp`; no se añadió otra imagen ni se restauró el SVG botánico revertido.
+- **Caché:** nueva referencia de estilo `home-editorial-v2.css?v=20261029-green-footer-4`.
+- **QA estático:** capas dentro de CTA; CSS balanceado; mapa, tres ubicaciones, seis tratamientos, reservas y `noindex` conservados. [Informe](docs/QA-OUTRO-FOOTER-SEPARACION-2026-10-29.md).
+- **No modificado:** Hero, Treatments, Locations, mapa, Our Approach, Signature, Gift, precios ni horarios. **Sin prueba visual de navegador** ni confirmación de despliegue Pages, a realizar con el usuario.
+- **ESTADO:** ajuste puntual **IMPLEMENTADO EN REPOSITORIO / EN VALIDACIÓN VISUAL**. Próxima acción: evaluar fotografía→footer a 375/768/1024/1440 px y corregir solo defectos comprobados.
