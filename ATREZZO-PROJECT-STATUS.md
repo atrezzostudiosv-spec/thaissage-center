@@ -224,3 +224,10 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 **VERIFICACIÓN ESTÁTICA:** 20/20 controles sobre código en GitHub (sintaxis JS, CSS, seis tarjetas, precios, Fresha, Square, noindex, responsive y reglas de interacción).
 
 **PENDIENTE:** QA real en browser a 375, 768, 1024 y 1440 px, comprobando el desplazamiento inverso, la pausa tras la última tarjeta y el header en teclado y móvil. No declarar cierre visual sin estas pruebas.
+
+
+### Confirmación de preview UX v5 — 2026-10-29
+- **GitHub Pages build y deploy = success** para commit `77f48ee773d6a1be9c3181a619a70150a0f10c54`, ejecución `40792474017`.
+- Verificados en repositorio: CSS y JS de main idénticos a la rama `work/home-v1/web`, sintaxis JavaScript y 11 comprobaciones estáticas del comportamiento.
+- Ajuste final de accesibilidad: usar `:focus-visible` y no cualquier foco de mouse al mostrar header, para evitar que un clic de navegación impida el auto-ocultado.
+- **Pendiente QA visual de navegador real:** card collision, lectura en scroll, pausa final, espacio de transición y header al desplazarse a 375/768/1024/1440.
