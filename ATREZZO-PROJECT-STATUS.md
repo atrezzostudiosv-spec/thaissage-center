@@ -231,3 +231,16 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - Verificados en repositorio: CSS y JS de main idénticos a la rama `work/home-v1/web`, sintaxis JavaScript y 11 comprobaciones estáticas del comportamiento.
 - Ajuste final de accesibilidad: usar `:focus-visible` y no cualquier foco de mouse al mostrar header, para evitar que un clic de navegación impida el auto-ocultado.
 - **Pendiente QA visual de navegador real:** card collision, lectura en scroll, pausa final, espacio de transición y header al desplazarse a 375/768/1024/1440.
+
+
+## HOME v2 — Light Ritual / nuevo enfoque comercial (2026-10-29)
+- **AUTORIZADO:** rediseño global del Home con paleta clara, tipografías existentes, fotografías propias, copy del Hero actual, estrellas de Frisco, vidrio ahumado y eGift siempre visible en Hero.
+- **IMPLEMENTADO en `work/home-v1`:** reordenamiento comercial Hero → Locations → Treatments → Philosophy → Cinematic → Signature → Gift Cards → Contact → Book CTA. Paleta blanco/marfil/arena/rosa té/cacao suave en `web/assets/css/home-light-ritual.css`.
+- **RESERVA:** Frisco/Flower Mound/Southlake inmediatamente después del hero, y barra Book Now móvil abre selector de Fresha. Se mantuvieron las URLs originales y Square.
+- **SERVICIOS:** 6 tratamientos y tarifas publicados visibles en mosaico editorial; retirado JS sticky de escritorio que alargaba el scroll. Tres Signature Packages mantienen textos y muestran tarifas del menú original con nota de confirmación en Fresha.
+- **FOTOGRAFÍA:** imágenes cinematográficas WebP originales y aprobadas, sin crear instalaciones o empleados ficticios. El hero todavía es foto con ligero movimiento, NO archivo de video; la muestra audiovisual autorizada está pendiente.
+- **ICONOS:** flechas Unicode reemplazadas por SVG para eliminar emoji de iOS.
+- **REVEALS:** 14px/820ms, fade delicado con reducción de movimiento y fallback sin JS.
+- **VERIFICADO EN SOURCE:** 22/22 comprobaciones de estructura, enlaces, precios, reservas, SVG, SEO, sintaxis y CSS.
+- **PENDIENTE:** inspección real en navegador a 375, 768, 1024 y 1440, formulario de prueba real y validación visual del Home antes de consolidar el stylesheet; 17 páginas internas siguen sin implementar.
+- **REFERENCIA:** `docs/HOME-LIGHT-RITUAL-REDESIGN-2026-10-29.md`.
