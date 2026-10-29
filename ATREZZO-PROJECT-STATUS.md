@@ -171,3 +171,15 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **NO VALIDADO:** despliegue en navegador, visual/scroll a 375/768/1024/1440, Google iframe, reserva externa, recortes fotográficos en dispositivos y contraste real. Usuario realizará validación tras estas implementaciones; no declarar cierre hasta evidencia.
 - **ESTADO:** Map + Closing **IMPLEMENTADO / EN VALIDACIÓN**. Producción no autorizada.
 - **SIGUIENTE ACCIÓN ÚNICA:** comprobar carga del mapa y navegación por sedes y revisar cierre fotográfico a 375, 768, 1024 y 1440 px; corregir defectos evidenciados.
+
+## Integración editorial HOME v2 — cambios solicitados tras auditoría móvil (29/10/2026)
+- **Mandato:** elevar Locations, Our Approach, Signature, corregir el mapa invisible debajo de las sedes en móvil y eliminar la separación visual entre «Make Room for Yourself» y el footer. Mantener intactos Hero y Treatment Journey y dejar las pruebas visuales globales para después.
+- **IMPLEMENTADO `main`:** (1) Locations transformada en filas editoriales con reservas/mapas individuales; (2) Our Approach recompuesta con materialidad/florales e intervención tipográfica; (3) Signature con Chiang Mai como pieza principal y Bangkok/Phuket laterales y mobile adaptado; (4) mapa móvil **reubicado físicamente** bajo la sede abierta, con estado expandido y navegación por hash desde Locations y footer; (5) CTA final + footer agrupados bajo `site-outro` con **una sola fotografía** compartida y capa de color uniforme, sin degradado de transición.
+- **Archivos de código:** `index.html`, `assets/js/locations-map.js`, `assets/css/home-editorial-v2.css` (nuevo). No cambios en hero, tratamientos ni contenido comercial.
+- **Fotografía:** imagen panorámica WebP existente `thaissage-thai-massage-ritual-wide.webp` y versión móvil específica; aparece también en Heritage. Se preparó fotografía original nueva localmente, pero no se integró en el repositorio mediante estas herramientas. No afirmar exclusividad fotográfica ni foto real de instalaciones.
+- **Datos:** tres sedes, direcciones y enlaces Fresha existentes conservados; no se inventaron números de suite, tarifas ni claims.
+- **QA estático:** sintaxis JS válida, 1 `main`, 1 `footer`, IDs únicos y todas las anclas internas válidas, 1 iframe Google, 3 botones sede, 6 tratamientos, 3 paquetes, `noindex` conservado, y @media/reduced-motion presente.
+- **Informe:** [docs/QA-HOME-EDITORIAL-INTEGRATION-2026-10-29.md](docs/QA-HOME-EDITORIAL-INTEGRATION-2026-10-29.md).
+- **NO REALIZADO:** pruebas visuales reales a 375, 768, 1024 y 1440px, carga real del mapa/foto en GitHub Pages, interacciones Safari/Chrome, evaluación de contraste, Lighthouse ni comprobación de reservas. Sitio todavía no autorizado para producción.
+- **ESTADO:** Home editorial v2 **IMPLEMENTADO EN GITHUB / EN VALIDACIÓN VISUAL**. Esta entrada sustituye prioridades antiguas que decían que Locations/Approach/Signature no estaban desarrolladas.
+- **SIGUIENTE ACCIÓN ÚNICA:** revisar la demo completa con el usuario en desktop y móvil, y corregir únicamente defectos visuales/funcionales comprobados.
