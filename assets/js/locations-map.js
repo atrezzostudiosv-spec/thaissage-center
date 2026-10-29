@@ -17,7 +17,7 @@
   const places={
     frisco:{title:'Frisco',number:'01/03',search:'Thaissage Center 9300 John Hickman Pkwy Suite 605 Frisco TX 75035'},
     'flower-mound':{title:'Flower Mound',number:'02/03',search:'Thaissage Center 1021 Long Prairie Rd Suite 404 Flower Mound TX 75022'},
-    southlake:{title:'Southlake',number:'03/03',search:'Thaissage Center 101 River Oaks Dr Southlake TX'}
+    southlake:{title:'Southlake',number:'03/03',search:'Thaissage Center 101 River Oaks Drive Suite 110 Southlake TX'}
   };
   const urlFor=(place,kind)=>kind==='embed'
     ? 'https://maps.google.com/maps?q='+encodeURIComponent(place.search)+'&z=14&output=embed'
