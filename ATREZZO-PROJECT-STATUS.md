@@ -11,9 +11,9 @@
 | 1. Auditoría original | CERRADA (alcance documental) | Auditoría compartida y avance autorizado con «siguiente fase»; pruebas interactivas originales no realizadas, registradas como limitación. |
 | 2. Estrategia y arquitectura | CERRADA (aprobación de avance) | La instrucción posterior «inicia la fase 3» autoriza trabajar sobre las 18 rutas, los CTA por sede y la arquitectura de Fase 02. Los datos comerciales contradictorios siguen pendientes, sin reabrir la fase estratégica. |
 | 3. Contenido completo | CERRADA PARA CONTINUIDAD (validación comercial pendiente) | 18 páginas redactadas y mapa editorial documentado. La orden «Sigue a siguiente fase» autoriza continuidad de diseño, **no** aprobación de datos comerciales para publicación. Archivo: `FASE-03-CONTENIDO-COMPLETO-18-PAGINAS.md`. |
-| 4. Dirección artística / partitura visual | EN VALIDACIÓN | Propuesta integral de identidad, movimiento y 92 escenas en 18 rutas, con fuentes, fotografías requeridas y CTA. Archivo: `FASE-04-DIRECCION-ARTISTICA-Y-SCROLL-18-PAGINAS.md`. No se ha escrito código ni probado diseño. |
-| 4B. Desarrollo visual / prototipo | PENDIENTE | No iniciado. Primero Home y su revisión visual. |
-| 5. Validación | PENDIENTE | No existen nuevos componentes desarrollados. |
+| 4. Dirección artística / partitura visual | EN VALIDACIÓN | Partitura de 92 escenas para 18 rutas; Home implementado bajo dirección artística aplicada, pendiente de QA visual. |
+| 4B. Desarrollo visual / prototipo | EN VALIDACIÓN | Home implementado en `index.html`, CSS y JS; demo de GitHub Pages accesible en navegador conectado. No hay comprobación visual completa en esta intervención. |
+| 5. Validación | EN PROCESO | Auditoría estática parcial del Home (29-10-2026), pendiente 375/768/1024/1440 px, interacciones y pruebas externas. |
 | 6. Entrega / publicación | PENDIENTE | No autorizado. |
 
 ## Hechos sustentados
@@ -87,7 +87,18 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 
 - Repositorio verificado: `atrezzostudiosv-spec/thaissage-center` (público, rama principal `main`).
 - **Repositorio inicializado** con documentación, guías y carpetas de código/recursos; rama `work/home-v1` creada.
-- **El website aún NO está implementado; no hay hosting, demo ni validación en navegador.**
+- **Nota histórica supersedida al 29-10-2026:** el Home ya está implementado y existe demo GitHub Pages; QA de navegador completo sigue pendiente.
 - **Repositorio y estructura: CERRADO (verificados 11 archivos en `main` y lectura de `README.md` en `work/home-v1`).**
-- Siguiente fase: prototipo de Home en `work/home-v1`; diseño de Fase 04 sigue EN VALIDACIÓN hasta revisión renderizada.
+- Siguiente fase vigente (29-10-2026): QA visual interactiva del Home; luego avanzar con las páginas internas. No volver a construir el Home desde cero.
 - Nunca incorporar fuentes originales de terceros o fotografías de las instalaciones a este repositorio público sin derechos comprobados.
+
+## Actualización de continuidad — 29 de octubre de 2026
+
+- **Home existente:** se verificó su implementación leyendo `index.html`, `assets/css/styles.css`, `assets/css/home-light-ritual.css` y `assets/js/app.js` en `main`, además del contenido textual de la demo GitHub Pages abierta en navegador conectado.
+- **Auditoría estática:** 1 H1, 9 secciones, 45 enlaces internos anclados sin destinos ausentes, 6 etiquetas `img` con `alt`, 17 recursos WebP referenciados y los 17 existentes en el repositorio. Demo `noindex,nofollow,noarchive`; CTA de Fresha por las 3 sedes y eGift Square presentes.
+- **Pendientes comprobados por código:** falta `og:image`; el formulario se dirige explícitamente a Atrezzo como prueba (no se comprobó recepción ni debe presentarse como comunicación del cliente); canonical final no fijada para dominio de producción.
+- **Sin comprobar:** QA interactiva real de scroll, carrusel, menú, foco y responsive a 375/768/1024/1440; procesos completos de Fresha/Square; horarios, suite y disponibilidad por sede, y reivindicaciones clínicas.
+- **Regla de continuidad:** auditoría/estrategia/contenido documental ya completados no se reabren; no se modificó HTML, CSS, JS, contenido, ni fotos aprobadas en esta intervención.
+- **Informe:** [docs/QA-HOME-2026-10-29.md](docs/QA-HOME-2026-10-29.md).
+- **ESTADO ACTUAL:** Home **EN VALIDACIÓN**, 17 rutas internas pendientes de implementación; sitio no autorizado a producción.
+- **SIGUIENTE ACCIÓN ÚNICA:** pruebas visuales interactivas del Home en 375/768/1024/1440 px y correcciones solo sobre defectos reproducibles.
