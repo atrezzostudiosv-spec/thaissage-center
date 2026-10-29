@@ -56,23 +56,6 @@
   // in normal page flow, without a sticky scroll sequence or hidden slides.
   // Preserve native vertical scroll and keyboard access to all services.
 
-  // Only the background photograph moves in the single cinematic scene.
-  const scene = document.querySelector('.heritage');
-  const photo = scene?.querySelector('.heritage-photo');
-  if (scene && photo && !reducedMotion.matches && window.matchMedia('(min-width: 721px)').matches) {
-    let scheduled = false;
-    const update = () => {
-      scheduled = false;
-      const rect = scene.getBoundingClientRect();
-      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-      const progress = Math.max(0,Math.min(1,(window.innerHeight-rect.top)/(window.innerHeight+rect.height)));
-      photo.style.setProperty('--heritage-scale',(1.025 + .025*progress).toFixed(4));
-    };
-    const onScroll = () => {if(!scheduled){scheduled=true;requestAnimationFrame(update)}};
-    window.addEventListener('scroll',onScroll,{passive:true});
-    window.addEventListener('resize',onScroll,{passive:true});
-    onScroll();
-  }
   // Smart header: hidden when moving down, revealed when scrolling up.
   // At page top, with navigation open, or when its controls are focused, keep it visible.
   let lastHeaderY = Math.max(0, window.scrollY);
