@@ -297,7 +297,7 @@ section.cinematic-ending + .footer {border-top:none}
  .directions-map-bottom{align-items:flex-start;flex-direction:column;gap:8px}
  .directions-disclaimer{width:min(100% - 40px,1280px)!important;font-size:10px}
  section.cinematic-ending.last-cta{min-height:max(680px,88svh)}
- .cinematic-ending-photo{background-position:56% center}
+ .cinematic-ending-photo{background-image:url('../images/thaissage-hero-spa-interior-mobile.webp');background-position:54% center}
  .cinematic-ending-shade{background:linear-gradient(0deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.57) 58%,rgba(0,0,0,.21) 100%)}
  .cinematic-ending-inner{width:min(100% - 44px,1280px);padding:160px 0 148px;justify-content:flex-end}
  .cinematic-ending-kicker{font-size:9px;letter-spacing:.12em;margin-bottom:19px}
