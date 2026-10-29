@@ -244,3 +244,9 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **VERIFICADO EN SOURCE:** 22/22 comprobaciones de estructura, enlaces, precios, reservas, SVG, SEO, sintaxis y CSS.
 - **PENDIENTE:** inspección real en navegador a 375, 768, 1024 y 1440, formulario de prueba real y validación visual del Home antes de consolidar el stylesheet; 17 páginas internas siguen sin implementar.
 - **REFERENCIA:** `docs/HOME-LIGHT-RITUAL-REDESIGN-2026-10-29.md`.
+
+
+### Preview Home Light Ritual — desplegada (2026-10-29)
+- **Github Pages SUCCESS**: build, deploy y report-build-status en ejecución `40841023879`, commit `864256ce7a90c8f3613dbff7232fd2073b78cc44`.
+- Verificado: `main/index.html`, `main/assets/css/home-light-ritual.css`, `main/assets/js/app.js` reflejan exactamente las versiones de `work/home-v1/web`.
+- **EN VALIDACIÓN VISUAL:** no se ha certificado aún mediante navegador a 375/768/1024/1440 px; el cliente verá la composición desplegada y se corregirán únicamente defectos observados. Video propio de muestra no integrado.
