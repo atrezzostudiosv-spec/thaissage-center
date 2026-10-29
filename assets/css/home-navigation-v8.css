@@ -1,0 +1,47 @@
+/* Atrezzo Studios — Home navigation v8 / multipage integration
+   Preserve the approved Home brand, booking CTA, photography and footer.
+   Add readable CRYPTOCURRENCY link without header collision.
+*/
+.site-header .header-inner{
+  gap:clamp(13px,1.5vw,26px);
+}
+.site-header .desktop-nav{
+  gap:clamp(11px,1.35vw,23px);
+  min-width:0;
+}
+.site-header .desktop-nav a{
+  color:#FFFFFF;
+  letter-spacing:.06em;
+  font-size:clamp(9px,.72vw,10.5px);
+  white-space:nowrap;
+}
+.site-header .header-cta{
+  white-space:nowrap;
+  flex:0 0 auto;
+}
+.site-header .desktop-nav a[href="cryptocurrency/"]{
+  color:#E5EEE7;
+}
+.site-header .desktop-nav a[href="cryptocurrency/"]:hover{
+  color:#FFFFFF;
+}
+.site-header .mobile-nav a[href="cryptocurrency/"]{
+  text-transform:uppercase;
+  letter-spacing:.105em;
+}
+.site-outro .footer a[href^="massage-services/"],
+.site-outro .footer a[href="cryptocurrency/"]{
+  color:#EEF5EF;
+}
+@media(max-width:1300px){
+  .site-header .desktop-nav{display:none!important}
+  .site-header .mobile-toggle{display:flex!important}
+}
+@media(min-width:1301px){
+  .site-header .desktop-nav{display:flex!important}
+  .site-header .mobile-toggle{display:none!important}
+}
+@media(max-width:720px){
+ .site-header .mobile-nav{max-height:calc(100svh - 70px);overflow-y:auto}
+ .site-header .mobile-nav a{min-height:43px}
+}
