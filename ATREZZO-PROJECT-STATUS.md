@@ -102,3 +102,14 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Informe:** [docs/QA-HOME-2026-10-29.md](docs/QA-HOME-2026-10-29.md).
 - **ESTADO ACTUAL:** Home **EN VALIDACIÓN**, 17 rutas internas pendientes de implementación; sitio no autorizado a producción.
 - **SIGUIENTE ACCIÓN ÚNICA:** pruebas visuales interactivas del Home en 375/768/1024/1440 px y correcciones solo sobre defectos reproducibles.
+
+## Rediseño aprobado de Treatments — 29 de octubre de 2026
+
+- **Solicitud del usuario:** sustituir exclusivamente el grid repetitivo de seis tratamientos del Home por una secuencia cinematográfica desktop según el mockup aprobado.
+- **REALIZADO EN `main`:** `index.html` conecta `assets/css/treatments-chapters.css` y `assets/js/treatments-chapters.js`. El nuevo layout de desktop usa una fotografía protagonista, copy y CTA de cada tratamiento, contador 01/06, seis miniaturas seleccionables, flechas de navegación y transiciones mediante scroll nativo; el último capítulo tiene zoom fotográfico progresivo y la sección suelta naturalmente el scroll.
+- **CONTENIDO:** el componente lee los datos de las seis tarjetas originales en DOM, evitando divergencia de nombres, descripciones, precios y enlaces Fresha; las 17 imágenes ya presentes en el repositorio son la fuente disponible. No se han creado fotos ficticias de locales/empleados.
+- **RESPONSIVE / ACCESSIBILITY:** la mejora solo se instancia a partir de 1101 px de ancho, 720 px de altura y sin preferencia de movimiento reducido. En tablet, móvil, ventanas bajas, reduced-motion o JavaScript deshabilitado, permanecen las seis tarjetas originales. No se intercepta wheel ni touch. CTA delegado al selector de ubicación existente.
+- **VERIFICACIÓN ESTÁTICA:** archivos nuevos legibles en GitHub, CSS/JS enlazados desde Home, seis tarjetas originales preservadas, lógica de activación/desactivación, seis capítulos, precios y CTA derivadas del original, contador, navegación y condiciones de reduced motion presentes; noindex mantenido.
+- **NO COMPROBADO:** renderizado público de la última versión de GitHub Pages, QA visual/scroll real en 375/768/1024/1440, click en navegación y reservas en navegador, métricas de rendimiento y accesibilidad ejecutada. No declarar la escena cerrada hasta probarla.
+- **ESTADO:** Treatments desktop **EN VALIDACIÓN VISUAL**. Resto del Home **NO MODIFICADO**. No autorizado a producción.
+- **SIGUIENTE ACCIÓN ÚNICA:** observar la sección en navegador real a 1440/1024/768/375 y corregir únicamente defectos reproducibles.
