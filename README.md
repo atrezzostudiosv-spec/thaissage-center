@@ -1,7 +1,7 @@
 # Thaissage Center — Website Redesign by Atrezzo Studios
 
 **Proyecto:** rediseño del sitio [Thaissage Center](https://thaissagecenter.com/)  
-**Estado:** documentación y dirección artística preparadas; **no hay website desarrollado ni publicado**.  
+**Estado (29/10/2026):** Home desarrollado y visible en **demo noindex** de GitHub Pages; 18 páginas con contenido redactado, 17 aún sin implementar. Home pendiente de validación visual, no autorizado para producción.  
 **Cliente/proyecto independiente:** no mezclar assets, contenido o decisiones de otros repositorios.
 
 ## Objetivo
@@ -17,12 +17,12 @@ Construir un website multipágina con **18 rutas planificadas** y una experienci
 
 ## Organización
 - `docs/` — fuentes editoriales, arquitectura y decisiones visuales.
-- `web/` — código del nuevo sitio (aún pendiente de implementación).
-- `assets/` — imágenes y recursos licenciados (aún pendientes).
+- `index.html` y `assets/css/`, `assets/js/` — prototipo Home implementado. Las páginas internas se desarrollarán después de validar el Home.
+- `assets/images/` — recursos WebP ilustrativos incorporados al Home; su presencia en repositorio no acredita fotografías de locales reales.
 - `ATREZZO-PROJECT-STATUS.md` — único registro maestro de avance y verificaciones.
 
 ## Próximo trabajo
-Construir **solo el Home** en rama de desarrollo, respetando la partitura y la identidad establecidas; revisar 375, 768, 1024 y 1440 px antes de extender el diseño al resto de las páginas.
+**Validar el Home ya construido** a 375, 768, 1024 y 1440 px con pruebas reales de scroll, navegación y formulario. Solo corregir defectos comprobados. Después continuar con las 17 páginas internas.
 
 ## Requisitos
 - No inventar precios, tratamientos, resultados, reseñas, personal, certificaciones ni afirmaciones sanitarias.
@@ -31,4 +31,4 @@ Construir **solo el Home** en rama de desarrollo, respetando la partitura y la i
 - Mantener demos en **noindex**, con navegación nativa, accesibilidad y respeto a `prefers-reduced-motion`.
 - No declarar verificados formularios, reservas o responsive hasta probarlos realmente.
 
-**Atención:** este repositorio es una base de trabajo, no una versión lista para producción.
+**Atención:** esta es una demo en validación, no una web de producción. Ver el [QA del Home del 29/10/2026](docs/QA-HOME-2026-10-29.md).
