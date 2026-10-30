@@ -1,0 +1,278 @@
+/* ATREZZO STUDIOS — THAISSAGE CENTER / HOME TREATMENTS MOBILE v12
+   Approved reference: native scroll, full-screen photography, six chapters,
+   2-column chapter navigation, direct + Details routes, no emoji buttons.
+   All styles are scoped to the mobile treatment story; desktop and Signature
+   Experiences remain untouched.
+*/
+@media screen and (max-width:720px) and (min-height:660px) and (prefers-reduced-motion:no-preference) {
+  /* More time within each scene before the next right-side entrance.
+     A natural sticky journey — no wheel/touch handlers or scroll lock. */
+  .treatment-scroll-track {
+    height:990svh!important;
+  }
+  .treatment-scroll-track .scroll-ritual-stage {
+    height:100svh;
+    min-height:660px;
+  }
+  .treatment-scroll-track .scroll-ritual-photo {
+    object-position:center center;
+  }
+  .treatment-scroll-track .scroll-ritual-scrim {
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.25) 0%,transparent 27%),
+      linear-gradient(0deg,rgba(0,0,0,.9) 0%,rgba(0,0,0,.63) 30%,rgba(0,0,0,.23) 68%,rgba(0,0,0,.06) 100%)!important;
+  }
+  .treatment-scroll-track .scroll-ritual-top {
+    left:clamp(18px,5.5vw,30px);
+    right:clamp(18px,5.5vw,30px);
+    top:clamp(25px,4.5svh,41px);
+    font-size:9px;
+  }
+  /* The content sits above the scroll hint and the entire 2-column index.
+     Nothing needs to be squeezed into the bottom 120px of a phone. */
+  .treatment-scroll-track .scroll-ritual-copy {
+    left:clamp(21px,5.7vw,34px)!important;
+    right:clamp(21px,5.7vw,34px)!important;
+    bottom:calc(314px + env(safe-area-inset-bottom,0px))!important;
+    max-width:520px!important;
+  }
+  .treatment-scroll-track .scroll-ritual-eyebrow {
+    margin:0 0 10px!important;
+    font-size:9px!important;
+    line-height:1.35!important;
+    letter-spacing:.16em;
+    color:#F2F3EC!important;
+  }
+  .treatment-scroll-track .scroll-ritual-title {
+    margin:0 0 11px!important;
+    font:400 clamp(33px,8.8vw,49px)/1.065 'Playfair Display',Georgia,serif!important;
+    letter-spacing:-.035em!important;
+    max-width:460px;
+    text-wrap:balance;
+  }
+  .treatment-scroll-track .scroll-ritual-description {
+    margin:0 0 12px!important;
+    font:400 clamp(11.5px,3vw,13px)/1.53 'Open Sans',Arial,sans-serif!important;
+    color:#FAFAF6!important;
+    max-width:470px!important;
+    text-wrap:pretty;
+  }
+  .treatment-scroll-track .scroll-ritual-meta {
+    display:flex!important;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:7px 13px!important;
+    margin:0 0 17px!important;
+    font-size:clamp(10px,2.7vw,12px)!important;
+    line-height:1.5!important;
+    color:#F9F9F6!important;
+  }
+  .treatment-scroll-track .scroll-ritual-duration {
+    flex:0 1 auto;
+  }
+  .treatment-scroll-track .scroll-ritual-price {
+    padding-left:12px!important;
+    border-left:1px solid rgba(255,255,255,.55)!important;
+  }
+  .treatment-scroll-track .treatment-detail-link {
+    display:inline-flex;
+    align-items:center;
+    justify-content:flex-end;
+    flex:0 0 auto;
+    min-height:28px;
+    margin-left:auto;
+    gap:6px;
+    padding:2px 0 4px;
+    border-bottom:1px solid rgba(255,255,255,.75);
+    background:transparent;
+    color:#FFF!important;
+    font:600 11px/1.2 'Open Sans',Arial,sans-serif;
+    letter-spacing:.075em;
+    text-decoration:none!important;
+    text-shadow:none;
+    white-space:nowrap;
+  }
+  .treatment-scroll-track .treatment-detail-link:hover,
+  .treatment-scroll-track .treatment-detail-link:focus-visible {
+    border-color:#FFF;
+    color:#FFF!important;
+    text-decoration:underline!important;
+    text-underline-offset:6px;
+  }
+  .treatment-scroll-track .treatment-detail-plus {
+    font:400 18px/1 'Open Sans',Arial,sans-serif;
+  }
+
+  /* The approved frosted outline button: never a colored emoji badge. */
+  .treatment-scroll-track .scroll-ritual-cta {
+    display:inline-flex!important;
+    width:auto!important;
+    min-height:47px!important;
+    padding:11px 19px 11px 24px!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:clamp(26px,10vw,45px)!important;
+    border:1px solid rgba(255,255,255,.86)!important;
+    border-radius:100px!important;
+    background:rgba(8,13,10,.50)!important;
+    box-shadow:none!important;
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+    color:#FFF!important;
+    font:600 13px/1.25 'Open Sans',Arial,sans-serif!important;
+    text-decoration:none!important;
+    text-shadow:none!important;
+  }
+  .treatment-scroll-track .scroll-ritual-cta:hover,
+  .treatment-scroll-track .scroll-ritual-cta:focus-visible {
+    background:rgba(15,28,19,.72)!important;
+    border-color:#FFF!important;
+  }
+  .treatment-scroll-track .scroll-ritual-arrow {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:19px;
+    height:19px;
+    font-size:0!important;
+    line-height:0;
+  }
+  .treatment-scroll-track .scroll-ritual-arrow svg {
+    width:19px;height:19px;display:block;flex:none;stroke:#FFF;
+  }
+
+  /* Scroll hint between the chapter copy and the 6-way navigation. */
+  .treatment-scroll-track .scroll-ritual-bottom {
+    position:absolute;
+    z-index:9;
+    left:clamp(21px,5.7vw,34px)!important;
+    right:clamp(21px,5.7vw,34px)!important;
+    bottom:calc(263px + env(safe-area-inset-bottom,0px))!important;
+    font-size:8px;
+    line-height:1.4;
+  }
+  .treatment-scroll-track .scroll-ritual-progress {
+    width:clamp(65px,18vw,110px);
+  }
+
+  /* Two balanced columns, always visible even while images crossfade.
+     Buttons move to the appropriate story segment only when tapped. */
+  .treatment-scroll-track .treatment-quick-nav {
+    position:absolute;
+    z-index:12;
+    left:clamp(21px,5.7vw,34px);
+    right:clamp(21px,5.7vw,34px);
+    bottom:calc(91px + env(safe-area-inset-bottom,0px));
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:clamp(13px,4vw,25px);
+    row-gap:9px;
+    align-content:end;
+    pointer-events:auto;
+  }
+  .treatment-scroll-track .treatment-quick-button,
+  .treatment-scroll-track .treatment-quick-button:hover,
+  .treatment-scroll-track .treatment-quick-button:focus-visible {
+    appearance:none;
+    -webkit-appearance:none;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-end;
+    width:100%;
+    min-width:0;
+    min-height:37px;
+    margin:0!important;
+    padding:2px 0 3px!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    outline:0!important;
+    color:rgba(255,255,255,.74)!important;
+    text-align:left;
+    text-decoration:none;
+    cursor:pointer;
+    font:500 clamp(10px,2.67vw,11.5px)/1.24 'Open Sans',Arial,sans-serif!important;
+    letter-spacing:0!important;
+    text-shadow:0 1px 10px rgba(0,0,0,.5);
+    -webkit-tap-highlight-color:transparent;
+    transition:color .22s ease;
+  }
+  .treatment-scroll-track .treatment-quick-label {
+    display:block;
+    width:100%;
+    min-height:13px;
+    margin-bottom:7px;
+    text-wrap:balance;
+    overflow-wrap:normal;
+  }
+  .treatment-scroll-track .treatment-quick-rule {
+    position:relative;
+    display:block;
+    width:100%;
+    height:2px;
+    overflow:hidden;
+    background:rgba(255,255,255,.46);
+  }
+  .treatment-scroll-track .treatment-quick-rule::before {
+    content:"";
+    display:block;
+    width:calc(var(--treatment-nav-fill,0)*100%);
+    height:100%;
+    background:#FFF;
+    transition:width .11s linear;
+  }
+  .treatment-scroll-track .treatment-quick-button[aria-current="step"],
+  .treatment-scroll-track .treatment-quick-button:hover,
+  .treatment-scroll-track .treatment-quick-button:focus-visible {
+    color:#FFF!important;
+  }
+  .treatment-scroll-track .treatment-quick-button[aria-current="step"] .treatment-quick-rule,
+  .treatment-scroll-track .treatment-quick-button:focus-visible .treatment-quick-rule {
+    background:rgba(255,255,255,.83);
+  }
+  .treatment-scroll-track .treatment-quick-button:focus-visible .treatment-quick-label {
+    text-decoration:underline!important;
+    text-underline-offset:3px;
+    text-decoration-thickness:1px;
+  }
+}
+/* 375px and small iPhones: retain every service without title/nav overlap. */
+@media screen and (max-width:390px) and (min-height:660px) and (prefers-reduced-motion:no-preference) {
+  .treatment-scroll-track .scroll-ritual-title {
+    font-size:clamp(32px,8.5vw,36px)!important;
+  }
+  .treatment-scroll-track .scroll-ritual-copy {
+    bottom:calc(305px + env(safe-area-inset-bottom,0px))!important;
+  }
+  .treatment-scroll-track .treatment-quick-nav {
+    column-gap:13px;
+    row-gap:7px;
+    bottom:calc(87px + env(safe-area-inset-bottom,0px));
+  }
+}
+/* Very short portrait viewports: the layout contracts vertically, not into
+   hidden text. Below 660px the original six photographic cards are retained. */
+@media screen and (max-width:720px) and (min-height:660px) and (max-height:715px) and (prefers-reduced-motion:no-preference) {
+  .treatment-scroll-track .scroll-ritual-copy {
+    bottom:calc(280px + env(safe-area-inset-bottom,0px))!important;
+  }
+  .treatment-scroll-track .scroll-ritual-bottom {
+    bottom:calc(244px + env(safe-area-inset-bottom,0px))!important;
+  }
+  .treatment-scroll-track .scroll-ritual-title {
+    font-size:clamp(30px,8vw,39px)!important;
+    margin-bottom:8px!important;
+  }
+  .treatment-scroll-track .scroll-ritual-description {
+    font-size:11px!important;
+    line-height:1.36!important;
+    margin-bottom:9px!important;
+  }
+  .treatment-scroll-track .scroll-ritual-meta {margin-bottom:11px!important}
+  .treatment-scroll-track .scroll-ritual-eyebrow{margin-bottom:8px!important}
+  .treatment-scroll-track .treatment-quick-nav{row-gap:5px}
+  .treatment-scroll-track .treatment-quick-button{min-height:34px}
+}
+/* All original cards remain usable with no JS, reduced motion or short height. */
