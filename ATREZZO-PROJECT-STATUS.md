@@ -381,3 +381,9 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Correction:** body text 16–18px at #202D27 with 500 weight and 1.76 line-height; secondary CTA increased to 13–15px with darker text/underline. All inside existing desktop-only CSS @media(min-width:721px).
 - **Protected:** photo, white overlay, mouse zoom, entire left heading, tablet reading flow, mobile, other sections, content/links.
 - **Validation:** source/CSS checks performed; live visual browser confirmation pending. [QA](docs/QA-HOME-PHILOSOPHY-DESKTOP-TEXT-V2-2026-10-30.md).
+
+
+## Philosophy desktop V3 — Contact-line image and right-white gradient (30 October 2026)
+- New landscape WebP 1672×941 `thaissage-philosophy-contact-line-desktop.webp`, replaces only desktop background of `#our-approach`.
+- CSS gradient is white and runs from 18% opacity left to 94% right; matching Contact's bright botanical atmosphere. Hover zoom and native scroll remain; mobile <=720px and original content/CTAs protected.
+- Source checks complete; live visual QA pending. [V3 QA](docs/QA-HOME-PHILOSOPHY-DESKTOP-PHOTO-V3-2026-10-30.md).
