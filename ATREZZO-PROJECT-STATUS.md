@@ -394,3 +394,11 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Corrected:** radial ivory veil behind left column + rightward white gradient behind body; main heading dark #192C23, emphasized heading dark sage #355A49, italic quote darker #2C503F; body copy #182B22. Typographic sizing, layout, animation and photograph unchanged.
 - **Scope:** only desktop/tablet >720px, mobile and all other sections protected.
 - **Status:** code change implemented and statically checked, screenshot/live browser confirmation pending. [V4 QA](docs/QA-HOME-PHILOSOPHY-DESKTOP-LEGIBILITY-V4-2026-10-30.md).
+
+
+## Philosophy desktop V5 — clean user-approved background (30 October 2026)
+- User chose the new uncluttered spa photo so left headline/quote are not obscured by high-contrast photography.
+- **Asset:** `assets/images/thaissage-philosophy-soft-spa-desktop-v5.webp` 1672×941, 63,874 bytes; replaced only desktop background URL in CSS.
+- **Visual treatment:** simplified overcomplicated dual/radial overlays to one soft white-to-right gradient for body copy. Keep dark copy, exact approved text, CTA, hover zoom and no scroll hijacking.
+- **Protected:** mobile <=720px and unrelated site sections untouched.
+- **Validation:** GitHub source QA completed; live visual responsive QA pending. [V5 QA](docs/QA-HOME-PHILOSOPHY-DESKTOP-BACKGROUND-V5-2026-10-30.md).

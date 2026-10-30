@@ -27,7 +27,7 @@
   /* New landscape spa photograph, matching Contact's light botanical direction. */
   #our-approach.intro-section::before {
     z-index:0;
-    background-image:url('../images/thaissage-philosophy-contact-line-desktop.webp');
+    background-image:url('../images/thaissage-philosophy-soft-spa-desktop-v5.webp');
     background-repeat:no-repeat;
     background-position:center center;
     background-size:cover;
@@ -36,22 +36,16 @@
     transition:transform 2800ms cubic-bezier(.22,1,.36,1);
     will-change:transform;
   }
-  /* Two controlled luminous reading zones: headline (left) and body (right).
-     Unlike the old full-width white wash, the photograph retains depth.
-     All veils remain behind real text; no translucent cards or extra DOM. */
+  /* The approved photograph is naturally clear behind the left heading.
+     A single restrained white gradient protects body copy on the right. */
   #our-approach.intro-section::after {
     z-index:1;
-    background:
-      radial-gradient(ellipse 43% 50% at 22% 44%,
-        rgba(251,253,250,.84) 0%,
-        rgba(251,253,250,.65) 54%,
-        rgba(251,253,250,0) 100%),
-      linear-gradient(90deg,
-        rgba(251,253,250,.10) 0%,
-        rgba(251,253,250,.12) 35%,
-        rgba(251,253,250,.29) 53%,
-        rgba(251,253,250,.73) 76%,
-        rgba(251,253,250,.93) 100%);
+    background:linear-gradient(90deg,
+      rgba(251,253,250,.08) 0%,
+      rgba(251,253,250,.12) 38%,
+      rgba(251,253,250,.43) 62%,
+      rgba(251,253,250,.80) 84%,
+      rgba(251,253,250,.92) 100%);
   }
   #our-approach .intro-photograph {
     display:none!important;
@@ -159,15 +153,10 @@
     max-width:620px!important;
   }
   #our-approach.intro-section::after {
-    background:
-      radial-gradient(ellipse 66% 55% at 34% 42%,
-        rgba(251,253,250,.89) 0%,
-        rgba(251,253,250,.67) 60%,
-        rgba(251,253,250,0) 100%),
-      linear-gradient(90deg,
-        rgba(251,253,250,.23) 0%,
-        rgba(251,253,250,.50) 58%,
-        rgba(251,253,250,.86) 100%);
+    background:linear-gradient(90deg,
+      rgba(251,253,250,.22) 0%,
+      rgba(251,253,250,.38) 60%,
+      rgba(251,253,250,.79) 100%);
   }
 }
 @media (prefers-reduced-motion:reduce) {
