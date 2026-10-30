@@ -1,0 +1,128 @@
+/* ATREZZO STUDIOS · THAISSAGE CENTER / HOME MOBILE REFINEMENT v10
+   30 Oct 2026 · Mobile only (<=720px).
+   Approved desktop, desktop Locations photography, Treatments, Signature,
+   map, content, SEO and booking journeys are intentionally unchanged.
+*/
+@media screen and (max-width:720px) {
+
+  /* 1. HERO — smaller heading, more space between H1, booking and gift.
+     Preserve both genuine CTAs, rating and Gift Cards. */
+  body .hero .hero-inner {
+    padding-top:clamp(145px,17svh,172px)!important;
+    padding-bottom:calc(94px + env(safe-area-inset-bottom,0px))!important;
+  }
+  body .hero #hero-title {
+    font-size:clamp(37px,9.5vw,47px)!important;
+    line-height:1.13!important;
+    letter-spacing:-.035em;
+    margin-top:0!important;
+    margin-bottom:clamp(37px,5svh,47px)!important;
+  }
+  body .hero .hero-actions {
+    margin-top:0!important;
+    gap:9px!important;
+  }
+  body .hero .hero-gift-card {
+    margin-top:clamp(43px,5.3svh,55px)!important;
+  }
+  body .hero .hero-review-proof {
+    margin-top:clamp(27px,3.5svh,35px)!important;
+  }
+
+  /* 2. MENU — no colored circles, borders, glass or circular focus ring.
+     Visible keyboard focus remains a simple square white outline. */
+  body .site-header button.mobile-toggle,
+  body .site-header button.mobile-toggle:hover,
+  body .site-header button.mobile-toggle:active {
+    display:flex;
+    width:48px;
+    height:48px;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:7px;
+    padding:6px!important;
+    border:0!important;
+    border-radius:0!important;
+    outline:0!important;
+    box-shadow:none!important;
+    background:transparent!important;
+    -webkit-backdrop-filter:none!important;
+    backdrop-filter:none!important;
+    -webkit-appearance:none;
+    appearance:none;
+  }
+  body .site-header button.mobile-toggle span {
+    display:block;
+    width:25px;
+    height:1.5px;
+    border:0;
+    border-radius:0;
+    background:#FFFFFF!important;
+    box-shadow:none!important;
+  }
+  body .site-header button.mobile-toggle:focus:not(:focus-visible){
+    outline:none!important;
+    box-shadow:none!important;
+  }
+  body .site-header button.mobile-toggle:focus-visible{
+    outline:2px solid #FFFFFF!important;
+    outline-offset:3px!important;
+    border-radius:2px!important;
+    box-shadow:none!important;
+  }
+
+  /* 3. LOCATIONS — immaculate WHITE foundation, bespoke clean light-marble
+     flower photograph on top. Remove previous green tint and image overlay.
+     Accordions remain individual white paper surfaces. */
+  body .locations-cinematic.locations-section {
+    background-color:#FFFFFF!important;
+    background-image:url('../images/thaissage-locations-white-marble-flowers-mobile.webp')!important;
+    background-repeat:no-repeat!important;
+    background-position:center top!important;
+    background-size:100% auto!important;
+    isolation:isolate;
+  }
+  body .locations-cinematic.locations-section::before,
+  body .locations-cinematic.locations-section::after {
+    display:none!important;
+    content:none!important;
+    background:none!important;
+    opacity:0!important;
+  }
+  body .locations-cinematic .location-choice {
+    background:#FFFFFF!important;
+    border-color:#E4E9E3!important;
+    box-shadow:0 2px 15px rgba(20,37,28,.035)!important;
+  }
+  body .locations-cinematic .locations-story-panel {
+    background:transparent!important;
+  }
+
+  /* 4. Remove redundant editorial picture and both footnotes ONLY on phones.
+     Desktop retains its existing approved full editorial composition. */
+  body .locations-cinematic .locations-story-visual,
+  body .locations-cinematic .locations-story-footer,
+  body .locations-cinematic .locations-footnote {
+    display:none!important;
+  }
+  body .locations-cinematic .locations-story {
+    gap:0!important;
+    padding-bottom:0!important;
+  }
+  body .locations-cinematic .locations-story-panel {
+    padding-bottom:0!important;
+  }
+  body .locations-cinematic.locations-section {
+    padding-bottom:clamp(66px,8svh,90px)!important;
+  }
+}
+@media screen and (max-width:390px){
+  body .hero #hero-title {
+    font-size:clamp(35px,9.55vw,38px)!important;
+    margin-bottom:38px!important;
+  }
+  body .hero .hero-gift-card{
+    margin-top:43px!important;
+  }
+}
