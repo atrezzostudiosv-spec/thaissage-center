@@ -36,15 +36,22 @@
     transition:transform 2800ms cubic-bezier(.22,1,.36,1);
     will-change:transform;
   }
-  /* White gradient increases toward the RIGHT over the text column. */
+  /* Two controlled luminous reading zones: headline (left) and body (right).
+     Unlike the old full-width white wash, the photograph retains depth.
+     All veils remain behind real text; no translucent cards or extra DOM. */
   #our-approach.intro-section::after {
     z-index:1;
-    background:linear-gradient(90deg,
-      rgba(251,253,250,.18) 0%,
-      rgba(251,253,250,.28) 28%,
-      rgba(251,253,250,.54) 52%,
-      rgba(251,253,250,.78) 74%,
-      rgba(251,253,250,.94) 100%);
+    background:
+      radial-gradient(ellipse 43% 50% at 22% 44%,
+        rgba(251,253,250,.84) 0%,
+        rgba(251,253,250,.65) 54%,
+        rgba(251,253,250,0) 100%),
+      linear-gradient(90deg,
+        rgba(251,253,250,.10) 0%,
+        rgba(251,253,250,.12) 35%,
+        rgba(251,253,250,.29) 53%,
+        rgba(251,253,250,.73) 76%,
+        rgba(251,253,250,.93) 100%);
   }
   #our-approach .intro-photograph {
     display:none!important;
@@ -77,6 +84,23 @@
   }
   #our-approach .intro-left h2 {
     max-width:730px;
+    color:#192C23!important;
+  }
+  /* The pale sage headings in the supplied screenshot merged with foliage.
+     Keep the editorial italic style but use a sufficiently deep forest tone. */
+  #our-approach .intro-left h2 em {
+    color:#355A49!important;
+  }
+  #our-approach .intro-left .intro-quote {
+    color:#2C503F!important;
+    font-weight:500!important;
+    line-height:1.48!important;
+  }
+  #our-approach .intro-left .eyebrow {
+    color:#355A49!important;
+  }
+  #our-approach .intro-right > p {
+    color:#182B22!important;
   }
   /* Readability correction: the older editorial stylesheet sets the right-hand
      copy to only 13px and muted grey. Enlarge and darken ONLY on desktop. */
@@ -135,7 +159,15 @@
     max-width:620px!important;
   }
   #our-approach.intro-section::after {
-    background:linear-gradient(90deg,rgba(251,253,250,.35) 0%,rgba(251,253,250,.54) 45%,rgba(251,253,250,.87) 100%);
+    background:
+      radial-gradient(ellipse 66% 55% at 34% 42%,
+        rgba(251,253,250,.89) 0%,
+        rgba(251,253,250,.67) 60%,
+        rgba(251,253,250,0) 100%),
+      linear-gradient(90deg,
+        rgba(251,253,250,.23) 0%,
+        rgba(251,253,250,.50) 58%,
+        rgba(251,253,250,.86) 100%);
   }
 }
 @media (prefers-reduced-motion:reduce) {

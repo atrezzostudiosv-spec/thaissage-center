@@ -387,3 +387,10 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - New landscape WebP 1672×941 `thaissage-philosophy-contact-line-desktop.webp`, replaces only desktop background of `#our-approach`.
 - CSS gradient is white and runs from 18% opacity left to 94% right; matching Contact's bright botanical atmosphere. Hover zoom and native scroll remain; mobile <=720px and original content/CTAs protected.
 - Source checks complete; live visual QA pending. [V3 QA](docs/QA-HOME-PHILOSOPHY-DESKTOP-PHOTO-V3-2026-10-30.md).
+
+
+## Home Philosophy desktop V4 — strong contrast / local reading zones (30 October 2026)
+- **User screenshot 2048×1024:** left title and italic quote lost contrast over foliage; broad white gradient flattened photograph.
+- **Corrected:** radial ivory veil behind left column + rightward white gradient behind body; main heading dark #192C23, emphasized heading dark sage #355A49, italic quote darker #2C503F; body copy #182B22. Typographic sizing, layout, animation and photograph unchanged.
+- **Scope:** only desktop/tablet >720px, mobile and all other sections protected.
+- **Status:** code change implemented and statically checked, screenshot/live browser confirmation pending. [V4 QA](docs/QA-HOME-PHILOSOPHY-DESKTOP-LEGIBILITY-V4-2026-10-30.md).
