@@ -196,8 +196,8 @@ section.signature-cinematic:not(.is-signature-scroll-ritual){
     margin:0 auto!important;
   }
   .gift-scroll-journey .gift-photo{
-    background-image:url('../images/thaissage-gift-experience-mobile.webp');
-    background-position:56% center;
+    background-image:url('../images/thaissage-gift-cards-ritual-mobile-exclusive.webp');
+    background-position:50% center;
   }
   .gift-scroll-journey .gift-overlay{
     background:linear-gradient(0deg,rgba(0,0,0,.70) 0%,rgba(0,0,0,.45) 64%,rgba(0,0,0,.19) 100%)!important;

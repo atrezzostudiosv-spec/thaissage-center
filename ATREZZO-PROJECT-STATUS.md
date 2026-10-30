@@ -409,3 +409,10 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Implementation:** mobile-only new `assets/css/home-signature-mobile-spacing-v1.css` loaded last. Caption anchored bottom `clamp(174px,25svh,220px)`; eyebrow/title/description/meta gaps enlarged. Height<=670px uses reduced but separate breathing-room distances.
 - **Protected:** all Signature photos/content/booking/animation, progress/footer location, mobile Treatments, entire desktop, and all other sections.
 - **QA:** source + CSS syntax checks complete; live responsive visual confirmation pending. [Mobile QA](docs/QA-HOME-SIGNATURE-MOBILE-SPACING-V1-2026-10-30.md).
+
+
+## Gift Cards mobile portrait V6 — 30 October 2026
+- **Request:** new exclusive vertical image for the mobile Gift Cards scene; preserve all approved copy, layout, CTA and desktop.
+- **Completed in source:** AI-generated illustrative massage-ritual photograph `thaissage-gift-cards-ritual-mobile-exclusive.webp` (899×1748, 79,308 bytes). White text contrast simulated under the existing scrim at 375/390/430px. Clean imagery with no text embedded.
+- **Changed:** only mobile image URL and 50% center alignment in `home-finale-polish-v5.css`, plus CSS cache query in Home.
+- **Protected:** desktop image, scroll-zoom controller, Square Gift Cards checkout, heading, text and overlays. **Visual browser QA not independently verified.** [QA note](docs/QA-HOME-GIFT-CARDS-MOBILE-PHOTO-V6-2026-10-30.md).
