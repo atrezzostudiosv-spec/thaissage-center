@@ -402,3 +402,10 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Visual treatment:** simplified overcomplicated dual/radial overlays to one soft white-to-right gradient for body copy. Keep dark copy, exact approved text, CTA, hover zoom and no scroll hijacking.
 - **Protected:** mobile <=720px and unrelated site sections untouched.
 - **Validation:** GitHub source QA completed; live visual responsive QA pending. [V5 QA](docs/QA-HOME-PHILOSOPHY-DESKTOP-BACKGROUND-V5-2026-10-30.md).
+
+
+## Signature Experiences mobile — editorial spacing V1 (30 October 2026)
+- **User approval:** raise copy in all three signature scroll chapters; distribute vertical gaps; keep progress line and SCROLL TO EXPLORE in their current location.
+- **Implementation:** mobile-only new `assets/css/home-signature-mobile-spacing-v1.css` loaded last. Caption anchored bottom `clamp(174px,25svh,220px)`; eyebrow/title/description/meta gaps enlarged. Height<=670px uses reduced but separate breathing-room distances.
+- **Protected:** all Signature photos/content/booking/animation, progress/footer location, mobile Treatments, entire desktop, and all other sections.
+- **QA:** source + CSS syntax checks complete; live responsive visual confirmation pending. [Mobile QA](docs/QA-HOME-SIGNATURE-MOBILE-SPACING-V1-2026-10-30.md).

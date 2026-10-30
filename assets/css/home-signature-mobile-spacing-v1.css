@@ -1,0 +1,47 @@
+/* ATREZZO · Thaissage Center
+   Signature Experiences · mobile composition V1.
+   Rebalances only the three Signature story captions / CTAs on mobile.
+   IMPORTANT: the progress rail and SCROLL TO EXPLORE keep their
+   original bottom, right and left coordinates from home-scroll-ritual-v4.css.
+   No sticky, wheel, transform or desktop changes here.
+*/
+@media screen and (max-width:720px) and (min-height:560px) and (prefers-reduced-motion:no-preference) {
+  /* Anchor the entire content group higher in the image, not the progress bar.
+     Height-relative bottom padding allows space for the CTA and footer chrome. */
+  section.signature-section.is-signature-scroll-ritual
+  .signature-scroll-track .scroll-ritual-copy {
+    bottom:calc(clamp(174px,25svh,220px) + env(safe-area-inset-bottom,0px))!important;
+  }
+  section.signature-section.is-signature-scroll-ritual
+  .signature-scroll-track .scroll-ritual-eyebrow {
+    margin-bottom:clamp(13px,1.8svh,18px)!important;
+  }
+  section.signature-section.is-signature-scroll-ritual
+  .signature-scroll-track .scroll-ritual-title {
+    margin-bottom:clamp(15px,2.3svh,21px)!important;
+  }
+  section.signature-section.is-signature-scroll-ritual
+  .signature-scroll-track .scroll-ritual-description {
+    margin-bottom:clamp(19px,2.7svh,26px)!important;
+  }
+  section.signature-section.is-signature-scroll-ritual
+  .signature-scroll-track .scroll-ritual-meta {
+    margin-bottom:clamp(18px,2.5svh,25px)!important;
+  }
+}
+/* Short phone screens: retain a separate footer / progress zone, but
+   compress the editorial rhythm to prevent collisions with top chrome. */
+@media screen and (max-width:720px) and (min-height:560px) and (max-height:670px) and (prefers-reduced-motion:no-preference) {
+  section.signature-section.is-signature-scroll-ritual
+  .signature-scroll-track .scroll-ritual-copy {
+    bottom:calc(clamp(132px,22svh,151px) + env(safe-area-inset-bottom,0px))!important;
+  }
+  section.signature-section.is-signature-scroll-ritual
+  .signature-scroll-track .scroll-ritual-eyebrow {margin-bottom:11px!important}
+  section.signature-section.is-signature-scroll-ritual
+  .signature-scroll-track .scroll-ritual-title {margin-bottom:12px!important}
+  section.signature-section.is-signature-scroll-ritual
+  .signature-scroll-track .scroll-ritual-description {margin-bottom:13px!important}
+  section.signature-section.is-signature-scroll-ritual
+  .signature-scroll-track .scroll-ritual-meta {margin-bottom:16px!important}
+}
