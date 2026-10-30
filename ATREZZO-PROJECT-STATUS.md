@@ -311,3 +311,13 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **QA código:** JS sintaxis válida, CSS equilibrado, 6/6 WebP con firma válida y SHA, 6 fotografías distintas, seis + Details/selector Fresha preservados, sin wheel hijacking, `noindex` intacto. Ver [QA Treatments v13](docs/QA-HOME-MOBILE-TREATMENTS-V13-2026-10-30.md).
 - **PENDIENTE REAL:** revisión visual Safari iPhone 375/390/430px con todos los textos y scroll; comprobar no solapamiento de CTA, nav y barra fija; confirmar el encuadre de cada imagen. Desktop 768/1024/1440 sin QA gráfico nuevo, aunque ningún controlador de desktop se modificó.
 - **ESTADO:** V13 IMPLEMENTADO EN GITHUB / EN REVISIÓN VISUAL DEL USUARIO. Preservar aprobaciones v11 Hero/Locations y v12 navegación Treatments.
+
+
+## Home mobile Treatments V14 — photographic completion (30 October 2026)
+
+- **SCOPE:** exclusively six mobile portrait image sources and their alt text, no new design / CTA / desktop changes.
+- **ASSETS:** six distinct 768×1024 optimized WebP portraits `thaissage-{traditional-thai,thai-combination,deep-tissue,swedish,couples,specialty}-mobile-exclusive.webp`.
+- **IMPLEMENTATION:** `assets/js/home-scroll-ritual-v4.js` `mobileScenes` image map + `index.html` cache key. Six booking interactions, six Details routes, photo animations and mobile layout remain intact.
+- **PROVENANCE:** illustrative creative works, not actual client photographs. Five portraits are derived from generated concept boards; they should be evaluated for source detail on physical mobile screens, especially at DPR 2x/3x, rather than labeled native high-resolution captures.
+- **QA CODE:** six unique WebPs checked at 768×1024; website source now names each corresponding file. **VISUAL QA IN LIVE BROWSER:** not yet verified.
+- **STATUS:** photo asset production and source integration completed, live photographic rendering still to inspect. Report: [docs/QA-HOME-MOBILE-TREATMENTS-IMAGES-V14-2026-10-30.md](docs/QA-HOME-MOBILE-TREATMENTS-IMAGES-V14-2026-10-30.md).
