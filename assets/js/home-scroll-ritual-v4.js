@@ -10,7 +10,7 @@
 
   const treatment = document.getElementById('treatments');
   const signature = document.getElementById('signature');
-  const mobile = window.matchMedia('(max-width:720px) and (min-height:560px) and (prefers-reduced-motion:no-preference)');
+  const mobile = window.matchMedia('(max-width:720px) and (min-height:660px) and (prefers-reduced-motion:no-preference)');
   const signatureMedia = window.matchMedia('(min-height:560px) and (prefers-reduced-motion:no-preference)');
   const clamp = n => Math.max(0, Math.min(1, n));
   const smooth = n => { const v=clamp(n); return v*v*(3-2*v); };
@@ -20,6 +20,25 @@
     if(value !== undefined && value !== null) el.textContent=value;
     return el;
   };
+  // Always use actual vector icons on the mobile image chapters.
+  // The Unicode arrow used previously could turn into an iOS emoji.
+  const arrowIcon = () => {
+    const icon=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    icon.setAttribute('viewBox','0 0 24 24');
+    icon.setAttribute('width','19');
+    icon.setAttribute('height','19');
+    icon.setAttribute('fill','none');
+    icon.setAttribute('stroke','currentColor');
+    icon.setAttribute('stroke-width','1.65');
+    icon.setAttribute('stroke-linecap','round');
+    icon.setAttribute('stroke-linejoin','round');
+    icon.setAttribute('aria-hidden','true');
+    icon.setAttribute('focusable','false');
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d','M5 19 19 5M8 5h11v11');
+    icon.append(path);
+    return icon;
+  };
   const jobs = [];
 
   function createStory(config) {
@@ -28,6 +47,19 @@
     const items=config.collect();
     if(items.length !== config.count || items.some(x=>!x.image || !x.title || !x.sourceLink)) return null;
     let track=null, stage=null, panels=[], active=-1, observer=null, raf=0, hasFocus=false;
+    let treatmentNavButtons=[];
+
+    // Direct chapter selection is intentional interaction, not scroll hijacking.
+    // Natural scroll is unchanged whenever the user does not select a chapter.
+    function selectTreatment(index) {
+      if (!track || !stage || !config.detailsRoutes) return;
+      const clamped=Math.max(0,Math.min(items.length-1,index));
+      const top=track.getBoundingClientRect().top+window.scrollY;
+      const available=Math.max(1,track.offsetHeight-stage.offsetHeight);
+      const destination=top+((clamped+.18)/items.length)*available;
+      window.scrollTo({top:destination,behavior:'instant'});
+      request();
+    }
 
     function build() {
       if(track) return;
@@ -62,12 +94,24 @@
         const link=make('a','scroll-ritual-cta',config.cta);
         link.href='#locations';
         link.setAttribute('aria-label',config.cta+' — '+item.title);
-        link.append(make('span','scroll-ritual-arrow','↗'));
+        const arrow=make('span','scroll-ritual-arrow');
+        if(config.detailsRoutes) arrow.append(arrowIcon());
+        else arrow.textContent='↗'; // Existing approved Signature appearance stays intact.
+        link.append(arrow);
         link.addEventListener('click',event=>{
           event.preventDefault();
           // The existing source CTA is bound to the established Fresha selector.
           item.sourceLink.click();
         });
+        if(config.detailsRoutes){
+          const details=make('a','treatment-detail-link');
+          details.href=config.detailsRoutes[i];
+          details.setAttribute('aria-label','View full details for '+item.title);
+          const plus=make('span','treatment-detail-plus','+');
+          plus.setAttribute('aria-hidden','true');
+          details.append(plus,make('span','', 'Details'));
+          meta.append(details);
+        }
         content.append(link);
         panel.append(photo,shade,content);
         stack.append(panel);
@@ -83,6 +127,27 @@
       bar.setAttribute('aria-hidden','true');
       bottom.append(bar);
       stage.append(stack,chrome,bottom);
+      if(config.detailsRoutes){
+        const nav=make('nav','treatment-quick-nav');
+        nav.setAttribute('aria-label','Choose a massage treatment');
+        // Visual two-column editorial order (Swedish left / Deep Tissue right).
+        // Original chapter sequence and commercial content stay untouched.
+        const displayOrder=[0,1,3,2,4,5];
+        displayOrder.forEach(i=>{
+          const button=make('button','treatment-quick-button');
+          button.type='button';
+          button.setAttribute('aria-label','Show '+items[i].title);
+          button.setAttribute('aria-current','false');
+          button.append(
+            make('span','treatment-quick-label',items[i].title),
+            make('span','treatment-quick-rule')
+          );
+          button.addEventListener('click',()=>selectTreatment(i));
+          nav.append(button);
+          treatmentNavButtons[i]=button;
+        });
+        stage.append(nav);
+      }
       track.append(stage);
 
       if(config.before) section.insertBefore(track,config.before);
@@ -117,6 +182,9 @@
         });
         const counter=stage.querySelector('.scroll-ritual-count');
         if(counter)counter.textContent=String(active+1).padStart(2,'0')+' / '+String(items.length).padStart(2,'0');
+        treatmentNavButtons.forEach((button,i)=>{
+          if(button)button.setAttribute('aria-current',i===active?'step':'false');
+        });
       }
       panels.forEach((panel,i)=>{
         const current=i===index;
@@ -146,6 +214,9 @@
         }
       });
       stage.style.setProperty('--ritual-progress',String(clamp((index+local)/items.length)));
+      treatmentNavButtons.forEach((button,i)=>{
+        if(button)button.style.setProperty('--treatment-nav-fill',String(clamp(i<index?1:i===index?local:0)));
+      });
     }
 
     function update() {
@@ -186,7 +257,7 @@
         const selector=section.querySelector(config.fallbackFocus);
         selector?.focus({preventScroll:true});
       }
-      track.remove();track=null;stage=null;panels=[];active=-1;
+      track.remove();track=null;stage=null;panels=[];treatmentNavButtons=[];active=-1;
       section.classList.remove(config.className);
     }
     function reconcile(){if(config.media.matches)build();else destroy()}
@@ -200,6 +271,14 @@
     trackClass:'treatment-scroll-track',aria:'Six full-screen massage treatment chapters',
     eyebrow:'MASSAGE TREATMENTS',topLabel:'THAILAND TO TEXAS · TREATMENTS',cta:'Book Now',
     fallbackFocus:'.treatment-card-book',
+    detailsRoutes:[
+      'massage-services/thai-massage/',
+      'massage-services/thai-combination-massage/',
+      'massage-services/deep-tissue-massage/',
+      'massage-services/swedish-massage/',
+      'massage-services/couples-massage/',
+      'massage-services/specialty-massages/'
+    ],
     collect:()=>cards.map(card=>{
       const img=card.querySelector('.treatment-card-photo');
       return {
