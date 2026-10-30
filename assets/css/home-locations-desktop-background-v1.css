@@ -1,0 +1,37 @@
+/* ATREZZO STUDIOS · THAISSAGE CENTER
+   Home / CHOOSE YOUR CENTER — desktop background art direction v1.
+   Scope only Locations at widths 721px and up. The approved phone background,
+   original left-hand editorial photograph, city selector and booking are untouched.
+*/
+@media screen and (min-width:721px) {
+  body .locations-cinematic.locations-section {
+    /* Mobile's white-marble/plumeria visual language, photographed at desktop scale.
+       Light ivory film protects foreground contrast without flattening the flowers. */
+    background-color:#FAFBF9!important;
+    background-image:
+      linear-gradient(95deg,
+        rgba(255,255,255,.87) 0%,
+        rgba(255,255,255,.72) 42%,
+        rgba(255,255,255,.50) 70%,
+        rgba(255,255,255,.31) 100%),
+      url('../images/thaissage-locations-white-marble-flowers-desktop.webp')!important;
+    background-position:center center, 59% center!important;
+    background-size:cover,cover!important;
+    background-repeat:no-repeat,no-repeat!important;
+    background-attachment:scroll!important;
+  }
+  /* Remove the old green-tinted hero interior overlay on desktop/tablet.
+     The section itself owns the new full-bleed photographed background. */
+  body .locations-cinematic.locations-section::before {
+    display:none!important;
+    content:none!important;
+    background:none!important;
+    opacity:0!important;
+  }
+}
+@media print {
+  body .locations-cinematic.locations-section {
+    background-image:none!important;
+    background-color:#FFFFFF!important;
+  }
+}

@@ -359,3 +359,10 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Implementation:** `.cinema-meta` margin-bottom `clamp(70px,9svh,84px)` (~80px at 890px high); compact laptop <=720px `clamp(38px,6.8svh,48px)`. `.cinema-copy` anchor and CTA placement remain unchanged; text shifts upward.
 - **Changes:** `assets/css/treatments-chapters.css` and its cache query in Home only. No JS, mobile, photos, routes or navigation changes.
 - **Status:** code updated; desktop browser visual QA remains pending. Report: [docs/QA-HOME-DESKTOP-TREATMENTS-COPY-GAP-2026-10-30.md](docs/QA-HOME-DESKTOP-TREATMENTS-COPY-GAP-2026-10-30.md).
+
+
+## Home Choose Your Center — desktop pale marble/floral backdrop (30 October 2026)
+- **Direction:** match approved mobile's bright marble/plumeria photography; do not reuse its tiny 320×569 image on desktop.
+- **Implemented:** new desktop 1672×941 WebP `assets/images/thaissage-locations-white-marble-flowers-desktop.webp` with 95deg ivory-white readability overlay; old green-tinted hero background removed for tablet/desktop only via `assets/css/home-locations-desktop-background-v1.css` loaded last in Home.
+- **Protected:** mobile styling <=720px, Locations original editorial left photo, three center selectors / addresses / links, and all other Home sections unchanged.
+- **QA:** repository source verified; live visual checks at 768/1024/1440px not yet independently executed. [QA Locations desktop background](docs/QA-HOME-LOCATIONS-DESKTOP-FLORALS-2026-10-30.md).
