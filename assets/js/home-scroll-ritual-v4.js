@@ -73,24 +73,27 @@
         panel.setAttribute('aria-hidden','true');
         panel.inert=true;
         const image=make('img','scroll-ritual-photo');
-        image.src=item.image;
-        image.alt=item.alt||'';
-        image.width=item.width||1100;
-        image.height=item.height||760;
+        image.src=(config.detailsRoutes && item.mobileImage) ? item.mobileImage : item.image;
+        image.alt=(config.detailsRoutes && item.mobileAlt) ? item.mobileAlt : (item.alt||'');
+        image.width=(config.detailsRoutes && item.mobileImage)?768:(item.width||1100);
+        image.height=(config.detailsRoutes && item.mobileImage)?1024:(item.height||760);
         image.decoding='async';
         image.loading=i<2?'eager':'lazy';
         const photo=make('div','scroll-ritual-image');
         photo.append(image);
         const shade=make('div','scroll-ritual-scrim');
         const content=make('div','scroll-ritual-copy');
-        content.append(make('p','scroll-ritual-eyebrow',config.eyebrow+' / '+String(i+1).padStart(2,'0')));
-        content.append(make('h3','scroll-ritual-title',item.title));
-        content.append(make('p','scroll-ritual-description',item.description));
+        // The editorial text moves upward independently; the Book Now CTA
+        // remains anchored in precisely its approved mobile location.
+        const info=config.detailsRoutes ? make('div','scroll-ritual-information') : content;
+        info.append(make('p','scroll-ritual-eyebrow',config.eyebrow+' / '+String(i+1).padStart(2,'0')));
+        info.append(make('h3','scroll-ritual-title',item.title));
+        info.append(make('p','scroll-ritual-description',item.description));
         const meta=make('div','scroll-ritual-meta');
         if(item.duration)meta.append(make('span','scroll-ritual-duration',item.duration));
         if(item.price)meta.append(make('span','scroll-ritual-price',item.price));
         if(item.meta)meta.append(make('span','scroll-ritual-combined',item.meta));
-        content.append(meta);
+        info.append(meta);
         const link=make('a','scroll-ritual-cta',config.cta);
         link.href='#locations';
         link.setAttribute('aria-label',config.cta+' — '+item.title);
@@ -113,7 +116,8 @@
           meta.append(details);
         }
         content.append(link);
-        panel.append(photo,shade,content);
+        if(config.detailsRoutes) panel.append(photo,shade,info,content);
+        else panel.append(photo,shade,content);
         stack.append(panel);
         panels.push(panel);
       });
@@ -209,8 +213,12 @@
         const copy=panel.querySelector('.scroll-ritual-copy');
         if(copy){
           const visible=current?1-smooth((local-.82)/.18):arriving?smooth((blend-.1)/.8):0;
-          copy.style.opacity=String(index===items.length-1&&current?1:clamp(visible));
-          copy.style.transform='translate3d(0,'+((1-clamp(visible))*18).toFixed(1)+'px,0)';
+          const opacity=String(index===items.length-1&&current?1:clamp(visible));
+          const transform='translate3d(0,'+((1-clamp(visible))*18).toFixed(1)+'px,0)';
+          [copy,panel.querySelector('.scroll-ritual-information')].filter(Boolean).forEach(el=>{
+            el.style.opacity=opacity;
+            el.style.transform=transform;
+          });
         }
       });
       stage.style.setProperty('--ritual-progress',String(clamp((index+local)/items.length)));
@@ -240,6 +248,8 @@
           first.style.transform='translate3d('+((1-arrival)*22).toFixed(1)+'%,0,0)';
           const copy=first.querySelector('.scroll-ritual-copy');
           if(copy)copy.style.opacity=String(arrival);
+          const info=first.querySelector('.scroll-ritual-information');
+          if(info)info.style.opacity=String(arrival);
         }
       }
     }
@@ -279,9 +289,18 @@
       'massage-services/couples-massage/',
       'massage-services/specialty-massages/'
     ],
-    collect:()=>cards.map(card=>{
+    collect:()=>cards.map((card,i)=>{
       const img=card.querySelector('.treatment-card-photo');
+      const mobileScenes=[
+        {src:'assets/images/thaissage-thai-massage-ritual-mobile.webp',alt:'Illustrative traditional Thai massage ritual with therapist and guest'},
+        {src:'assets/images/thaissage-treatment-thai-combination-cinematic.webp',alt:'Illustrative Thai and Swedish massage techniques focused on the shoulder'},
+        {src:'assets/images/thaissage-massage-hands-treatment-mobile.webp',alt:'Illustrative focused pressure massage on the leg'},
+        {src:'assets/images/thaissage-gift-experience-mobile.webp',alt:'Illustrative soft flowing massage on the back'},
+        {src:'assets/images/thaissage-hero-spa-interior-mobile.webp',alt:'Illustrative serene treatment space prepared for a spa appointment'},
+        {src:'assets/images/thaissage-signature-phuket-floral-ritual.webp',alt:'Illustrative herbal spa accessories and floral wellness ritual'}
+      ];
       return {
+        mobileImage:mobileScenes[i].src,mobileAlt:mobileScenes[i].alt,
         image:img?.getAttribute('src'), alt:img?.alt||'', title:card.querySelector('h3')?.textContent.trim(),
         description:card.querySelector('.treatment-card-description')?.textContent.trim(),
         duration:card.querySelector('.treatment-card-time')?.textContent.trim(),
