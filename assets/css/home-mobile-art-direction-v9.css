@@ -1,0 +1,271 @@
+/* ATREZZO STUDIOS — THAISSAGE CENTER
+   HOME / PHONE-ONLY ART DIRECTION v9 — 30 October 2026
+
+   Explicit client scope: <=720px ONLY.
+   Preserve the approved desktop Home, all commercial content,
+   links, map, Treatments, Signature and footer.
+
+   (1) Hero: remove only the introductory paragraph visually on phones;
+       reposition the title and actions for breathing room.
+   (2) Locations: extend the existing desktop atmospheric photographic
+       background to phones, with white individual accordion surfaces.
+   (3) Accordion: align address, call, opening hours and understated
+       booking links to the already-approved lower location directory.
+*/
+@media screen and (max-width:720px) {
+
+  /* 01 — Editorial, less crowded first screen. */
+  body .hero .hero-intro {
+    display:none!important;
+  }
+  body .hero .hero-inner {
+    justify-content:flex-start;
+    padding-top:clamp(133px,17svh,163px)!important;
+    padding-bottom:calc(98px + env(safe-area-inset-bottom,0px))!important;
+  }
+  body .hero .hero-content {
+    max-width:100%;
+  }
+  body .hero .hero-content > .eyebrow{
+    margin-bottom:12px!important;
+  }
+  body .hero #hero-title {
+    margin-top:0!important;
+    margin-bottom:clamp(20px,3svh,27px)!important;
+  }
+  body .hero .hero-actions {
+    display:flex!important;
+    align-items:center!important;
+    flex-wrap:wrap;
+    gap:9px!important;
+    margin-top:0!important;
+  }
+  body .hero .hero-actions .button {
+    min-height:46px!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:space-between;
+    gap:clamp(9px,2.6vw,19px)!important;
+    padding:11px clamp(11px,3.2vw,17px)!important;
+    font-size:clamp(10px,2.8vw,11.5px)!important;
+  }
+  body .hero .hero-actions .button .ui-arrow-wrap{
+    flex:none;
+  }
+  body .hero .hero-gift-card{
+    margin-top:clamp(25px,3.8svh,34px)!important;
+  }
+  body .hero .hero-review-proof{
+    margin-top:clamp(20px,3svh,30px)!important;
+  }
+
+  /* 02 — Existing desktop atmospheric image adapted to phone proportions.
+     No extra photograph invents a branch. The individual white disclosure
+     blocks retain high text contrast and comfortable tap targets. */
+  body .locations-cinematic.locations-section {
+    background:#E9EFEA!important;
+    isolation:isolate;
+    overflow:hidden!important;
+  }
+  body .locations-cinematic.locations-section::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    background-image:url('../images/thaissage-hero-spa-interior-mobile.webp');
+    background-position:center 35%;
+    background-size:cover;
+    background-repeat:no-repeat;
+    opacity:.23;
+  }
+  body .locations-cinematic .locations-heading,
+  body .locations-cinematic .locations-story,
+  body .locations-cinematic .locations-footnote{
+    position:relative;
+    z-index:1;
+  }
+  body .locations-cinematic .locations-story-panel {
+    background:transparent!important;
+    -webkit-backdrop-filter:none!important;
+    backdrop-filter:none!important;
+    box-shadow:none!important;
+    padding:0!important;
+  }
+  body .locations-cinematic .locations-story-intro{
+    padding:0 0 18px!important;
+  }
+  body .locations-cinematic .location-choice-list {
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+    border:0!important;
+    background:transparent!important;
+  }
+  body .locations-cinematic .location-choice {
+    background:rgba(255,255,255,.97)!important;
+    border:1px solid #DEE7E0!important;
+    border-radius:2px;
+    box-shadow:0 2px 16px rgba(22,47,32,.025);
+    overflow:visible;
+  }
+  body .locations-cinematic .location-choice-summary{
+    padding:18px 19px!important;
+    min-height:88px;
+    gap:clamp(7px,2vw,11px);
+  }
+  body .locations-cinematic .location-choice-num{
+    flex:0 0 46px;
+    font-size:8.5px;
+    letter-spacing:.12em;
+  }
+  body .locations-cinematic .location-choice-name{
+    font-size:clamp(29px,7.2vw,39px);
+    line-height:1.08;
+    letter-spacing:-.045em;
+  }
+  body .locations-cinematic .location-choice-icon{
+    flex:0 0 24px;
+    width:24px;
+    height:24px;
+  }
+
+  /* 03 — Open state: plain editorial directory, aligned to card's left edge. */
+  body .locations-cinematic .location-choice-content{
+    padding:0 20px 28px!important;
+    color:#607568;
+  }
+  body .locations-cinematic .location-choice-content address{
+    margin:0 0 22px!important;
+    color:#63786C!important;
+    font:400 13.5px/1.8 'Open Sans',Arial,sans-serif!important;
+  }
+  body .locations-cinematic .location-choice-details{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:0!important;
+    max-width:none;
+    margin:0!important;
+  }
+  body .locations-cinematic .location-contact-item{
+    display:flex!important;
+    flex-direction:column;
+    align-items:stretch;
+    gap:7px!important;
+    min-width:0;
+  }
+  body .locations-cinematic .location-data-label{
+    color:#6C8B79;
+    font:700 9.5px/1.4 'Open Sans',Arial,sans-serif!important;
+    letter-spacing:.17em;
+  }
+  body .locations-cinematic .location-choice-phone{
+    display:inline-block;
+    align-self:flex-start;
+    color:#355C47!important;
+    font:700 15px/1.6 'Open Sans',Arial,sans-serif!important;
+    text-decoration:none!important;
+  }
+  body .locations-cinematic .location-choice-phone:hover,
+  body .locations-cinematic .location-choice-phone:focus-visible{
+    text-decoration:underline!important;
+    text-underline-offset:5px;
+  }
+  body .locations-cinematic .location-contact-item:nth-child(2){
+    margin-top:23px;
+    padding-top:18px;
+    border-top:1px solid #DCE7DE;
+    gap:10px!important;
+  }
+  body .locations-cinematic .location-contact-item:nth-child(2) .location-data-label{
+    margin-bottom:4px;
+  }
+  body .locations-cinematic .location-contact-item p{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:baseline;
+    column-gap:7px;
+    margin:0!important;
+    color:#5C7265!important;
+    font:400 clamp(10.5px,2.8vw,12px)/1.6 'Open Sans',Arial,sans-serif!important;
+    white-space:normal;
+  }
+  body .locations-cinematic .location-contact-item p strong{
+    justify-self:end;
+    color:#40594C!important;
+    white-space:nowrap;
+    font:600 clamp(10.5px,2.8vw,12px)/1.6 'Open Sans',Arial,sans-serif!important;
+  }
+  body .locations-cinematic .location-choice-actions{
+    display:flex!important;
+    flex-wrap:wrap!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    gap:12px 23px!important;
+    margin-top:22px!important;
+  }
+  body .locations-cinematic .location-choice-book,
+  body .locations-cinematic .location-choice-book:hover,
+  body .locations-cinematic .location-choice-book:focus-visible{
+    display:inline-flex!important;
+    align-items:center!important;
+    width:auto!important;
+    min-width:0!important;
+    min-height:0!important;
+    gap:0!important;
+    margin:0!important;
+    padding:0 0 5px!important;
+    background:transparent!important;
+    border:0!important;
+    border-bottom:1px solid #456C56!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    color:#355C47!important;
+    -webkit-backdrop-filter:none!important;
+    backdrop-filter:none!important;
+    font:700 14px/1.5 'Open Sans',Arial,sans-serif!important;
+    text-decoration:none!important;
+    letter-spacing:0;
+  }
+  body .locations-cinematic .location-choice-book svg{
+    display:none!important;
+  }
+  body .locations-cinematic .location-choice-map{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    padding:0 0 5px!important;
+    color:#587668!important;
+    font-size:12px!important;
+  }
+  body .locations-cinematic .location-choice-map:hover,
+  body .locations-cinematic .location-choice-map:focus-visible,
+  body .locations-cinematic .location-choice-book:focus-visible {
+    outline-offset:5px;
+  }
+}
+
+@media screen and (max-width:390px){
+  body .locations-cinematic .location-choice-summary{
+    padding-left:14px!important;
+    padding-right:14px!important;
+  }
+  body .locations-cinematic .location-choice-num{flex-basis:42px;font-size:8px}
+  body .locations-cinematic .location-choice-name{
+    font-size:clamp(28px,7.15vw,30px)!important;
+  }
+  body .locations-cinematic .location-choice-content{
+    padding-inline:16px!important;
+  }
+  body .locations-cinematic .location-contact-item p,
+  body .locations-cinematic .location-contact-item p strong{
+    font-size:10.5px!important;
+  }
+}
+
+/* Never require motion to reveal appointment information. */
+@media screen and (max-width:720px) and (prefers-reduced-motion:reduce){
+  body .locations-cinematic .location-choice-content{
+    animation:none!important;
+  }
+}
