@@ -77,6 +77,32 @@
   #our-approach .intro-left h2 {
     max-width:730px;
   }
+  /* Readability correction: the older editorial stylesheet sets the right-hand
+     copy to only 13px and muted grey. Enlarge and darken ONLY on desktop. */
+  #our-approach .intro-right > p {
+    color:#202D27!important;
+    font-size:clamp(16px,1.12vw,18px)!important;
+    font-weight:500!important;
+    line-height:1.76!important;
+    letter-spacing:0!important;
+    max-width:530px!important;
+    margin-bottom:clamp(20px,2vw,29px)!important;
+    text-shadow:none!important;
+  }
+  #our-approach .intro-right .text-link,
+  #our-approach .intro-right .text-link:visited {
+    color:#17251E!important;
+    font-size:clamp(13px,.95vw,15px)!important;
+    font-weight:700!important;
+    border-bottom-color:#3B5044!important;
+    border-bottom-width:1.5px!important;
+    text-shadow:none!important;
+  }
+  #our-approach .intro-right .text-link:hover,
+  #our-approach .intro-right .text-link:focus-visible {
+    color:#0E1D15!important;
+    border-bottom-color:#0E1D15!important;
+  }
   #our-approach .intro-seal {
     display:none!important;
   }

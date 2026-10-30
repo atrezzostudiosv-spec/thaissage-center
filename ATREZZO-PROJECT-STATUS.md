@@ -374,3 +374,10 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Protected:** mobile Philosophy previously approved (<=720px), all original copy/CTA, other Home sections, reservation controls and internal pages.
 - **Known limitation:** desktop original photograph is only 840×1050; image sharpness at larger desktop monitors must be checked. Live responsive and hover visual QA not yet confirmed.
 - **State:** source change implemented and registered; visual approval still in validation. [QA report](docs/QA-HOME-PHILOSOPHY-DESKTOP-FULLBLEED-2026-10-30.md).
+
+
+## Philosophy desktop V2 — copy contrast (30 October 2026)
+- **User screenshot:** right-column body small and washed out against bright full-bleed background.
+- **Correction:** body text 16–18px at #202D27 with 500 weight and 1.76 line-height; secondary CTA increased to 13–15px with darker text/underline. All inside existing desktop-only CSS @media(min-width:721px).
+- **Protected:** photo, white overlay, mouse zoom, entire left heading, tablet reading flow, mobile, other sections, content/links.
+- **Validation:** source/CSS checks performed; live visual browser confirmation pending. [QA](docs/QA-HOME-PHILOSOPHY-DESKTOP-TEXT-V2-2026-10-30.md).
