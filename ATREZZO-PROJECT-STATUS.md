@@ -345,3 +345,10 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **ORDER:** remove separate top image only on phone and replace with full-width / min-100svh photographic background behind the intact 'OUR PHILOSOPHY / Self Love Begins Here' content, with WHITE gradient.
 - **IMPLEMENTED:** `assets/css/home-philosophy-mobile-v1.css` (rules restricted to <=720px) and `assets/images/thaissage-philosophy-white-floral-background-mobile.webp` (941×1672 optimized WebP). New CSS linked last in Home. Original photo block remains in DOM for approved desktop design, hidden exclusively in mobile; text and CTA unchanged.
 - **STATUS:** implemented in repository / static validation; GitHub Pages deployment and responsive rendering require confirmation. No other sections reopened. QA: [docs/QA-HOME-PHILOSOPHY-MOBILE-BACKGROUND-2026-10-30.md](docs/QA-HOME-PHILOSOPHY-MOBILE-BACKGROUND-2026-10-30.md).
+
+
+## Desktop Treatments + Details — 30 October 2026
+- **Scope:** only desktop immersive OUR TREATMENTS, six chapters.
+- **Implementation:** secondary `+ Details` beside `Book Now`, each linking to its matching internal service page (Thai, Combination, Deep Tissue, Swedish, Couples, Specialty). Existing booking click routing preserved.
+- **Changes:** `assets/js/treatments-chapters.js`, `assets/css/treatments-chapters.css`, query-string cache busts in `index.html`. No edits to mobile, photography, pricing or scroll controls.
+- **Status:** implemented in main with static code QA; desktop live-browser validation pending. [QA desktop Details](docs/QA-HOME-DESKTOP-TREATMENTS-DETAILS-2026-10-30.md).

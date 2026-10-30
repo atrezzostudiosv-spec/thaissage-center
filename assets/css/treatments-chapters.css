@@ -185,6 +185,47 @@
     border-color:#FFF;
   }
   .cinema-book-arrow{font-size:21px;line-height:1}
+  /* Desktop-only secondary action. Keep the established Book Now button
+     at its original position and maintain clear keyboard focus. */
+  .cinema-actions {
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:clamp(14px,1.8vw,26px);
+  }
+  .cinema-details {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:44px;
+    gap:9px;
+    padding:10px 18px;
+    border:1px solid rgba(255,255,255,.54);
+    border-radius:100px;
+    background:rgba(11,19,15,.16);
+    -webkit-backdrop-filter:blur(7px);
+    backdrop-filter:blur(7px);
+    color:#FFF!important;
+    font:600 12px/1.2 'Open Sans',Arial,sans-serif;
+    text-decoration:none!important;
+    text-shadow:none;
+    white-space:nowrap;
+    transition:background .25s,border-color .25s;
+  }
+  .cinema-details:hover,
+  .cinema-details:focus-visible {
+    color:#FFF!important;
+    border-color:#FFF;
+    background:rgba(11,19,15,.52);
+    text-decoration:none!important;
+  }
+  .cinema-details:focus-visible {
+    outline:2px solid #FFF;
+    outline-offset:3px;
+  }
+  .cinema-details-plus {
+    font:400 19px/1 'Open Sans',Arial,sans-serif;
+  }
   .cinema-footer {
     position:absolute;
     z-index:7;
@@ -290,6 +331,7 @@
     .cinema-description{font-size:11px;line-height:1.47;margin-bottom:9px!important;max-width:505px}
     .cinema-meta{font-size:10px;margin-bottom:9px}
     .cinema-book{min-height:38px;padding-block:7px;font-size:11px}
+    .cinema-details{min-height:38px;padding-block:7px;font-size:11px}
     .cinema-footer{bottom:17px}
     .cinema-hint{margin-bottom:12px;font-size:8px}
     .cinema-nav-button{font-size:9px;min-height:38px}

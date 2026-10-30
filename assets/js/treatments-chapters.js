@@ -13,6 +13,18 @@
   if (cards.length !== 6) return;
 
   const media = window.matchMedia('(min-width:1025px) and (min-height:560px) and (prefers-reduced-motion:no-preference)');
+
+  // Source routes already used by the approved mobile + Details navigation.
+  // Keep desktop links in the same order as the six original service cards.
+  const detailRoutes = [
+    'massage-services/thai-massage/',
+    'massage-services/thai-combination-massage/',
+    'massage-services/deep-tissue-massage/',
+    'massage-services/swedish-massage/',
+    'massage-services/couples-massage/',
+    'massage-services/specialty-massages/'
+  ];
+
   const content = cards.map(card => {
     const photo = card.querySelector('.treatment-card-photo');
     const link = card.querySelector('.treatment-card-book');
@@ -150,7 +162,19 @@
       const arrow=create('span','cinema-book-arrow','↗');
       arrow.setAttribute('aria-hidden','true');
       book.append(arrow);
-      copy.append(book);
+
+      // Secondary route sits next to the existing booking CTA; no change to
+      // the booking selector, sticky stage, images or native-scroll behavior.
+      const actions=create('div','cinema-actions');
+      actions.append(book);
+      const details=create('a','cinema-details');
+      details.href=detailRoutes[i];
+      details.setAttribute('aria-label','View full details for '+item.name);
+      const plus=create('span','cinema-details-plus','+');
+      plus.setAttribute('aria-hidden','true');
+      details.append(plus,document.createTextNode('Details'));
+      actions.append(details);
+      copy.append(actions);
       panel.append(copy);
       background.append(panel);
       panels.push(panel);
