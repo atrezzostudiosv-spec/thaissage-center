@@ -352,3 +352,10 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Implementation:** secondary `+ Details` beside `Book Now`, each linking to its matching internal service page (Thai, Combination, Deep Tissue, Swedish, Couples, Specialty). Existing booking click routing preserved.
 - **Changes:** `assets/js/treatments-chapters.js`, `assets/css/treatments-chapters.css`, query-string cache busts in `index.html`. No edits to mobile, photography, pricing or scroll controls.
 - **Status:** implemented in main with static code QA; desktop live-browser validation pending. [QA desktop Details](docs/QA-HOME-DESKTOP-TREATMENTS-DETAILS-2026-10-30.md).
+
+
+## Home desktop Treatments — copy spacing refinement (30 October 2026)
+- **Scope:** six desktop immersive chapters only; red screenshot requested a substantially wider gap between treatment information and Book Now / + Details.
+- **Implementation:** `.cinema-meta` margin-bottom `clamp(70px,9svh,84px)` (~80px at 890px high); compact laptop <=720px `clamp(38px,6.8svh,48px)`. `.cinema-copy` anchor and CTA placement remain unchanged; text shifts upward.
+- **Changes:** `assets/css/treatments-chapters.css` and its cache query in Home only. No JS, mobile, photos, routes or navigation changes.
+- **Status:** code updated; desktop browser visual QA remains pending. Report: [docs/QA-HOME-DESKTOP-TREATMENTS-COPY-GAP-2026-10-30.md](docs/QA-HOME-DESKTOP-TREATMENTS-COPY-GAP-2026-10-30.md).

@@ -140,7 +140,8 @@
     align-items:center;
     flex-wrap:wrap;
     gap:clamp(18px,2.6vw,38px);
-    margin:0 0 clamp(13px,1.7svh,21px);
+    /* Deliberate editorial separation: text rises, CTA stays bottom-anchored. */
+    margin:0 0 clamp(70px,9svh,84px);
     color:#F4FAF6;
     font-size:12px;
     font-weight:600;
@@ -329,7 +330,7 @@
     .cinema-copy-kicker{margin-bottom:10px;font-size:9px}
     .cinema-title{font-size:clamp(38px,4.9vw,65px)!important;margin-bottom:9px!important}
     .cinema-description{font-size:11px;line-height:1.47;margin-bottom:9px!important;max-width:505px}
-    .cinema-meta{font-size:10px;margin-bottom:9px}
+    .cinema-meta{font-size:10px;margin-bottom:clamp(38px,6.8svh,48px)}
     .cinema-book{min-height:38px;padding-block:7px;font-size:11px}
     .cinema-details{min-height:38px;padding-block:7px;font-size:11px}
     .cinema-footer{bottom:17px}
