@@ -276,3 +276,24 @@
   .treatment-scroll-track .treatment-quick-button{min-height:34px}
 }
 /* All original cards remain usable with no JS, reduced motion or short height. */
+
+/* Mobile-only SVG arrow normalization for other Home image CTAs and links.
+   No Unicode character can be rendered by the iOS emoji font. */
+@media screen and (max-width:720px){
+  .home-mobile-arrow-svg{
+    display:inline-block;
+    width:17px;
+    height:17px;
+    fill:none;
+    stroke:currentColor;
+    vertical-align:middle;
+    flex:none;
+  }
+  .signature-scroll-track .scroll-ritual-arrow{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:0!important;
+    line-height:0;
+  }
+}
