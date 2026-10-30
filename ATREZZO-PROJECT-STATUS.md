@@ -338,3 +338,10 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **IMPLEMENTACIÓN:** únicamente referencias de cinco imágenes y alt, atributo de altura móvil por foto y versión de caché JS en Home. Sin cambios CSS, layout, CTA, textos, escritorio, ni otras páginas.
 - **QA FUENTES:** cinco archivos WebP verificados en relación vertical de teléfono; simulación de recorte 375×812 al máximo zoom existente. **QA en navegador iPhone real pendiente de comprobar.**
 - **ESTADO:** sustitución fotográfica realizada en repositorio, aprobación visual de usuario aún pendiente. Informe: [docs/QA-HOME-MOBILE-TREATMENTS-IMAGES-V15-2026-10-30.md](docs/QA-HOME-MOBILE-TREATMENTS-IMAGES-V15-2026-10-30.md).
+
+
+## Home Philosophy mobile — background floral full-bleed (30 October 2026)
+
+- **ORDER:** remove separate top image only on phone and replace with full-width / min-100svh photographic background behind the intact 'OUR PHILOSOPHY / Self Love Begins Here' content, with WHITE gradient.
+- **IMPLEMENTED:** `assets/css/home-philosophy-mobile-v1.css` (rules restricted to <=720px) and `assets/images/thaissage-philosophy-white-floral-background-mobile.webp` (941×1672 optimized WebP). New CSS linked last in Home. Original photo block remains in DOM for approved desktop design, hidden exclusively in mobile; text and CTA unchanged.
+- **STATUS:** implemented in repository / static validation; GitHub Pages deployment and responsive rendering require confirmation. No other sections reopened. QA: [docs/QA-HOME-PHILOSOPHY-MOBILE-BACKGROUND-2026-10-30.md](docs/QA-HOME-PHILOSOPHY-MOBILE-BACKGROUND-2026-10-30.md).

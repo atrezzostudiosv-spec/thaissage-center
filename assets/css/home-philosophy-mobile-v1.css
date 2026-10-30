@@ -1,0 +1,59 @@
+/* ATREZZO STUDIOS / THAISSAGE CENTER
+   Home · Our Philosophy · mobile photographic background
+   Scope: <=720px only. Preserve desktop design, original copy, all links,
+   and neighboring Home sections. Native scroll; no scripts or animations. */
+@media screen and (max-width:720px) {
+  #our-approach.intro-section {
+    min-height: 100svh;
+    height: auto;
+    padding: clamp(88px, 10svh, 118px) 0 clamp(92px, 11svh, 138px) !important;
+    overflow: hidden !important;
+    background-color: #F7FAF7 !important;
+    background-image:
+      linear-gradient(105deg,
+        rgba(250, 252, 250, .94) 0%,
+        rgba(250, 252, 250, .87) 48%,
+        rgba(250, 252, 250, .74) 100%),
+      url('../images/thaissage-philosophy-white-floral-background-mobile.webp') !important;
+    background-position: center center, 66% center !important;
+    background-size: cover, cover !important;
+    background-repeat: no-repeat !important;
+  }
+  /* The former image stays available on desktop but is not a separate
+     mobile block. It is not announced by assistive tech when display:none. */
+  #our-approach .intro-photograph {
+    display: none !important;
+  }
+  #our-approach .intro-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 0 !important;
+    row-gap: clamp(23px, 3.4svh, 37px) !important;
+    align-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  #our-approach .intro-left {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    align-self: auto !important;
+    padding: 0 !important;
+    min-width: 0;
+  }
+  #our-approach .intro-right {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    align-self: auto !important;
+    padding: 0 !important;
+    max-width: none !important;
+    min-width: 0;
+  }
+  #our-approach .intro-seal {
+    display: none !important;
+  }
+}
+/* Printing must never place a full-color photographic background behind copy. */
+@media print {
+  #our-approach.intro-section { background-image: none !important; }
+}
