@@ -366,3 +366,11 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Implemented:** new desktop 1672×941 WebP `assets/images/thaissage-locations-white-marble-flowers-desktop.webp` with 95deg ivory-white readability overlay; old green-tinted hero background removed for tablet/desktop only via `assets/css/home-locations-desktop-background-v1.css` loaded last in Home.
 - **Protected:** mobile styling <=720px, Locations original editorial left photo, three center selectors / addresses / links, and all other Home sections unchanged.
 - **QA:** repository source verified; live visual checks at 768/1024/1440px not yet independently executed. [QA Locations desktop background](docs/QA-HOME-LOCATIONS-DESKTOP-FLORALS-2026-10-30.md).
+
+
+## Home Philosophy desktop — full-bleed background and nonblocking hover zoom (30 October 2026)
+- **User-requested change:** photo left-column -> entire desktop section background; luminous white readability gradient; subtle zoom when cursor hovers, with native scroll uninterrupted.
+- **Implementation:** existing `thaissage-signature-phuket-floral-ritual.webp` photograph reused; new `assets/css/home-philosophy-desktop-v1.css` loaded last; hide separate image only above 720px; desktop editorial two-column copy overlay (stack on tablets), min-height 100svh. Hover scale 1.012→1.07 in 2.8s, motion-reduced rule, no JS scrolling changes.
+- **Protected:** mobile Philosophy previously approved (<=720px), all original copy/CTA, other Home sections, reservation controls and internal pages.
+- **Known limitation:** desktop original photograph is only 840×1050; image sharpness at larger desktop monitors must be checked. Live responsive and hover visual QA not yet confirmed.
+- **State:** source change implemented and registered; visual approval still in validation. [QA report](docs/QA-HOME-PHILOSOPHY-DESKTOP-FULLBLEED-2026-10-30.md).

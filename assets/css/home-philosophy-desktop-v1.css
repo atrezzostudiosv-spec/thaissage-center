@@ -1,0 +1,124 @@
+/* ATREZZO | THAISSAGE CENTER — Home Philosophy, desktop V1
+   Only affects #our-approach on >720px.
+   An existing illustrative photograph becomes a full-bleed background.
+   Zoom is hover-only for fine-pointer devices; scrolling remains native.
+   Approved mobile background and all other sections are untouched.
+*/
+@media screen and (min-width:721px) {
+  #our-approach.intro-section {
+    position:relative!important;
+    display:flex;
+    align-items:center;
+    isolation:isolate;
+    min-height:100svh;
+    height:auto;
+    padding:clamp(112px,12svh,170px) 0!important;
+    overflow:hidden!important;
+    background:#F7FAF7!important;
+  }
+  #our-approach.intro-section::before,
+  #our-approach.intro-section::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    display:block;
+    pointer-events:none;
+  }
+  /* The exact editorial photograph previously shown in the left column. */
+  #our-approach.intro-section::before {
+    z-index:0;
+    background-image:url('../images/thaissage-signature-phuket-floral-ritual.webp');
+    background-repeat:no-repeat;
+    background-position:50% 54%;
+    background-size:cover;
+    transform:scale(1.012);
+    transform-origin:center center;
+    transition:transform 2800ms cubic-bezier(.22,1,.36,1);
+    will-change:transform;
+  }
+  /* Pale layered light keeps both editorial columns readable. */
+  #our-approach.intro-section::after {
+    z-index:1;
+    background:linear-gradient(100deg,
+      rgba(251,253,250,.94) 0%,
+      rgba(251,253,250,.89) 36%,
+      rgba(251,253,250,.83) 62%,
+      rgba(251,253,250,.67) 100%);
+  }
+  #our-approach .intro-photograph {
+    display:none!important;
+  }
+  #our-approach .intro-grid {
+    display:grid!important;
+    position:relative;
+    z-index:2;
+    grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr)!important;
+    grid-template-rows:auto!important;
+    column-gap:clamp(40px,6vw,110px)!important;
+    row-gap:0!important;
+    align-items:center!important;
+    max-width:1290px;
+  }
+  #our-approach .intro-left {
+    grid-column:1!important;
+    grid-row:1!important;
+    align-self:center!important;
+    padding:0!important;
+    min-width:0;
+  }
+  #our-approach .intro-right {
+    grid-column:2!important;
+    grid-row:1!important;
+    align-self:center!important;
+    padding:0!important;
+    max-width:510px!important;
+    min-width:0;
+  }
+  #our-approach .intro-left h2 {
+    max-width:730px;
+  }
+  #our-approach .intro-seal {
+    display:none!important;
+  }
+}
+/* Zoom is an atmosphere effect only — never pauses or takes over scrolling. */
+@media screen and (min-width:721px) and (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  #our-approach.intro-section:hover::before {
+    transform:scale(1.07);
+  }
+}
+/* Keep the editorial reading width intact on small desktops and tablets. */
+@media screen and (min-width:721px) and (max-width:1099px) {
+  #our-approach.intro-section {
+    min-height:100svh;
+    padding:clamp(90px,9svh,132px) 0!important;
+  }
+  #our-approach .intro-grid {
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-rows:auto auto!important;
+    row-gap:clamp(24px,3svh,42px)!important;
+  }
+  #our-approach .intro-left {
+    grid-column:1!important;
+    grid-row:1!important;
+  }
+  #our-approach .intro-right {
+    grid-column:1!important;
+    grid-row:2!important;
+    max-width:620px!important;
+  }
+  #our-approach.intro-section::after {
+    background:linear-gradient(100deg,rgba(251,253,250,.94),rgba(251,253,250,.83) 67%,rgba(251,253,250,.7));
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  #our-approach.intro-section::before {
+    transform:none!important;
+    transition:none!important;
+    will-change:auto!important;
+  }
+}
+@media print {
+  #our-approach.intro-section::before,
+  #our-approach.intro-section::after {display:none!important}
+}
