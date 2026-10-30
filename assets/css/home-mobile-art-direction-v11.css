@@ -1,0 +1,38 @@
+/* ATREZZO STUDIOS · THAISSAGE CENTER
+   HOME MOBILE v11 — approved 30 Oct 2026
+   Corrections ONLY for phones <=720px; desktop stays unchanged.
+   1. Air between the Hero heading and its two booking CTAs.
+   2. Full-height floral photo even as a location accordion expands.
+   3. Subtle WHITE top-only gradient for heading legibility.
+*/
+@media screen and (max-width:720px) {
+  /* Preserve heading size/line breaks from approved v10; alter spacing only. */
+  body .hero #hero-title {
+    margin-bottom:clamp(102px,12svh,132px)!important;
+  }
+  body .hero .hero-actions {
+    margin-top:0!important;
+  }
+
+  /* Two independent layers: short, translucent white veil over a photo
+     that always fills the ENTIRE real section height (including open details).
+     background-size:cover recomputes whenever the accordion changes height. */
+  body .locations-cinematic.locations-section {
+    background-color:#FFFFFF!important;
+    background-image:
+      linear-gradient(to bottom,
+        rgba(255,255,255,.78) 0%,
+        rgba(255,255,255,.49) 16%,
+        rgba(255,255,255,.19) 32%,
+        rgba(255,255,255,0) 53%),
+      url('../images/thaissage-locations-white-marble-flowers-mobile.webp')!important;
+    background-position:center top,center top!important;
+    background-repeat:no-repeat,no-repeat!important;
+    background-size:100% 100%,cover!important;
+  }
+}
+@media screen and (max-width:390px) {
+  body .hero #hero-title {
+    margin-bottom:clamp(88px,11svh,112px)!important;
+  }
+}
