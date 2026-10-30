@@ -76,7 +76,7 @@
         image.src=(config.detailsRoutes && item.mobileImage) ? item.mobileImage : item.image;
         image.alt=(config.detailsRoutes && item.mobileAlt) ? item.mobileAlt : (item.alt||'');
         image.width=(config.detailsRoutes && item.mobileImage)?768:(item.width||1100);
-        image.height=(config.detailsRoutes && item.mobileImage)?1024:(item.height||760);
+        image.height=(config.detailsRoutes && item.mobileImage)?(item.mobileHeight||1024):(item.height||760);
         image.decoding='async';
         image.loading=i<2?'eager':'lazy';
         const photo=make('div','scroll-ritual-image');
@@ -293,14 +293,15 @@
       const img=card.querySelector('.treatment-card-photo');
       const mobileScenes=[
         {src:'assets/images/thaissage-traditional-thai-mobile-exclusive.webp',alt:'Illustrative traditional Thai assisted stretching on a floor mat'},
-        {src:'assets/images/thaissage-thai-combination-mobile-exclusive.webp',alt:'Illustrative assisted arm and shoulder mobility during Thai combination massage'},
-        {src:'assets/images/thaissage-deep-tissue-mobile-exclusive.webp',alt:'Illustrative focused pressure on the upper back during deep tissue massage'},
-        {src:'assets/images/thaissage-swedish-mobile-exclusive.webp',alt:'Illustrative massage oil application during a Swedish massage treatment'},
-        {src:'assets/images/thaissage-couples-mobile-exclusive.webp',alt:'Illustrative couples massage with two guests receiving treatments side by side'},
-        {src:'assets/images/thaissage-specialty-mobile-exclusive.webp',alt:'Illustrative herbal compress and spa ritual for specialty wellness treatments'}
+        {src:'assets/images/thaissage-thai-combination-mobile-portrait-v15.webp',alt:'Illustrative Thai combination massage using palm pressure on the back'},
+        {src:'assets/images/thaissage-deep-tissue-mobile-portrait-v15.webp',alt:'Illustrative therapist applying focused pressure to the shoulders during deep tissue massage'},
+        {src:'assets/images/thaissage-swedish-mobile-portrait-v15.webp',alt:'Illustrative flowing hand movements along the shoulder during Swedish massage'},
+        {src:'assets/images/thaissage-couples-mobile-portrait-v15.webp',alt:'Illustrative couple relaxing on two adjacent spa treatment beds'},
+        {src:'assets/images/thaissage-specialty-mobile-portrait-v15.webp',alt:'Illustrative Thai herbal compresses, plumeria flowers and spa ritual accessories'}
       ];
       return {
         mobileImage:mobileScenes[i].src,mobileAlt:mobileScenes[i].alt,
+        mobileHeight:i===0?1024:1664,
         image:img?.getAttribute('src'), alt:img?.alt||'', title:card.querySelector('h3')?.textContent.trim(),
         description:card.querySelector('.treatment-card-description')?.textContent.trim(),
         duration:card.querySelector('.treatment-card-time')?.textContent.trim(),

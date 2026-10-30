@@ -330,3 +330,11 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Auditoría visual:** examinadas las seis imágenes originales y una simulación de recorte a 375×812. Reencuadres con bordes extendidos/desenfocados probados localmente y **DESCARTADOS** por calidad; no se añadieron a GitHub ni se modificaron CSS, JS, HTML, reservas, animaciones o fotografías desktop.
 - **DECISIÓN:** V14 **REABIERTA exclusivamente en fotografías n.º 2–6**; ninguna otra fase se reabre. No declarar finalizadas las seis fotografías. Necesitamos cinco escenas de fotografía fuente independientes, nativas y con contexto amplio, compuestas para la relación real de teléfono (aprox. 9:19.5), no una extracción de tarjetas con texto ni ampliación artificial de un pequeño recorte. Diferenciar fielmente Thai Combination, Deep Tissue, Swedish, Couples y Specialty, con espacios de lectura sobre la imagen y sin afirmar que sean personal o centros reales.
 - **ESTADO:** bloqueado el cierre de dirección fotográfica móvil hasta contar con cinco fuentes verdaderamente correctas y efectuar la prueba visual del encuadre en móvil. La primera fotografía permanece aprobada.
+
+
+## Home Treatments móvil V15 — cinco fotografías aportadas por el usuario, 30 octubre 2026
+
+- **SOLUCIÓN A INCIDENCIA V14:** recibidos originales de Thai Combination, Deep Tissue, Swedish, Couples y Specialty; cinco WebP individuales de 768×1664 (sin recortar caras ni estirar sujetos), conservando 01 Traditional Thai.
+- **IMPLEMENTACIÓN:** únicamente referencias de cinco imágenes y alt, atributo de altura móvil por foto y versión de caché JS en Home. Sin cambios CSS, layout, CTA, textos, escritorio, ni otras páginas.
+- **QA FUENTES:** cinco archivos WebP verificados en relación vertical de teléfono; simulación de recorte 375×812 al máximo zoom existente. **QA en navegador iPhone real pendiente de comprobar.**
+- **ESTADO:** sustitución fotográfica realizada en repositorio, aprobación visual de usuario aún pendiente. Informe: [docs/QA-HOME-MOBILE-TREATMENTS-IMAGES-V15-2026-10-30.md](docs/QA-HOME-MOBILE-TREATMENTS-IMAGES-V15-2026-10-30.md).
