@@ -10,7 +10,7 @@
 
   const treatment = document.getElementById('treatments');
   const signature = document.getElementById('signature');
-  const mobile = window.matchMedia('(max-width:720px) and (min-height:660px) and (prefers-reduced-motion:no-preference)');
+  const mobile = window.matchMedia('(max-width:720px) and (min-height:560px) and (prefers-reduced-motion:no-preference)');
   const signatureMedia = window.matchMedia('(min-height:560px) and (prefers-reduced-motion:no-preference)');
   const clamp = n => Math.max(0, Math.min(1, n));
   const smooth = n => { const v=clamp(n); return v*v*(3-2*v); };
