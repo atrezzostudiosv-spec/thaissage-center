@@ -4,7 +4,7 @@
    All styles are scoped to the mobile treatment story; desktop and Signature
    Experiences remain untouched.
 */
-@media screen and (max-width:720px) and (min-height:660px) and (prefers-reduced-motion:no-preference) {
+@media screen and (max-width:720px) and (min-height:560px) and (prefers-reduced-motion:no-preference) {
   /* More time within each scene before the next right-side entrance.
      A natural sticky journey — no wheel/touch handlers or scroll lock. */
   .treatment-scroll-track {
@@ -12,7 +12,7 @@
   }
   .treatment-scroll-track .scroll-ritual-stage {
     height:100svh;
-    min-height:660px;
+    min-height:560px;
   }
   .treatment-scroll-track .scroll-ritual-photo {
     object-position:center center;
@@ -239,7 +239,7 @@
   }
 }
 /* 375px and small iPhones: retain every service without title/nav overlap. */
-@media screen and (max-width:390px) and (min-height:660px) and (prefers-reduced-motion:no-preference) {
+@media screen and (max-width:390px) and (min-height:560px) and (prefers-reduced-motion:no-preference) {
   .treatment-scroll-track .scroll-ritual-title {
     font-size:clamp(32px,8.5vw,36px)!important;
   }
@@ -254,7 +254,7 @@
 }
 /* Very short portrait viewports: the layout contracts vertically, not into
    hidden text. Below 660px the original six photographic cards are retained. */
-@media screen and (max-width:720px) and (min-height:660px) and (max-height:715px) and (prefers-reduced-motion:no-preference) {
+@media screen and (max-width:720px) and (min-height:560px) and (max-height:715px) and (prefers-reduced-motion:no-preference) {
   .treatment-scroll-track .scroll-ritual-copy {
     bottom:calc(280px + env(safe-area-inset-bottom,0px))!important;
   }
