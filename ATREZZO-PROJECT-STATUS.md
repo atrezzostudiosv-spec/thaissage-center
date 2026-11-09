@@ -416,3 +416,12 @@ Aprobar la dirección artística de Fase 04 y producir **solo el prototipo inter
 - **Completed in source:** AI-generated illustrative massage-ritual photograph `thaissage-gift-cards-ritual-mobile-exclusive.webp` (899×1748, 79,308 bytes). White text contrast simulated under the existing scrim at 375/390/430px. Clean imagery with no text embedded.
 - **Changed:** only mobile image URL and 50% center alignment in `home-finale-polish-v5.css`, plus CSS cache query in Home.
 - **Protected:** desktop image, scroll-zoom controller, Square Gift Cards checkout, heading, text and overlays. **Visual browser QA not independently verified.** [QA note](docs/QA-HOME-GIFT-CARDS-MOBILE-PHOTO-V6-2026-10-30.md).
+
+## 2026-11-09 — Cinematic treatments across desktop, tablet and phone (closure pass)
+- User requested the same immersive slide experience across desktop, tablet and mobile, intended as a final focused stabilization rather than another redesign.
+- Confirmed former responsive gap: desktop six-scene immersive engine activated only at widths >=1025px, while native mobile six-scene ritual activated only <=720px and height >=660px, leaving tablets and shorter portrait phones with non-slide cards.
+- Extended existing desktop cinematic scene engine/CSS to >=721px and height >=560px, adding scoped 721-1024 tablet typography, image and stage sizing and native reading hold at 825svh track height.
+- Extended existing portrait mobile treatment ritual to heights >=560px, retaining exclusive mobile portrait images, native scroll scene arrival, existing 990svh reading track and + Details / Fresha selector links. Added 560-659px layout: smaller type, visible price/booking, hides six-button navigation on short phones to avoid covering CTA.
+- Desktop composition and all unrelated sections unaffected; no emoji arrow in desktop booking control (SVG used). Cache version 20261109-final-slides on the five updated Home files.
+- Static checks: 6 original treatment cards, disjoint 721px breakpoints, consistent style/script versioning, live booking handlers present. Pages deployment for commit 19a6abb525a8 is still in progress at last check. No actual cross-device browser visual QA has been completed: never assert physical iPhone/iPad certification.
+- Short landscape height below 560px and reduced-motion preferences intentionally retain accessible non-sticky content rather than cutting off booking text. Demo retains noindex. Further visual modification only if new reproducible defect is provided.
