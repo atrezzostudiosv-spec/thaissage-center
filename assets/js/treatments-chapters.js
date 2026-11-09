@@ -12,7 +12,7 @@
   const cards = Array.from(section.querySelectorAll('.treatment-card'));
   if (cards.length !== 6) return;
 
-  const media = window.matchMedia('(min-width:1025px) and (min-height:560px) and (prefers-reduced-motion:no-preference)');
+  const media = window.matchMedia('(min-width:721px) and (min-height:560px) and (prefers-reduced-motion:no-preference)');
 
   // Source routes already used by the approved mobile + Details navigation.
   // Keep desktop links in the same order as the six original service cards.
@@ -159,7 +159,8 @@
         event.preventDefault();
         item.sourceLink.click();
       });
-      const arrow=create('span','cinema-book-arrow','↗');
+      const arrow=create('span','cinema-book-arrow');
+      arrow.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true"><path d="M5 19 19 5M8 5h11v11"/></svg>';
       arrow.setAttribute('aria-hidden','true');
       book.append(arrow);
 
