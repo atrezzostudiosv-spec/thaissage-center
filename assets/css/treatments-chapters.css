@@ -3,7 +3,7 @@
    Reference behavior studied from the user's Ranchman capture.
    The six original cards are the complete fallback for mobile and reduced motion.
 */
-@media (min-width:1025px) and (min-height:560px) and (prefers-reduced-motion:no-preference) {
+@media (min-width:721px) and (min-height:560px) and (prefers-reduced-motion:no-preference) {
   section.treatments-light-ritual.is-treatment-immersive {
     position:relative!important;
     box-sizing:border-box;
@@ -338,4 +338,24 @@
     .cinema-nav-button{font-size:9px;min-height:38px}
     .cinema-nav-rule{margin-bottom:7px}
   }
+}
+
+/* Tablet cinematic finish — preserve the same six photographic chapters,
+   native-scroll sticky stage, pause, counter, direct booking and chapter index. */
+@media (min-width:721px) and (max-width:1024px) and (min-height:560px) and (prefers-reduced-motion:no-preference){
+ section.treatments-light-ritual.is-treatment-immersive{height:825svh!important}
+ .treatments-light-ritual.is-treatment-immersive .cinema-stage{height:100svh;min-height:560px}
+ .treatments-light-ritual.is-treatment-immersive .cinema-photo{object-position:center 47%}
+ .treatments-light-ritual.is-treatment-immersive .cinema-copy{
+   left:clamp(30px,5.2vw,64px);right:clamp(26px,4vw,55px);
+   bottom:clamp(137px,20svh,198px);max-width:min(650px,79vw);
+ }
+ .treatments-light-ritual.is-treatment-immersive .cinema-title{
+   font-size:clamp(44px,6vw,69px)!important;line-height:1.02!important;
+ }
+ .treatments-light-ritual.is-treatment-immersive .cinema-description{max-width:530px;font-size:13px;line-height:1.55}
+ .treatments-light-ritual.is-treatment-immersive .cinema-meta{margin-bottom:clamp(24px,4svh,38px)}
+ .treatments-light-ritual.is-treatment-immersive .cinema-navigation{gap:clamp(9px,1.3vw,15px)}
+ .treatments-light-ritual.is-treatment-immersive .cinema-nav-button{font-size:9px}
+ .treatments-light-ritual.is-treatment-immersive .cinema-top{left:clamp(30px,5vw,64px);right:clamp(30px,5vw,64px)}
 }
